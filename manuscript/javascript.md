@@ -181,13 +181,27 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 
 ## Install
 
+Navigate to your projects folder.
+
+Create a folder named hello-express and navigate into it:
+
 ~~~~~~~~
-npm install -g express
+mkdir hello-express && cd hello-express
 ~~~~~~~~
 
-The `-g` option installs express globally. This means that there is now an `express` command available in your terminal you can use to create a new express app.
+~~~~~~~~
+npm install express
+~~~~~~~~
+
+This installs express locally so you can use it in your app.
 
 ## Simple example
+
+Inside your hello-express directory, create a file named app.js:
+
+~~~~~~~~
+touch app.js
+~~~~~~~~
 
 Here's a simple example of an express app:
 
@@ -204,25 +218,27 @@ app.listen(3000);
 console.log('app is listening at localhost:3000');
 ~~~~~~~~
 
-Let's run through it one line at a time:
+Type that code into your app.js file after we run through it one line at a time:
 
-Saving the express module to a variable named express:
+Save the express module to a variable named express:
 
 ~~~~~~~~
 var express = require('express');
 ~~~~~~~~
 
-Creating our app by calling `express()`:
+Create our app by calling `express()` and assigning the returned object to the variable `app`:
 
 ~~~~~~~~
 var app = express();
 ~~~~~~~~
 
-Exposing a route, for the rool url using `app.get()`:
+Exposing a route for the rool url using `app.get()`:
 
 ~~~~~~~~
 app.get('/', function(req, res){
 ~~~~~~~~
+
+`req` is an argument we get from the callback that represents the request. `res` represents the response that we'll be sending back to the user.
 
 Sending a text response:
 
@@ -247,5 +263,13 @@ Logging a message to the user on the console so that the user knows that the app
 ~~~~~~~~
 console.log('app is listening at localhost:3000');
 ~~~~~~~~
+
+### Installing express globally
+
+~~~~~~~~
+npm install -g express
+~~~~~~~~
+
+The `-g` option installs express globally. This means that there is now an `express` command available in your terminal you can use to create a new express app.
 
 ## Resources
