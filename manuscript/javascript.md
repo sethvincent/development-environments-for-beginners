@@ -9,7 +9,11 @@ Javascript development tools have recently seen a big burst of growth thanks to 
 
 
 ## Language website
-[http://nodejs.org](http://nodejs.org)
+The website for node.js is pretty great: [http://nodejs.org](http://nodejs.org).
+
+It includes the API documentation, a blog that announces new releases and a link to the website for the package manager used by node developers, npm.
+
+There isn't really a website for the javascript language in the same way ruby and python have websites. For general javascript information look to the documentation websites listed below:
 
 
 
