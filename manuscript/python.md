@@ -1,5 +1,7 @@
 # Python
 
+Python is a language that is readable, quick to learn, and used for a wide range of purposes, including web development, science, and in academia.
+
 ## Language website
 
 http://www.python.org/
