@@ -1,17 +1,26 @@
 # Ruby
 
+## Project website
 http://www.ruby-lang.org/en/
-http://tryruby.org/
+
+## Documentation
 docs: http://www.ruby-lang.org/en/documentation/
 
+## Installing ruby
 rbenv / ruby-build / rbenv-vars
 https://github.com/sstephenson/rbenv
 
-bundler
+## Package manager: rubygems
+
+### Use bundler
 http://bundler.io/
 
-minitest
+## Testing: minitest
 https://github.com/seattlerb/minitest
 
-sinatra
+## Web framework: sinatra
 http://www.sinatrarb.com/
+
+## Resources:
+
+http://tryruby.org/
