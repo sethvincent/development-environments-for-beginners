@@ -1,6 +1,6 @@
 # Ruby
 
-## Project website
+## Language website
 http://www.ruby-lang.org/en/
 
 ## Documentation
@@ -18,9 +18,11 @@ http://bundler.io/
 ## Testing: minitest
 https://github.com/seattlerb/minitest
 
+## Language basics
+
 ## Web framework: sinatra
 http://www.sinatrarb.com/
 
-## Resources:
+## Resources
 
 http://tryruby.org/
