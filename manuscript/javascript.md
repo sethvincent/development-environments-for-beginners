@@ -276,4 +276,16 @@ npm install -g express
 
 The `-g` option installs express globally. This means that there is now an `express` command available in your terminal you can use to create a new express app.
 
+Go ahead and install express globally using the above command, and we'll continue experimenting with express.
+
+### Create an app using the `express` command.
+
+Navigate to your Projects folder and run this command:
+
+~~~~~~~~
+express new-app
+~~~~~~~~
+
+This will generate a bunch of files for you.
+
 ## Resources
