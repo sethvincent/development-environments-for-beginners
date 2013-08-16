@@ -117,6 +117,49 @@ test('pizza test', function (t) {
 });
 ~~~~~~~~
 
+Let's go through this line-by-line in a high-level way.
+
+Here we assign the tape functionality to a variable named `test`:
+
+~~~~~~~~
+var test = require('tape');
+~~~~~~~~
+
+Here `p` is assigned to the string `'pizza'`:
+
+~~~~~~~~
+var p = 'pizza';
+~~~~~~~~
+
+Now we're calling `test`, and describing it as a `pizza test`:
+
+~~~~~~~~
+test('pizza test', function (t) {
+~~~~~~~~
+
+We're given the argument `t` to use to call testing methods.
+
+Here we specify that we plan to have 1 test in our code:
+
+~~~~~~~~
+  t.plan(1);
+~~~~~~~~
+
+Here's that one test, making sure that the `p` variable is equal to the string `pizza`:
+
+~~~~~~~~
+  t.equal(p, 'pizza');
+~~~~~~~~
+
+This closes the function:
+
+~~~~~~~~
+});
+~~~~~~~~
+
+Those are the very basics of using tape. Next, we'll dive deeper into some javascript basics, and use tape to test our code.
+
+
 ## Language basics
 
 ### Hello world
