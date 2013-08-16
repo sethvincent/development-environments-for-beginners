@@ -13,11 +13,18 @@ Javascript development tools have recently seen a big burst of growth thanks to 
 
 
 
-## Documentation:
+## Documentation
 
 The node.js API documentation:
 [http://nodejs.org/api/index.html](http://nodejs.org/api/index.html)
 
+There are a lot of different resources for client-side javascript documentation.
+
+I recommend two:
+
+**Web Platform Docs:** [http://www.webplatform.org/](http://www.webplatform.org/)
+
+**Moxilla Developer Network documentation:** [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 
 ## Installing node.js
@@ -48,6 +55,7 @@ For testing, we'll use a library named tape.
 
 **tape:** [https://github.com/substack/tape](https://github.com/substack/tape).
 
+### Installing tape
 
 
 ## Language basics

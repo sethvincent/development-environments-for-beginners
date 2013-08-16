@@ -4,14 +4,13 @@ Get excited, it's time to use the terminal.
 
 The most important thing to keep in mind: don't be afraid of the terminal.
 
-You can only break your computer from the terminal if you do really weird stuff.
-
+You can only break your computer using the terminal if you do really weird stuff.
 
 ## Mac / Linux
 
 For most purposes, daily activity in the terminal will be the same in Mac and various Linux distros.
 
-Basic commands include:
+### Basic commands:
 
 Changing directory:
 
@@ -114,7 +113,13 @@ Delete a directory and its contents:
 rm -rf path/to/directory
 ~~~~~~~~
 
-Never do this:
+Let's dissect this command:
+
+`rm` is for deleting things.
+
+`-rf` means that files will be recursively deleted, and the deletion will be forced. `r` is for recursive, `f` is for forced.
+
+**Never do this:**
 
 ~~~~~~~~
 rm -rf /
@@ -122,19 +127,30 @@ rm -rf /
 
 Be very careful with the rm command. You can easily delete things on accident.
 
-Clear the terminal screen of previous activity:
+This command is deleting with the `rm` command, recursively forcing the deletion of files and folders with `-rf`, and we've passed the root directory, `/` as the thing to delete. This means it will delete everything on your hard drive. Some operating systems protect against this mistake, and if you're not the root user you would need to prefix this command with `sudo` to make it work. Be careful, and be nice.
+
+**Clear the terminal screen of previous activity:**
 
 ~~~~~~~~
 clear
 ~~~~~~~~
 
-Reset the terminal:
+**Reset the terminal:**
 
 ~~~~~~~~
 reset
 ~~~~~~~~
 
+**Stop a running process:**
+
+~~~~~~~~
+control+C
+~~~~~~~~
+
+If a process is running in the terminal and you need to stop it, press the `control` key and the `C` key at the same time.
 
 ## Windows
+
+You'll likely want to install a tool called cygwin: [http://www.cygwin.com/](http://www.cygwin.com/)
 
 > This section of the book is still a work in progress.

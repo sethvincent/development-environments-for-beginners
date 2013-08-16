@@ -1,10 +1,19 @@
-# Hello, dear development environment novice
+# Hello, dear reader.
 
-Not sure if you want to program in ruby, python, or javascript? Use this guide to create a development environment for each language, and to get a sense for the tools, syntax, and workflow associated with each language.
+## Thank you
 
-By comparing ruby, python, and javascript development environments you'll get a strong sense of which language fits your style best. Maybe you'll learn that you want to work in all three, or two out of three. Whatever happens, you'll be able to use this guide as a reference if you need help remembering how to set up a development environment for any one of these three languages.
+Thank you for buying this book! It is independently published, and each sale makes a huge difference.
 
-### Main concepts you'll learn in the book:
+This book is a work in progress, and you'll get all updates for free.
+
+## About the book
+If you're not sure how to choose between programming in ruby, python, or javascript, this guide will get you familiar with the tools, syntax, and workflow associated with each language.
+
+By comparing ruby, python, and javascript development environments you'll get a strong sense of which language best fits your style. 
+
+Maybe you'll learn that you want to work in all three, or two out of three. Whatever happens, you'll be able to use this guide as a reference if you need help remembering how to set up a development environment for any one of these three languages.
+
+### Main concepts you'll learn:
 - command-line tools
 - virtual machines
 - text editors
