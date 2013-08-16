@@ -4,6 +4,7 @@ intro.md
 mainmatter:
 terminal.md
 vagrant.md
+editors.md
 git.md
 github.md
 ruby.md
