@@ -179,6 +179,73 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 
 **express:** [http://expressjs.com/](http://expressjs.com/).
 
+## Install
 
+~~~~~~~~
+npm install -g express
+~~~~~~~~
+
+The `-g` option installs express globally. This means that there is now an `express` command available in your terminal you can use to create a new express app.
+
+## Simple example
+
+Here's a simple example of an express app:
+
+~~~~~~~~
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res){
+  res.send('pizza is awesome.');
+});
+
+app.listen(3000);
+
+console.log('app is listening at localhost:3000');
+~~~~~~~~
+
+Let's run through it one line at a time:
+
+Saving the express module to a variable named express:
+
+~~~~~~~~
+var express = require('express');
+~~~~~~~~
+
+Creating our app by calling `express()`:
+
+~~~~~~~~
+var app = express();
+~~~~~~~~
+
+Exposing a route, for the rool url using `app.get()`:
+
+~~~~~~~~
+app.get('/', function(req, res){
+~~~~~~~~
+
+Sending a text response:
+
+~~~~~~~~
+  res.send('pizza is awesome.');
+~~~~~~~~
+
+Closing the `app.get()` function:
+
+~~~~~~~~
+});
+~~~~~~~~
+
+Setting up the app to listen for requests on port 3000:
+
+~~~~~~~~
+app.listen(3000);
+~~~~~~~~
+
+Logging a message to the user on the console so that the user knows that the app has started and things are happening:
+
+~~~~~~~~
+console.log('app is listening at localhost:3000');
+~~~~~~~~
 
 ## Resources
