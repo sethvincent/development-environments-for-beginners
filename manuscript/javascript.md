@@ -24,7 +24,11 @@ I recommend two:
 
 **Web Platform Docs:** [http://www.webplatform.org/](http://www.webplatform.org/)
 
+The Web Platform Docs is a relatively new set of documentation that includes coverage of html, css, and javscript. It's pretty good, 
+
 **Moxilla Developer Network documentation:** [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+
+The MDN docs are great. There are bits that are specific to Mozilla, but the majority of the content is relevant to html, css, and javascript in general.
 
 
 ## Installing node.js
@@ -57,6 +61,61 @@ For testing, we'll use a library named tape.
 
 ### Installing tape
 
+To install tape, we'll use `npm` on the command line. 
+
+Open a terminal.
+
+Change directory to your projects folder.
+
+~~~~~~~~
+cd ~/Projects
+~~~~~~~~
+
+Create a directory for our first javascript project:
+
+~~~~~~~~
+mkdir learn-javascript-one
+~~~~~~~~
+
+Change directory into our new project folder:
+
+~~~~~~~~
+cd learn-javascript-one
+~~~~~~~~
+
+Run this command to create a package.json file:
+
+~~~~~~~~
+npm init
+~~~~~~~~
+
+Answer the questions that pop up.
+
+Now, to really install tape:
+
+~~~~~~~~
+npm install --save-dev tape
+~~~~~~~~
+
+`npm install` is used to install packages from npm.
+
+`--save-dev` saves the package to your package.json as a development dependency.
+
+`tape` is the package name. You can pass multiple packages at once, separated by commas.
+
+A simple example of a test written with tape:
+
+~~~~~~~~
+var test = require('tape');
+
+var p = 'pizza';
+
+test('pizza test', function (t) {
+  t.plan(1);
+
+  t.equal(p, 'pizza');
+});
+~~~~~~~~
 
 ## Language basics
 
