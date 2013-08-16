@@ -3,6 +3,12 @@ intro.md
 
 mainmatter:
 terminal.md
+vagrant.md
+git.md
+github.md
+ruby.md
+javascript.md
+python.md
 
 backmatter:
 
