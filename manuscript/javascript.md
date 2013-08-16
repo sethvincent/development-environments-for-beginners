@@ -162,9 +162,13 @@ Those are the very basics of using tape. Next, we'll dive deeper into some javas
 
 ## Language basics
 
+We'll start with a simple "hello world" example. We'll do one for node.js, and one for client-side code.
+
 ### Hello world
 
 #### Node.js
+
+Change directory into your Projects folder.
 
 #### Browser
 
