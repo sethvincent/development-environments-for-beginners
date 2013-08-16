@@ -1,5 +1,9 @@
 # Ruby
 
+Ruby is a pleasant language that gets about as close to the English language as possible.
+
+It's popular in large part because of the web development framework Ruby on Rails.
+
 ## Language website
 http://www.ruby-lang.org/en/
 
