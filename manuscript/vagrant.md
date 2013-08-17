@@ -11,7 +11,9 @@ In a way, vagrant is a wrapper around virtualbox – making it easy to create, r
 The primary operating system on your computer is called the "host" operating system. Any virtual machines you create are called "guest" operating systems.
 
 ## Reasons for using vagrant:
-- You can keep your host
+- Keep your host OS clean by installing dependencies for your project in a virtual machine rather than having everything installed on your host OS
+- Have the same operating system and same dependencies set up in your virtual machine as you have on the production server, making it easier to deploy your application because there's little difference between the two environments.
+- The people on your team can use vagrant so that all of your development environments match, easing issues with some people having issues with developing on a particular operating system.
 
 ## Website
 http://www.vagrantup.com/
