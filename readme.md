@@ -1269,3 +1269,9 @@ You'll need a guide to language syntax and API documentation. And doing some fur
 There are many resources that can help you along the way.
 
 
+# Changelog
+
+## v0.1.0
+- started all chapters!
+
+
