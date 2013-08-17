@@ -4,7 +4,7 @@ Get excited, it's time to use the terminal.
 
 The most important thing to keep in mind: don't be afraid of the terminal.
 
-You can only break your computer using the terminal if you do really weird stuff.
+You can only break your computer using the terminal if you do really weird stuff. I mean, you mostly have to go out of your way to break your computer. Most commands are completely harmless. There are a few ways you can crunch your machine, so it's worthwhile to be skeptical about new commands and research what they do before you use them.
 
 ## Mac / Linux
 
