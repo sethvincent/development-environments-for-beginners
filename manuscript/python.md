@@ -58,6 +58,61 @@ unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.or
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
 
 
+### Simple example
+
+~~~~~~~~
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def pizza():
+    return 'pizza is awesome'
+
+if __name__ == '__main__':
+    app.run()
+~~~~~~~~
+
+Let's look at this little app line by line:
+
+**Import the flask functionality into our app:**
+
+~~~~~~~~
+from flask import Flask
+~~~~~~~~
+
+Create the app by creating an instance of the Flask class:
+
+~~~~~~~~
+app = Flask(__name__)
+~~~~~~~~
+
+Define a route for the root url:
+
+~~~~~~~~
+@app.route('/')
+~~~~~~~~
+
+Define a function that responds to requests at the
+
+~~~~~~~~
+def pizza():
+    return 'pizza is awesome'
+~~~~~~~~
+
+The function that immediately follows the `route()` call defines what we'll return when someone visits the root url.
+
+**Run the app:**
+
+~~~~~~~~
+if __name__ == "__main__":
+    app.run()
+~~~~~~~~
+
+`app.run()` kicks off a server to serve our app. The `if` statement checks if this code is being executed by the Python interpreter or being included as a module, and app.run() is only called if the code is being executed by the Python interpreter.
+
 
 ## Resources
-http://net.tutsplus.com/tutorials/python-tutorials/test-driven-development-in-python/
+
+Dive into Python: [http://www.diveintopython.net/](http://www.diveintopython.net/)
+
+Test-driven development in python: [http://net.tutsplus.com/tutorials/python-tutorials/test-driven-development-in-python/](http://net.tutsplus.com/tutorials/python-tutorials/test-driven-development-in-python/)
