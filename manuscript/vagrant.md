@@ -58,5 +58,17 @@ docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup
 Here's the basics of using vagrant:
 
 ## Alternatives to vagrant/virtualbox
-- docker
-- nitrous.io
+
+**docker**
+
+Docker is a cool new approach that uses lightweight containers for encapsulating applications. Definitely worth checking out: [http://www.docker.io](http://www.docker.io/).
+
+Go through their getting started tutorial to get a sense of how it works: [http://www.docker.io/gettingstarted](http://www.docker.io/gettingstarted/).
+
+**nitrous.io**
+
+You can have a development environment that you access through the web using nitrous.io: [https://www.nitrous.io](https://www.nitrous.io/).
+
+This is great if you're on a machine that runs an operating system like ChromeOS, or it's something you can't install software on for whatever reason.
+
+You can set up one "box" for free, and beyond that it costs money.

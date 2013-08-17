@@ -11,6 +11,11 @@ Thank you for buying this book! It is independently published, and each sale mak
 
 This book is a work in progress, and you'll get all updates for free.
 
+## Why write this?
+When I first started programming, learning the languages was the easy part compared to figuring out text editors, version control, testing, and all the different tools that come along with writing code for a real project.
+
+My goal is for this book to help flatten the learning curve a little, so that going from hello world to a working on a complex application isn't quite as difficult for you as it was for me when I started out.
+
 ## About the book
 If you're not sure how to choose between programming in ruby, python, or javascript, this guide will get you familiar with the tools, syntax, and workflow associated with each language.
 
@@ -33,13 +38,24 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 
 # What is a development environment?
 
-tools
+### Wait, what is this development environment thing?
 
-everything you need to work on a project.
+Think of it like your workshop.
 
-typically on your local computer.
+Except your workshop is pretty much all inside your computer.
 
-other environments can include production, staging, etc.
+A development environment is typically a set of tools isntalled on your computer that consist of everything you need to work on a project.
+
+A development environment is also considered a stage in the workflow, or release cycle, of a project.
+
+### Other stages can include:
+- testing
+- staging
+- production
+
+There can be other stages, too, depending on the complexity of the project and the requirements you must meet for quality assurance and user testing.
+
+## 
 
 
 # Terminal: conquer the command line
@@ -213,7 +229,9 @@ In a way, vagrant is a wrapper around virtualbox – making it easy to create, r
 The primary operating system on your computer is called the "host" operating system. Any virtual machines you create are called "guest" operating systems.
 
 ## Reasons for using vagrant:
-- You can keep your host
+- Keep your host OS clean by installing dependencies for your project in a virtual machine rather than having everything installed on your host OS
+- Have the same operating system and same dependencies set up in your virtual machine as you have on the production server, making it easier to deploy your application because there's little difference between the two environments.
+- The people on your team can use vagrant so that all of your development environments match, easing issues with some people having issues with developing on a particular operating system.
 
 ## Website
 http://www.vagrantup.com/
@@ -226,33 +244,52 @@ First we install [virtualbox](https://www.virtualbox.org/).
 
 Go to the virtualbox downloads folder: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads).
 
+Click the link for your operating system to download the virtualbox installer. Once it's finished downloading, run the installer.
+
 If needed, you can follow the **virtualbox installation instructions:** [http://www.virtualbox.org/manual/ch02.html](http://www.virtualbox.org/manual/ch02.html)
 
 #### Documentation
 
-https://www.virtualbox.org/wiki/Documentation
+You probably don't need to, but if you want to dig into virtualbox in depth, check out the documentation: [https://www.virtualbox.org/wiki/Documentation](https://www.virtualbox.org/wiki/Documentation).
 
-[http://www.virtualbox.org/manual](http://www.virtualbox.org/manual)
 
 
 ### Vagrant
 
+Installing vagrant is pretty easy. Just grab the downloader for your operating system from the vagrant downloads page:
+
 **download vagrant:**
 
 [http://downloads.vagrantup.com](http://downloads.vagrantup.com)
+
+You'll see a list of version numbers on that first page – just click the very top one to get the latest release of vagrant.
 
 **installation instructions:**
 
 [http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant](http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant)
 
 #### Documentation
-docs: http://docs-v1.vagrantup.com/v1/docs/index.html
+docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup.com/v1/docs/index.html)
 
 ## Set up your first vagrant machine
 
+Here's the basics of using vagrant:
+
 ## Alternatives to vagrant/virtualbox
-- docker
-- nitrous.io
+
+**docker**
+
+Docker is a cool new approach that uses lightweight containers for encapsulating applications. Definitely worth checking out: [http://www.docker.io](http://www.docker.io/).
+
+Go through their getting started tutorial to get a sense of how it works: [http://www.docker.io/gettingstarted](http://www.docker.io/gettingstarted/).
+
+**nitrous.io**
+
+You can have a development environment that you access through the web using nitrous.io: [https://www.nitrous.io](https://www.nitrous.io/).
+
+This is great if you're on a machine that runs an operating system like ChromeOS, or it's something you can't install software on for whatever reason.
+
+You can set up one "box" for free, and beyond that it costs money.
 
 
 # Text editors
