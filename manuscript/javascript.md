@@ -196,7 +196,11 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 
 ### Install
 
-Navigate to your projects folder.
+Navigate to your javascript projects folder:
+
+~~~~~~~~
+cd ~/DevEnvs/javascript
+~~~~~~~~
 
 Create a folder named hello-express and navigate into it:
 
@@ -233,7 +237,15 @@ app.listen(3000);
 console.log('app is listening at localhost:3000');
 ~~~~~~~~
 
-Type that code into your app.js file after we run through it one line at a time:
+Type that code into your app.js file
+
+You can run your app with this command:
+
+~~~~~~~~
+node app.js
+~~~~~~~~
+
+Now let's run through app.js one line at a time:
 
 Save the express module to a variable named express:
 

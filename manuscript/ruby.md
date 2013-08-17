@@ -39,9 +39,33 @@ https://github.com/seattlerb/minitest
 ## Web framework: sinatra
 http://www.sinatrarb.com/
 
+### Install
+
+Navigate to your ruby projects folder:
+
+~~~~~~~~
+cd ~/DevEnvs/ruby
+~~~~~~~~
+
+Create a folder named hello-sinatra and navigate into it:
+
+~~~~~~~~
+mkdir hello-sinatra && cd hello-sinatra
+~~~~~~~~
+
+~~~~~~~~
+gem install sinatra
+~~~~~~~~
+
 ### Simple example
 
-Let's write a simple hello sinatra example app:
+Inside your hello-sinatra directory, create a file named app.rb:
+
+~~~~~~~~
+touch app.rb
+~~~~~~~~
+
+Here's a simple example of a sinatra app:
 
 ~~~~~~~~
 require 'sinatra'
@@ -49,6 +73,14 @@ require 'sinatra'
 get '/' do
   'pizza is awesome'
 end
+~~~~~~~~
+
+Type that code into your app.rb file.
+
+Now you can run your app with this command:
+
+~~~~~~~~
+ruby app.rb
 ~~~~~~~~
 
 Let's go through this app line by line:

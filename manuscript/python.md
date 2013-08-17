@@ -57,6 +57,21 @@ unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.or
 ## Web framework: flask
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
 
+Navigate to your python projects folder:
+
+~~~~~~~~
+cd ~/DevEnvs/python
+~~~~~~~~
+
+Create a folder named hello-flask and navigate into it:
+
+~~~~~~~~
+mkdir hello-flask && cd hello-flask
+~~~~~~~~
+
+~~~~~~~~
+gem install flask
+~~~~~~~~
 
 ### Simple example
 
@@ -70,6 +85,14 @@ def pizza():
 
 if __name__ == '__main__':
     app.run()
+~~~~~~~~
+
+Type that code into your app.py file.
+
+Now you can run your app with this command:
+
+~~~~~~~~
+python app.py
 ~~~~~~~~
 
 Let's look at this little app line by line:
