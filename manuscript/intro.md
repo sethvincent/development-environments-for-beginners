@@ -6,6 +6,11 @@ Thank you for buying this book! It is independently published, and each sale mak
 
 This book is a work in progress, and you'll get all updates for free.
 
+## Why write this?
+When I first started programming, learning the languages was the easy part compared to figuring out text editors, version control, testing, and all the different tools that come along with writing code for a real project.
+
+My goal is for this book to help flatten the learning curve a little, so that going from hello world to a working on a complex application isn't quite as difficult for you as it was for me when I started out.
+
 ## About the book
 If you're not sure how to choose between programming in ruby, python, or javascript, this guide will get you familiar with the tools, syntax, and workflow associated with each language.
 
