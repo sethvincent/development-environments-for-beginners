@@ -24,29 +24,36 @@ First we install [virtualbox](https://www.virtualbox.org/).
 
 Go to the virtualbox downloads folder: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads).
 
+Click the link for your operating system to download the virtualbox installer. Once it's finished downloading, run the installer.
+
 If needed, you can follow the **virtualbox installation instructions:** [http://www.virtualbox.org/manual/ch02.html](http://www.virtualbox.org/manual/ch02.html)
 
 #### Documentation
 
-https://www.virtualbox.org/wiki/Documentation
+You probably don't need to, but if you want to dig into virtualbox in depth, check out the documentation: [https://www.virtualbox.org/wiki/Documentation](https://www.virtualbox.org/wiki/Documentation).
 
-[http://www.virtualbox.org/manual](http://www.virtualbox.org/manual)
 
 
 ### Vagrant
 
+Installing vagrant is pretty easy. Just grab the downloader for your operating system from the vagrant downloads page:
+
 **download vagrant:**
 
 [http://downloads.vagrantup.com](http://downloads.vagrantup.com)
+
+You'll see a list of version numbers on that first page – just click the very top one to get the latest release of vagrant.
 
 **installation instructions:**
 
 [http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant](http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant)
 
 #### Documentation
-docs: http://docs-v1.vagrantup.com/v1/docs/index.html
+docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup.com/v1/docs/index.html)
 
 ## Set up your first vagrant machine
+
+Here's the basics of using vagrant:
 
 ## Alternatives to vagrant/virtualbox
 - docker
