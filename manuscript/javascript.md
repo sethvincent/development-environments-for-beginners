@@ -34,6 +34,11 @@ The Web Platform Docs is a relatively new set of documentation that includes cov
 
 The MDN docs are great. There are bits that are specific to Mozilla, but the majority of the content is relevant to html, css, and javascript in general.
 
+## Vagrant
+
+Let's create a new vagrant machine for our javascript examples.
+
+Go to your DevEnvs folder and create 
 
 ## Installing node.js
 
