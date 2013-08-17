@@ -39,3 +39,18 @@ On Mac, Linux, and recent versions of Windows (in the Powershell terminal / in W
 ~~~~~~~~
 
 So, you can run a command like `cd ~`, and that'll take you to your home directory.
+
+Once you've navigated to your home folder, create the DevEnvs folder:
+
+~~~~~~~~
+mkdir DevEnvs
+~~~~~~~~
+
+Change directory into DevEnvs, then create directories for javascript, ruby, and python:
+
+~~~~~~~~
+cd DevEnvs
+mkdir javascript ruby python
+~~~~~~~~
+
+We'll use these directories to store the examples we work through later in the book.
