@@ -1,4 +1,6 @@
+# Development Environments for Beginners
 
+Thanks for checking out the book! Please consider supporting the work by purchasing the book.
 
 
 # Hello, dear reader.
