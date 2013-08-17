@@ -10,6 +10,18 @@ http://www.ruby-lang.org/en/
 ## Documentation
 docs: http://www.ruby-lang.org/en/documentation/
 
+## Vagrant
+
+Let's create a vagrant machine in your ruby DevEnvs folder:
+
+~~~~~~~~
+cd ~/DevEnvs/ruby
+~~~~~~~~
+
+~~~~~~~~
+vagrant init
+~~~~~~~~
+
 ## Installing ruby
 rbenv / ruby-build / rbenv-vars
 https://github.com/sstephenson/rbenv

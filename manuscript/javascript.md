@@ -36,9 +36,15 @@ The MDN docs are great. There are bits that are specific to Mozilla, but the maj
 
 ## Vagrant
 
-Let's create a new vagrant machine for our javascript examples.
+Let's create a vagrant machine in your javascript DevEnvs folder:
 
-Go to your DevEnvs folder and create 
+~~~~~~~~
+cd ~/DevEnvs/javascript
+~~~~~~~~
+
+~~~~~~~~
+vagrant init
+~~~~~~~~
 
 ## Installing node.js
 
