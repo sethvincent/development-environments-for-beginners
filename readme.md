@@ -583,9 +583,33 @@ https://github.com/seattlerb/minitest
 ## Web framework: sinatra
 http://www.sinatrarb.com/
 
+### Install
+
+Navigate to your ruby projects folder:
+
+```
+cd ~/DevEnvs/ruby
+```
+
+Create a folder named hello-sinatra and navigate into it:
+
+```
+mkdir hello-sinatra && cd hello-sinatra
+```
+
+```
+gem install sinatra
+```
+
 ### Simple example
 
-Let's write a simple hello sinatra example app:
+Inside your hello-sinatra directory, create a file named app.rb:
+
+```
+touch app.rb
+```
+
+Here's a simple example of a sinatra app:
 
 ```
 require 'sinatra'
@@ -593,6 +617,14 @@ require 'sinatra'
 get '/' do
   'pizza is awesome'
 end
+```
+
+Type that code into your app.rb file.
+
+Now you can run your app with this command:
+
+```
+ruby app.rb
 ```
 
 Let's go through this app line by line:
@@ -832,7 +864,11 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 
 ### Install
 
-Navigate to your projects folder.
+Navigate to your javascript projects folder:
+
+```
+cd ~/DevEnvs/javascript
+```
 
 Create a folder named hello-express and navigate into it:
 
@@ -869,7 +905,15 @@ app.listen(3000);
 console.log('app is listening at localhost:3000');
 ```
 
-Type that code into your app.js file after we run through it one line at a time:
+Type that code into your app.js file
+
+You can run your app with this command:
+
+```
+node app.js
+```
+
+Now let's run through app.js one line at a time:
 
 Save the express module to a variable named express:
 
@@ -1004,6 +1048,21 @@ unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.or
 ## Web framework: flask
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
 
+Navigate to your python projects folder:
+
+```
+cd ~/DevEnvs/python
+```
+
+Create a folder named hello-flask and navigate into it:
+
+```
+mkdir hello-flask && cd hello-flask
+```
+
+```
+gem install flask
+```
 
 ### Simple example
 
@@ -1017,6 +1076,14 @@ def pizza():
 
 if __name__ == '__main__':
     app.run()
+```
+
+Type that code into your app.py file.
+
+Now you can run your app with this command:
+
+```
+python app.py
 ```
 
 Let's look at this little app line by line:
