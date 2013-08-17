@@ -1,0 +1,15 @@
+{
+  "name": "dev-envs",
+  "version": "0.0.0",
+  "description": "a guide to creating development environments for ruby, javascript, and python.",
+  "main": "index.js",
+  "dependencies": {
+    "manuscript-builder": "~0.0.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT"
+}
