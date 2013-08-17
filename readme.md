@@ -1082,6 +1082,53 @@ Python has a few options for installing packages, but I recommend using pip. Wit
 
 ## Simple web framework examples
 
+**Ruby:**
+
+```
+require 'sinatra'
+
+get '/' do
+  'pizza is awesome'
+end
+```
+
+Look at how tiny and pleasant that ruby code is!
+
+**Javascript:**
+
+```
+var express = require('express');
+var app = express();
+
+app.get('/', function(req, res){
+  res.send('pizza is awesome.');
+});
+
+app.listen(3000);
+
+console.log('app is listening at localhost:3000');
+```
+
+Exppress doesn't automatically take care of listening on a default port, or telling the user that the app is listening, so that adds just a small amount of extra code compared to the ruby/sinatra example.
+
+**Python:**
+
+```
+from flask import Flask
+app = Flask(__name__)
+
+@app.route('/')
+def pizza():
+    return 'pizza is awesome'
+
+if __name__ == '__main__':
+    app.run()
+```
+
+Python feels different because of it's use of meaningful whitespace and lack of curly brackets or `do end` for blocks. Everything is just indented 4 spaces instead to represent blocks of code.
+
+These three examples still feel very similar, though. That's no coincidence. Both express and flask wer inspired by sinatra's clean and simple API.
+
 
 # What happens next?
 
