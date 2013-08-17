@@ -80,6 +80,10 @@ end
 
 ### Extended example
 
+### Sinatra resources
+
+Learn more about sinatra at the sinatra website: [http://www.sinatrarb.com](http://www.sinatrarb.com/)
+
 ## Resources
 
 http://tryruby.org/

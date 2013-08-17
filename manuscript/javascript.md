@@ -302,6 +302,8 @@ This will generate a bunch of files for you. I won't go into the details of what
 
 ### Extended example
 
+### Express resources
 
+Learn more about express at the express website: [http://expressjs.com](http://expressjs.com/)
 
 ## Resources

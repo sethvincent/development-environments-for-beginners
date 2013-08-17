@@ -624,6 +624,10 @@ end
 
 ### Extended example
 
+### Sinatra resources
+
+Learn more about sinatra at the sinatra website: [http://www.sinatrarb.com](http://www.sinatrarb.com/)
+
 ## Resources
 
 http://tryruby.org/
@@ -934,7 +938,9 @@ This will generate a bunch of files for you. I won't go into the details of what
 
 ### Extended example
 
+### Express resources
 
+Learn more about express at the express website: [http://expressjs.com](http://expressjs.com/)
 
 ## Resources
 
@@ -1052,6 +1058,10 @@ if __name__ == "__main__":
 `app.run()` kicks off a server to serve our app. The `if` statement checks if this code is being executed by the Python interpreter or being included as a module, and app.run() is only called if the code is being executed by the Python interpreter.
 
 ### Extended example
+
+### Flask resources
+
+Learn more about flask at the project website: [http://flask.pocoo.org/](http://flask.pocoo.org/)
 
 ## Resources
 

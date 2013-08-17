@@ -112,6 +112,10 @@ if __name__ == "__main__":
 
 ### Extended example
 
+### Flask resources
+
+Learn more about flask at the project website: [http://flask.pocoo.org/](http://flask.pocoo.org/)
+
 ## Resources
 
 Dive into Python: [http://www.diveintopython.net/](http://www.diveintopython.net/)
