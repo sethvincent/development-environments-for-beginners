@@ -11,6 +11,7 @@ setup.md
 ruby.md
 javascript.md
 python.md
+recap.md
 
 backmatter:
 next.md
