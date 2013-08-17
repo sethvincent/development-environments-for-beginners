@@ -110,6 +110,7 @@ if __name__ == "__main__":
 
 `app.run()` kicks off a server to serve our app. The `if` statement checks if this code is being executed by the Python interpreter or being included as a module, and app.run() is only called if the code is being executed by the Python interpreter.
 
+### Extended example
 
 ## Resources
 

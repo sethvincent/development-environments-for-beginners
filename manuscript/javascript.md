@@ -194,7 +194,7 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 
 **express:** [http://expressjs.com/](http://expressjs.com/).
 
-## Install
+### Install
 
 Navigate to your projects folder.
 
@@ -210,7 +210,7 @@ npm install express
 
 This installs express locally so you can use it in your app.
 
-## Simple example
+### Simple example
 
 Inside your hello-express directory, create a file named app.js:
 
@@ -297,6 +297,11 @@ Navigate to your Projects folder and run this command:
 express new-app
 ~~~~~~~~
 
-This will generate a bunch of files for you.
+This will generate a bunch of files for you. I won't go into the details of what's created, but it's good to know express has this functionality available.
+
+
+### Extended example
+
+
 
 ## Resources

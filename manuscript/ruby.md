@@ -39,6 +39,47 @@ https://github.com/seattlerb/minitest
 ## Web framework: sinatra
 http://www.sinatrarb.com/
 
+### Simple example
+
+Let's write a simple hello sinatra example app:
+
+~~~~~~~~
+require 'sinatra'
+
+get '/' do
+  'pizza is awesome'
+end
+~~~~~~~~
+
+Let's go through this app line by line:
+
+**Import the sinatra functionality into our app:**
+
+~~~~~~~~
+require 'sinatra'
+~~~~~~~~
+
+**Call `get`, to respond to requests for the root url:**
+
+~~~~~~~~
+get '/' do
+~~~~~~~~
+
+**Respond to requests with some text:**
+
+~~~~~~~~
+  'pizza is awesome'
+~~~~~~~~
+
+**Close the `get` block:**
+
+~~~~~~~~
+end
+~~~~~~~~
+
+
+### Extended example
+
 ## Resources
 
 http://tryruby.org/

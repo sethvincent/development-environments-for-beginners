@@ -583,6 +583,47 @@ https://github.com/seattlerb/minitest
 ## Web framework: sinatra
 http://www.sinatrarb.com/
 
+### Simple example
+
+Let's write a simple hello sinatra example app:
+
+```
+require 'sinatra'
+
+get '/' do
+  'pizza is awesome'
+end
+```
+
+Let's go through this app line by line:
+
+**Import the sinatra functionality into our app:**
+
+```
+require 'sinatra'
+```
+
+**Call `get`, to respond to requests for the root url:**
+
+```
+get '/' do
+```
+
+**Respond to requests with some text:**
+
+```
+  'pizza is awesome'
+```
+
+**Close the `get` block:**
+
+```
+end
+```
+
+
+### Extended example
+
 ## Resources
 
 http://tryruby.org/
@@ -785,7 +826,7 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 
 **express:** [http://expressjs.com/](http://expressjs.com/).
 
-## Install
+### Install
 
 Navigate to your projects folder.
 
@@ -801,7 +842,7 @@ npm install express
 
 This installs express locally so you can use it in your app.
 
-## Simple example
+### Simple example
 
 Inside your hello-express directory, create a file named app.js:
 
@@ -888,7 +929,12 @@ Navigate to your Projects folder and run this command:
 express new-app
 ```
 
-This will generate a bunch of files for you.
+This will generate a bunch of files for you. I won't go into the details of what's created, but it's good to know express has this functionality available.
+
+
+### Extended example
+
+
 
 ## Resources
 
@@ -1005,6 +1051,7 @@ if __name__ == "__main__":
 
 `app.run()` kicks off a server to serve our app. The `if` statement checks if this code is being executed by the Python interpreter or being included as a module, and app.run() is only called if the code is being executed by the Python interpreter.
 
+### Extended example
 
 ## Resources
 
