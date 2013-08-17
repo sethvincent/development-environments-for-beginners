@@ -31,6 +31,17 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 
 
 
+# What is a development environment?
+
+tools
+
+everything you need to work on a project.
+
+typically on your local computer.
+
+other environments can include production, staging, etc.
+
+
 # Terminal: conquer the command line
 
 Get excited, it's time to use the terminal.

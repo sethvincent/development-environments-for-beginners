@@ -2,6 +2,7 @@ frontmatter:
 intro.md
 
 mainmatter:
+whatisdevenv.md
 terminal.md
 vagrant.md
 editors.md
