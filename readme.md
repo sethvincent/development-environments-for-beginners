@@ -794,8 +794,226 @@ https://github.com/seattlerb/minitest
 
 ## Language basics
 
+### variables
+
+Create a variable like this:
+
+```
+a = 1
+```
+
+### numbers
+
+In ruby there are integers and floats. An integer is a whole number, a float is a decimal.
+
+Integers:
+
+```
+1
+100
+223239
+```
+
+Floats:
+
+```
+1.0
+5.132
+3.14
+```
+
+### string
+
+A string is a _string of characters_ wrapped in single or double quotes:
+
+```
+"this is a string"
+'this is also a string'
+```
+
+When using double quotes, you can use string interpolation to insert the values of variables into a string:
+
+```
+food = 'pizza'
+sentence = "#{food} is yummy."
+```
+
+The `sentence` variable will return this: `pizza is yummy`.
+
+
+### array
+
+An array is like a list of values. You can put anything in an array: strings, numbers, other arrays, hashes, etc.
+
+They look like this:
+
+```
+things = ['pizza is great.', 30, ['yep', 'ok']]
+```
+
+#### Accessing values in an array:
+
+You can access values in an array by typing the variable name followed by square brackets and a number that represents the value you'd like to access.
+
+Arrays are zero-indexed, so the first item is represented by a zero:
+
+```
+things[0]
+```
+
+This returns `'pizza is great'`.
+
+To get at nested arrays, you add another set of square brackets, like this:
+
+```
+things[2][1]
+```
+
+The above statement returns `'ok'`.
+
+
+### hash
+
+A hash is much like an array, except instead of the values being indexed by numbers, they have names.
+
+A simple hash looks like this:
+
+```
+pizza = { :tastes => 'really good', :slices_i_can_eat => 100 }
+```
+
+There's also an alternate, more concise syntax for creating a hash that looks like this:
+
+```
+pizza = { tastes: 'really good', slices_i_can_eat: 100 }
+```
+
+#### Accessing hash values
+
+Accessing values in a hash looks similar to arrays:
+
+```
+pizza[:tastes]
+```
+
+The above statement returns `'really good'`.
+
+```
+pizza[:slices_i_can_eat]
+```
+
+The above statement returns `100`. That's a lot of slices of pizza.
+
+### function
+
+A function definition is super simple:
+
+```
+def eat(food)
+  return "I ate #{food}."
+end
+```
+
+`def` indicates that we're about to define a function.
+
+`eat` is the name of the function.
+
+In parentheses, we indicate that one argument is expected, `food`.
+
+This line: `return "I ate #{food}."` indicates that `"I ate #{food}."` will be returned when the function is called.
+
+We can actually rewrite that line to exclude the `return` keyword. The last statement in a function will get returned automatically. Since we only have one line in this function we don't need `return'.
+
+#### Calling a function
+
+Now that the function is defined, you can call it like this:
+
+```
+eat('pizza')
+```
+
+That statement will return: `'I ate pizza.'`.
+
+The parenthese are optional, so we can write the function call like this:
+
+```
+eat 'pizza' 
+```
+
+### class
+
+Define a class in ruby like this:
+
+```
+class Meal
+  # here we'll define methods on the class
+end
+```
+
+### class methods
+
+Class methods are basically functions that exist inside of a class namespace.
+
+```
+class Meal
+
+  def initialize(food)
+    @food = food
+  end
+  
+  def prepare
+    @prepared = true
+    "#{@food} is ready!"
+  end
+
+  def eat
+    if @prepared == true
+      "dang, that #{@food} sure was good."
+    else
+      "relax, the #{@food} isn't prepared yet."
+    end
+  end
+
+end
+```
+
+### class instance
+
+Now, to use our Meal class and call the `prepare` and `eat` methods, we do this:
+
+```
+dinner = Meal.new 'pizza'
+```
+
+We can call a method by typing the name of the class instance, followed by a period and the name of the method. Let's try out the `eat` method:
+
+```
+dinner.eat
+```
+
+That's return this string: `"relax, the pizza isn't prepared yet."`.
+
+So let's `prepare` the dinner:
+
+```
+dinner.prepare
+```
+
+That'll return this string: `"pizza is ready!"`.
+
+Now run `dinner.eat` and we'll see this string: `"dang, that pizza sure was good."`.
+
+
+### importing/requiring code
+
+We can require the functionality of ruby gems and code from other files by using the `require` statement, typically at the top of the file. An example of requiring the sinatra gem:
+
+```
+require 'sinatra'
+```
+
 ## Web framework: sinatra
-http://www.sinatrarb.com/
+Project website: [http://www.sinatrarb.com](http://www.sinatrarb.com/).
 
 ### Install
 
@@ -1059,6 +1277,126 @@ Those are the very basics of using tape. Next, we'll dive deeper into some javas
 
 ## Language basics
 
+### Variables
+
+#### Creating a variable:
+
+```
+var nameOfVariable;
+```
+
+> Variables are camelCase, meaning first letter is lowercase, and if the variable is made of multiple words, the first letter of following words are capitalized.
+
+#### Creating a variable that references a string:
+
+```
+var thisIsAString = 'this is a string';
+```
+
+Surround strings with single quotes.
+
+
+#### Creating a variable that references a number:
+
+```
+var thisIsANumber = 3.14;
+```
+
+Numbers do not have quotes around them.
+
+#### Creating a variable that references an array:
+
+```
+var thisIsAnArray = [1, "two", [3, 4]];
+```
+
+Note that one of the values in the array is a number, one is a string, and another is an array. Arrays can hold any value in any order.
+
+#### Accessing the values in an array:
+
+```
+thisIsAnArray[0];
+```
+
+The above will return the number `1`. Arrays use numbers as the index of their values, and with javascript an array's index always start at `0`, making `0` reference the first value of the array.
+
+```
+thisIsAnArray[1];
+```
+
+This returns the string 'two';
+
+##### How would you return the number `4` from the nested array?
+
+Like this:
+
+```
+thisIsAnArray[2][1];
+```
+
+#### Creating a variable that references an object:
+
+var thisIsAnObject = {
+  someString: 'some string value',
+  someNumber: 1234,
+  someFunction: function(){
+    return 'a function that belongs to an object';
+  }
+}
+
+Here we're setting `someString` to `'some string value'`, `someNumber' to `1234`, and we're creating a function named `someFunction` that returns the string `'a function that belongs to an object'`. So how do we access these values?
+
+To get the value of `someString` using dot notation:
+
+```
+thisIsAnObject.someString;
+```
+
+Or using bracket notation:
+
+```
+thisIsAnObject['someString'];
+```
+
+To get the value of `someNumber` using dot notation:
+
+```
+thisIsAnObject.someNumber;
+```
+
+Or using bracket notation:
+
+```
+thisIsAnObject['someNumber'];
+```
+
+To use the function `someFunction` using dot notation:
+
+```
+thisIsAnObject.someFunction();
+```
+
+Or using bracket notation:
+
+```
+thisIsAnObject['someFunction']();
+```
+
+Using square bracket notations with functions looks a little wacky. It will be useful if you are storing function names in variables as strings, and need to use the variable to call the function being stored. Otherwise, stick with dot notation.
+That goes for other attributes on an object, too: stick with dot notation unless there's a good reason to use bracket notation.
+
+For instance, it's more clear to use bracket notation in a situation like this:
+
+```
+for (var key in object){
+  thisIsAnObject[key];
+}
+```
+
+This gives you an idea of how to iterate through an object using a for...in loop.
+
+### importing/requiring code
+
 We'll start with a simple "hello world" example. We'll do one for node.js, and one for client-side code.
 
 ### Hello world
@@ -1258,6 +1596,25 @@ unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.or
 
 ## Language basics
 
+[TODO: fill in language basics for python]
+
+### numbers
+
+### string
+
+### list
+
+### dictionary
+
+### function
+
+### class
+
+### method
+
+### class instance
+
+importing/requiring code
 
 ## Web framework: flask
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
@@ -1434,6 +1791,11 @@ There are many resources that can help you along the way.
 
 
 # Changelog
+
+## v0.1.1 - August 18, 2013
+- added language basics to javascript and ruby chapters
+- added a bunch to vagrant chapter
+- added to terminal chapter
 
 ## v0.1.0 - August 17, 2013
 - started all chapters!
