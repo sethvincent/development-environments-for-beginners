@@ -162,9 +162,19 @@ mkdir new-folder && cd new-folder
 ~~~~~~~~
 
 
+## Aliases, scripting, and environment variables
+
+Aliases allow you to create abbreviated commands that alias long, complex, or regularly used commands.
+
+Here are some examples:
+
+
+
 
 ## Windows
 
-You'll likely want to install a tool called cygwin: [http://www.cygwin.com/](http://www.cygwin.com/)
+You'll likely want to install a tool called cygwin: [http://www.cygwin.com/](http://www.cygwin.com/).
 
-> This section of the book is still a work in progress.
+This gives you a linux-like terminal to use.
+
+> _This section of the book is still a work in progress._
