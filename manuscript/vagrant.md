@@ -172,6 +172,24 @@ exit
 
 You prompt should now look the same as before you ran `vagrant ssh`.
 
+Now that we downloaded that precise32 box once, we won't have to do it again. We'll be able to use it for each new project we start.
+
+Next time we're about to create a vagrant box we'll navigate to the project folder and run 'vagrant init' again, like this:
+
+~~~~~~~~
+vagrant init precise32
+~~~~~~~~
+
+We don't have to pass in the url, because we've already downloaded the box.
+
+When we run `vagrant up`, the box won't be downloaded, because we've already got a copy of it sitting on our computer. This speeds things up.
+
+To see which boxes you've currently got downloaded run this command:
+
+~~~~~~~~
+vagrant box list
+~~~~~~~~
+
 
 
 
