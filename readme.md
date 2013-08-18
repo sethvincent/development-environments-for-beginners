@@ -1283,7 +1283,7 @@ app.listen(3000);
 console.log('app is listening at localhost:3000');
 ```
 
-Exppress doesn't automatically take care of listening on a default port, or telling the user that the app is listening, so that adds just a small amount of extra code compared to the ruby/sinatra example.
+Express doesn't automatically take care of listening on a default port, or telling the user that the app is listening, so that adds just a small amount of extra code compared to the ruby/sinatra example.
 
 **Python:**
 
