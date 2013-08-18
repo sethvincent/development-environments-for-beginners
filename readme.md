@@ -209,6 +209,20 @@ control+C
 
 If a process is running in the terminal and you need to stop it, press the `control` key and the `C` key at the same time.
 
+**Run multiple commands on one line:**
+
+```
+&&
+```
+
+With `&&` you can chain together multiple commands that execute one after the other. This example creates a directory, then moves you into that new directory:
+
+```
+mkdir new-folder && cd new-folder
+```
+
+
+
 ## Windows
 
 You'll likely want to install a tool called cygwin: [http://www.cygwin.com/](http://www.cygwin.com/)
@@ -274,6 +288,29 @@ docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup
 ## Set up your first vagrant machine
 
 Here's the basics of using vagrant:
+
+Open the terminal on your computer and run this command:
+
+```
+vagrant
+```
+
+Let's try this thing out.
+
+Navigate to your DevEnvs folder:
+
+```
+cd ~/DevEnvs
+```
+
+Create a folder named `tmp` and change directory into it:
+
+```
+mkdir tmp && cd tmp
+```
+
+
+Running the command by itself will show you all the possible sub-commands and options you can pass.
 
 ## Alternatives to vagrant/virtualbox
 
@@ -1271,7 +1308,7 @@ There are many resources that can help you along the way.
 
 # Changelog
 
-## v0.1.0
+## v0.1.0 - August 17, 2013
 - started all chapters!
 
 
