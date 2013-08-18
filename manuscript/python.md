@@ -53,6 +53,25 @@ unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.or
 
 ## Language basics
 
+[TODO: fill in language basics for python]
+
+### numbers
+
+### string
+
+### list
+
+### dictionary
+
+### function
+
+### class
+
+### method
+
+### class instance
+
+importing/requiring code
 
 ## Web framework: flask
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
