@@ -149,6 +149,20 @@ control+C
 
 If a process is running in the terminal and you need to stop it, press the `control` key and the `C` key at the same time.
 
+**Run multiple commands on one line:**
+
+~~~~~~~~
+&&
+~~~~~~~~
+
+With `&&` you can chain together multiple commands that execute one after the other. This example creates a directory, then moves you into that new directory:
+
+~~~~~~~~
+mkdir new-folder && cd new-folder
+~~~~~~~~
+
+
+
 ## Windows
 
 You'll likely want to install a tool called cygwin: [http://www.cygwin.com/](http://www.cygwin.com/)

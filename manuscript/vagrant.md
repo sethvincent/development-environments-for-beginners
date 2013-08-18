@@ -57,6 +57,29 @@ docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup
 
 Here's the basics of using vagrant:
 
+Open the terminal on your computer and run this command:
+
+~~~~~~~~
+vagrant
+~~~~~~~~
+
+Let's try this thing out.
+
+Navigate to your DevEnvs folder:
+
+~~~~~~~~
+cd ~/DevEnvs
+~~~~~~~~
+
+Create a folder named `tmp` and change directory into it:
+
+~~~~~~~~
+mkdir tmp && cd tmp
+~~~~~~~~
+
+
+Running the command by itself will show you all the possible sub-commands and options you can pass.
+
 ## Alternatives to vagrant/virtualbox
 
 **docker**
