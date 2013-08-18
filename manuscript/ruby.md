@@ -5,10 +5,10 @@ Ruby is a pleasant language that gets about as close to the English language as 
 It's popular in large part because of the web development framework Ruby on Rails.
 
 ## Language website
-http://www.ruby-lang.org/en/
+[http://www.ruby-lang.org/en](http://www.ruby-lang.org/en)
 
 ## Documentation
-docs: http://www.ruby-lang.org/en/documentation/
+docs: [http://www.ruby-lang.org/en/documentation](http://www.ruby-lang.org/en/documentation)
 
 ## Vagrant
 
@@ -24,7 +24,11 @@ vagrant init
 
 ## Installing ruby
 rbenv / ruby-build / rbenv-vars
-https://github.com/sstephenson/rbenv
+
+
+We'll be using rbenv to install ruby: [https://github.com/sstephenson/rbenv](https://github.com/sstephenson/rbenv).
+
+We'll also need ruby-build.
 
 ## Package manager: rubygems
 
