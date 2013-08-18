@@ -252,10 +252,18 @@ In a way, vagrant is a wrapper around virtualbox – making it easy to create, r
 
 The primary operating system on your computer is called the "host" operating system. Any virtual machines you create are called "guest" operating systems.
 
+We'll use the term **box** to describe the virtual machines that we create using vagrant.
+
 ## Reasons for using vagrant:
 - Keep your host OS clean by installing dependencies for your project in a virtual machine rather than having everything installed on your host OS
 - Have the same operating system and same dependencies set up in your virtual machine as you have on the production server, making it easier to deploy your application because there's little difference between the two environments.
 - The people on your team can use vagrant so that all of your development environments match, easing issues with some people having issues with developing on a particular operating system.
+
+## Vagrantfiles
+
+Vagrant uses a file named `Vagrantfile` in your project directory as a config file for your vagrant box.
+
+There are many config options you can set. To learn more check out the Vagrantfile section of the vagrant documentation: [http://docs.vagrantup.com/v2/vagrantfile/index.html](http://docs.vagrantup.com/v2/vagrantfile/index.html).
 
 ## Website
 http://www.vagrantup.com/
@@ -305,6 +313,8 @@ Open the terminal on your computer and run this command:
 vagrant
 ```
 
+Running the command by itself will show you all the possible sub-commands and options you can pass.
+
 Let's try this thing out.
 
 Navigate to your DevEnvs folder:
@@ -319,8 +329,93 @@ Create a folder named `tmp` and change directory into it:
 mkdir tmp && cd tmp
 ```
 
+Run `vagrant init` to create a Vagrantfile in our tmp directory:
 
-Running the command by itself will show you all the possible sub-commands and options you can pass.
+```
+vagrant init precise32 http://files.vagrantup.com/precise32.box
+```
+
+By passing the name `precise32` and the url of the box we want to use, we prepopulate the Vagrantfile with the vagrant box we intend to use for our project. And by passing a url we're letting vagrant know that we want to download the vagrant box, as it isn't on our computer yet. 
+
+precise32 is the name for Ubuntu 12.04 LTS 32-bit.
+
+You should see output on the terminal like this:
+
+```
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+```
+
+Now, run `vagrant up` to boot your vagrant box:
+
+```
+vagrant up
+```
+
+This does a couple things: because we passed a url to vagrant init, and we  don't already have a box on our machine named precise32, `vagrant up` will first download the precise32 box, then boot it with any configuration that's been set in the Vagrantfile.
+
+You should see output on the terminal like this:
+
+```
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Box 'precise32' was not found. Fetching box from specified URL for
+the provider 'virtualbox'. Note that if the URL does not have
+a box for this provider, you should interrupt Vagrant now and add
+the box yourself. Otherwise Vagrant will attempt to download the
+full box prior to discovering this error.
+Downloading or copying the box...
+Extracting box...te: 1727k/s, Estimated time remaining: 0:00:01)
+Successfully added box 'precise32' with provider 'virtualbox'!
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Fixed port collision for 22 => 2222. Now on port 2201.
+[default] Creating shared folders metadata...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 => 2201 (adapter 1)
+[default] Booting VM...
+[default] Waiting for VM to boot. This can take a few minutes.
+[default] VM booted and ready for use!
+[default] Configuring and enabling network interfaces...
+[default] Mounting shared folders...
+[default] -- /vagrant
+```
+
+Now that the box is up and running, we can ssh into this instance of Ubuntu that we just set up!
+
+We do that by running `vagrant ssh` in the terminal:
+
+```
+vagrant ssh
+```
+
+You should see output on the terminal like this:
+
+```
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
+
+ * Documentation:  https://help.ubuntu.com/
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+```
+
+You have now entered your vagrant box. Every command you type in your terminal now happens in this instance of Ubuntu Linux.
+
+To exit from the vagrant box, and take the terminal back to your host operating system, run the `exit` command:
+
+```
+exit
+```
+
+You prompt should now look the same as before you ran `vagrant ssh`.
+
+
+
 
 ## Alternatives to vagrant/virtualbox
 
@@ -646,10 +741,10 @@ Ruby is a pleasant language that gets about as close to the English language as 
 It's popular in large part because of the web development framework Ruby on Rails.
 
 ## Language website
-http://www.ruby-lang.org/en/
+[http://www.ruby-lang.org/en](http://www.ruby-lang.org/en)
 
 ## Documentation
-docs: http://www.ruby-lang.org/en/documentation/
+docs: [http://www.ruby-lang.org/en/documentation](http://www.ruby-lang.org/en/documentation)
 
 ## Vagrant
 
@@ -665,7 +760,11 @@ vagrant init
 
 ## Installing ruby
 rbenv / ruby-build / rbenv-vars
-https://github.com/sstephenson/rbenv
+
+
+We'll be using rbenv to install ruby: [https://github.com/sstephenson/rbenv](https://github.com/sstephenson/rbenv).
+
+We'll also need ruby-build.
 
 ## Package manager: rubygems
 
