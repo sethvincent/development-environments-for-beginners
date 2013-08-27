@@ -3,7 +3,7 @@ node_modules
 .dropbox
 Icon*
 preview
-releases/*/*
+releases/**/*
 published
 site
 preface.md
