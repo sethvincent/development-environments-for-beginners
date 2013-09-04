@@ -460,31 +460,100 @@ You can set up one "box" for free, and beyond that it costs money.
 
 Sublime is a popular text editor with versions for Mac, Windows, and Linux. 
 
-You can download an evaluation copy for free, and pay for a license whenever you're ready.
+You can download an evaluation copy for free, and pay for a license when you're ready.
 
 In this book we'll be using version 2 of Sublime, in future updates to the book we'll switch to version 3.
 
-### Website
-http://www.sublimetext.com/
-
-### Documentation
-docs: http://www.sublimetext.com/docs/2/index.html
-
 ### Install
-download / install: http://www.sublimetext.com/2
+Go to [sublimetext.com](http://www.sublimetext.com/) and click the download button.
 
-### Basic usage
+This will download a .dmg file. Once the download has completed, double-click the .dmg file. Next, drag the Sublime Text application into your Applications folder.
 
 ### Use Sublime from the command line
 
+In order to use Sublime from the command line, you'll need to create a symbolic link:
+
+```
+ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+```
+
+`ln -s` is a command used for creating symbolic links, which you can think of like aliases.
+
+The first argument is the location of the original file, the second argument is the new, alias location.
+
+Now, you can run the `subl` command on the terminal.
+
+When you run `subl --help`, you'll get help information for the command that looks like this:
+
+```
+Usage: subl [arguments] [files]         edit the given files
+   or: subl [arguments] [directories]   open the given directories
+   or: subl [arguments] -               edit stdin
+
+Arguments:
+  --project <project>: Load the given project
+  --command <command>: Run the given command
+  -n or --new-window:  Open a new window
+  -a or --add:         Add folders to the current window
+  -w or --wait:        Wait for the files to be closed before returning
+  -b or --background:  Don't activate the application
+  -s or --stay:        Keep the application activated after closing the file
+  -h or --help:        Show help (this message) and exit
+  -v or --version:     Show version and exit
+
+--wait is implied if reading from stdin. Use --stay to not switch back
+to the terminal when a file is closed (only relevant if waiting for a file).
+
+Filenames may be given a :line or :line:column suffix to open at a specific
+location.
+```
+
+
 ### Resources
 
-## Alternative text editors:
+#### Website
+http://www.sublimetext.com/
+
+#### Documentation
+docs: http://www.sublimetext.com/docs/2/index.html
+
+
+### Alternative text editors:
 There are too many to list. Two that I recommend learning about are vim & nano.
 
-### vim
+#### vim
 
-### nano
+vim has a steep learning curve, so save this for later after you've mastered other tools. To learn more about vim, check out this list of resources: [http://net.tutsplus.com/articles/web-roundups/25-vim-tutorials-screencasts-and-resources/](http://net.tutsplus.com/articles/web-roundups/25-vim-tutorials-screencasts-and-resources/)
+
+#### nano
+
+nano is a simple, easy to use editor that you'll usually find on unix/linux operating systems.
+
+There are a few basic key commands you need to know to start out with nano:
+
+Edit something with nano:
+
+```
+nano filename.txt
+```
+
+Save a file:
+
+```
+control+O
+```
+
+Exit from nano (you'll be prompted to save):
+
+```
+control+X
+```
+
+Search for some text:
+
+```
+control+W
+```
 
 
 # Git: it's like File>Save only collaborative
@@ -788,6 +857,24 @@ We'll also need ruby-build.
 
 ### Use bundler
 http://bundler.io/
+
+## Automating repetitive tasks
+
+For automating tasks in ruby development, use [rake](http://rake.rubyforge.org/).
+
+### Install
+
+First, install the rake gem:
+
+```
+gem install rake
+```
+
+Next, you'll create a Rakefile in your project.
+
+Learn more about rake by reading the [project documentation](http://rake.rubyforge.org/).
+
+We'll go in-depth with rake in the extended ruby example later in the chapter.
 
 ## Testing: minitest
 https://github.com/seattlerb/minitest
@@ -1167,7 +1254,23 @@ When you install node.js, you get npm.
 
 You may also want to use bower or component, two package managers that specifically target client-side code. Remember that javascript packages distributed are not limited to node.js, and can also be used in the browser in many cases.
 
+## Automating repetitive tasks
 
+For automating tasks in javascript development, use [grunt.js](http://gruntjs.com).
+
+### Install
+
+First, install the grunt command-line tool:
+
+```
+npm install -g grunt-cli
+```
+
+Next, you'll create a Gruntfile.js in your project.
+
+Learn more about grunt.js by reading the [project documentation](http://gruntjs.com/getting-started).
+
+We'll go in-depth with grunt in the extended javascript example later in the chapter.
 
 ## Testing: tape
 For testing, we'll use a library named tape.
@@ -1588,6 +1691,23 @@ https://github.com/pypa/pip
 virtualenv: [http://www.virtualenv.org/en/latest/](http://www.virtualenv.org/en/latest/)
 
 
+## Automating repetitive tasks
+
+For automating tasks in python development, use [fabric](http://fabfile.org).
+
+### Install
+
+First, install the rake gem:
+
+```
+pip install fabric
+```
+
+Next, you'll create a fabfile.py in your project.
+
+Learn more about fabric by reading the [project documentation](http://docs.fabfile.org/en/1.7/).
+
+We'll go in-depth with fabric in the extended python example later in the chapter.
 
 ## Testing: unittest
 unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.org/3/library/unittest.html)
@@ -1596,25 +1716,124 @@ unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.or
 
 ## Language basics
 
-[TODO: fill in language basics for python]
+### variables
+
+Create a variable like this:
+
+```
+some_variable = 'some value'
+```
 
 ### numbers
 
+```
+some_number = 3
+```
+
+A number is any digit, including decimals, or floating point numbers.
+
 ### string
+
+```
+some_string = 'this is a string'
+```
+
+You can create multi-line strings like this:
+
+```
+some_big_string = """
+This is one line of the string.
+And this is another.
+This line is also part of the string.
+"""
+```
+
+A string is text surrounded by single or double quotes.
 
 ### list
 
+A list in python is very similar to an array in javascript and ruby. Create a list like this:
+
+```
+some_list = ['a', 1, 'b']
+```
+
+It's possible to nest lists like this:
+
+```
+some_nested_list = [1, ['a', 'b', 'c'], 'pizza'];
+```
+
 ### dictionary
+
+Dictionaries in python are similar to objects in javascript or hashes in ruby.
+
+Create a dictionary like this:
+
+```
+some_dictionary = { 'thing': 'one', 'otherthing': 'two' }
+```
 
 ### function
 
+Define a function in python like this:
+
+```
+def eat(food):
+    return 'I ate ' + food
+```
+
 ### class
+
+Create a class in python like this:
+
+```
+class Meal:
+    # here we define methods on the class
+```
+
 
 ### method
 
+Defining methods in python looks like this:
+
+```
+class Meal:
+  def __init__(self, food):
+      self.food = food
+
+  def eat(self)
+      return 'I ate ' + self.food
+```
+
 ### class instance
 
-importing/requiring code
+Create an instance of the class like this:
+
+```
+dinner = Meal('pizza')
+dinner.eat()
+```
+
+### importing/requiring code
+
+To import code into your program, use this syntax:
+
+```
+import PACKAGENAME
+```
+
+You can import specific classes with this syntax:
+
+```
+from PACKAGENAME import CLASS
+```
+
+For instance, with the flask library we use later, importing flask looks like this:
+
+```
+from flask import Flask
+```
 
 ## Web framework: flask
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
@@ -1632,7 +1851,7 @@ mkdir hello-flask && cd hello-flask
 ```
 
 ```
-gem install flask
+pip install flask
 ```
 
 ### Simple example
@@ -1791,6 +2010,10 @@ There are many resources that can help you along the way.
 
 
 # Changelog
+
+## v0.1.2 - September 3, 2013
+- added rake, grunt, and fabric sections
+- initial work on python language basics
 
 ## v0.1.1 - August 18, 2013
 - added language basics to javascript and ruby chapters
