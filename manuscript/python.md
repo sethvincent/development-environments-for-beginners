@@ -61,6 +61,7 @@ Next, you'll create a fabfile.py in your project.
 
 Learn more about fabric by reading the [project documentation](http://docs.fabfile.org/en/1.7/).
 
+We'll go in-depth with fabric in the extended python example later in the chapter.
 
 ## Testing: unittest
 unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.org/3/library/unittest.html)

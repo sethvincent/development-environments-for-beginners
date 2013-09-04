@@ -83,6 +83,8 @@ Next, you'll create a Gruntfile.js in your project.
 
 Learn more about grunt.js by reading the [project documentation](http://gruntjs.com/getting-started).
 
+We'll go in-depth with grunt in the extended javascript example later in the chapter.
+
 ## Testing: tape
 For testing, we'll use a library named tape.
 

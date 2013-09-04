@@ -51,6 +51,8 @@ Next, you'll create a Rakefile in your project.
 
 Learn more about rake by reading the [project documentation](http://rake.rubyforge.org/).
 
+We'll go in-depth with rake in the extended ruby example later in the chapter.
+
 ## Testing: minitest
 https://github.com/seattlerb/minitest
 
