@@ -45,6 +45,22 @@ https://github.com/pypa/pip
 virtualenv: [http://www.virtualenv.org/en/latest/](http://www.virtualenv.org/en/latest/)
 
 
+## Automating repetitive tasks
+
+For automating tasks in python development, use [fabric](http://fabfile.org).
+
+### Install
+
+First, install the rake gem:
+
+~~~~~~~~
+pip install fabric
+~~~~~~~~
+
+Next, you'll create a fabfile.py in your project.
+
+Learn more about fabric by reading the [project documentation](http://docs.fabfile.org/en/1.7/).
+
 
 ## Testing: unittest
 unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.org/3/library/unittest.html)
