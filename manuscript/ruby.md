@@ -35,6 +35,22 @@ We'll also need ruby-build.
 ### Use bundler
 http://bundler.io/
 
+## Automating repetitive tasks
+
+For automating tasks in ruby development, use [rake](http://rake.rubyforge.org/).
+
+### Install
+
+First, install the rake gem:
+
+~~~~~~~~
+gem install rake
+~~~~~~~~
+
+Next, you'll create a Rakefile in your project.
+
+Learn more about rake by reading the [project documentation](http://rake.rubyforge.org/).
+
 ## Testing: minitest
 https://github.com/seattlerb/minitest
 
