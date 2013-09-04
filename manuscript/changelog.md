@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.1.2 - September 3, 2013
+- added rake, grunt, and fabric sections
+- initial work on python language basics
+
 ## v0.1.1 - August 18, 2013
 - added language basics to javascript and ruby chapters
 - added a bunch to vagrant chapter
