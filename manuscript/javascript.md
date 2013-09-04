@@ -67,7 +67,21 @@ When you install node.js, you get npm.
 
 You may also want to use bower or component, two package managers that specifically target client-side code. Remember that javascript packages distributed are not limited to node.js, and can also be used in the browser in many cases.
 
+## Automating repetitive tasks
 
+For automating tasks in javascript development, use [grunt.js](http://gruntjs.com).
+
+### Install
+
+First, install the grunt command-line tool:
+
+~~~~~~~~
+npm install -g grunt-cli
+~~~~~~~~
+
+Next, you'll create a Gruntfile.js in your project.
+
+Learn more about grunt.js by reading the [project documentation](http://gruntjs.com/getting-started).
 
 ## Testing: tape
 For testing, we'll use a library named tape.
