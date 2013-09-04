@@ -70,25 +70,124 @@ unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.or
 
 ## Language basics
 
-[TODO: fill in language basics for python]
+### variables
+
+Create a variable like this:
+
+~~~~~~~~
+some_variable = 'some value'
+~~~~~~~~
 
 ### numbers
 
+~~~~~~~~
+some_number = 3
+~~~~~~~~
+
+A number is any digit, including decimals, or floating point numbers.
+
 ### string
+
+~~~~~~~~
+some_string = 'this is a string'
+~~~~~~~~
+
+You can create multi-line strings like this:
+
+~~~~~~~~
+some_big_string = """
+This is one line of the string.
+And this is another.
+This line is also part of the string.
+"""
+~~~~~~~~
+
+A string is text surrounded by single or double quotes.
 
 ### list
 
+A list in python is very similar to an array in javascript and ruby. Create a list like this:
+
+~~~~~~~~
+some_list = ['a', 1, 'b']
+~~~~~~~~
+
+It's possible to nest lists like this:
+
+~~~~~~~~
+some_nested_list = [1, ['a', 'b', 'c'], 'pizza'];
+~~~~~~~~
+
 ### dictionary
+
+Dictionaries in python are similar to objects in javascript or hashes in ruby.
+
+Create a dictionary like this:
+
+~~~~~~~~
+some_dictionary = { 'thing': 'one', 'otherthing': 'two' }
+~~~~~~~~
 
 ### function
 
+Define a function in python like this:
+
+~~~~~~~~
+def eat(food):
+    return 'I ate ' + food
+~~~~~~~~
+
 ### class
+
+Create a class in python like this:
+
+~~~~~~~~
+class Meal:
+    # here we define methods on the class
+~~~~~~~~
+
 
 ### method
 
+Defining methods in python looks like this:
+
+~~~~~~~~
+class Meal:
+  def __init__(self, food):
+      self.food = food
+
+  def eat(self)
+      return 'I ate ' + self.food
+~~~~~~~~
+
 ### class instance
 
-importing/requiring code
+Create an instance of the class like this:
+
+~~~~~~~~
+dinner = Meal('pizza')
+dinner.eat()
+~~~~~~~~
+
+### importing/requiring code
+
+To import code into your program, use this syntax:
+
+~~~~~~~~
+import PACKAGENAME
+~~~~~~~~
+
+You can import specific classes with this syntax:
+
+~~~~~~~~
+from PACKAGENAME import CLASS
+~~~~~~~~
+
+For instance, with the flask library we use later, importing flask looks like this:
+
+~~~~~~~~
+from flask import Flask
+~~~~~~~~
 
 ## Web framework: flask
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
@@ -106,7 +205,7 @@ mkdir hello-flask && cd hello-flask
 ~~~~~~~~
 
 ~~~~~~~~
-gem install flask
+pip install flask
 ~~~~~~~~
 
 ### Simple example
