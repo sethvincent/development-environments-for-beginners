@@ -2,16 +2,15 @@
 
 Python is a language that is readable, quick to learn, and used for a wide range of purposes, including web development, science, and in academia.
 
+In this chapter we'll review some basics of the Python language, testing with UnitTest, creating dev environments with pip and virtualenv, and building apps with flask, a small web development framework.
+
+We'll be working with Python version 2.7, which should be installed by default on most systems, and is still best supported by various Python libraries. In the future we'll do an update to this book to support Python 3.
 
 
 ## Language website
-
 http://www.python.org/
 
-
-
 ## Documentation
-
 http://www.python.org/doc/
 
 
@@ -31,8 +30,6 @@ vagrant init
 ## Installing python
 Python is most likely already installed on your machine.
 
-On a mac you can install python with homebrew.
-
 
 
 ## Package manager: pip
@@ -51,7 +48,7 @@ For automating tasks in python development, use [fabric](http://fabfile.org).
 
 ### Install
 
-First, install the rake gem:
+First, install fabric:
 
 ~~~~~~~~
 pip install fabric
@@ -63,10 +60,31 @@ Learn more about fabric by reading the [project documentation](http://docs.fabfi
 
 We'll go in-depth with fabric in the extended python example later in the chapter.
 
+
+
 ## Testing: unittest
-unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.org/3/library/unittest.html)
+We'll be using unittest as the testing framework with python. It comes bundled with python so it doesn't have to be installed separately.
 
+unittest documentation: [http://docs.python.org/2.7/library/unittest.html](http://docs.python.org/2.7/library/unittest.html)
 
+Here's a very simple example of unittest usage:
+
+A simple example of a test written with tape:
+
+~~~~~~~~
+import unittest
+
+class PizzaTest(unittest.TestCase):
+
+    def setUp(self):
+        self.pizza = 'pizza'
+
+    def test_pizza(self):
+        self.assertEqual(self.pizza, 'pizza')
+
+if __name__ -- '__main__':
+    unittest.main()
+~~~~~~~~
 
 ## Language basics
 
