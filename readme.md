@@ -1637,6 +1637,221 @@ This will generate a bunch of files for you. I won't go into the details of what
 
 ### Extended example
 
+In this example our app will do three things:  
+- serve html at the root route from a view that has a list of posts
+- serve html for a single post at `/post/:id`
+- serve json at `/api/posts` that has a list of posts
+
+We won't be using a database for this example, but instead will use a json file with a list of posts.
+
+Here's the json you can use as the data for the app. Put the following in a file named posts.json:
+
+```
+[
+{
+  "title": "This is the first post",
+  "slug": "first-post",
+  "content": "The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome."
+},
+{
+  "title": "Another post that you might like",
+  "slug": "second-post",
+  "content": "Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great."
+},
+{
+  "title": "The third and last post",
+  "slug": "third-post",
+  "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
+}
+]
+```
+
+First we'll create the app.js file:
+
+```
+var express = require('express');
+var fs = require('fs');
+var app = express();
+
+app.use('/public', express.static(__dirname + '/public'));
+
+app.locals({
+  title: 'Extended Express Example'
+});
+
+app.all('*', function(req, res, next){
+  fs.readFile('posts.json', function(err, data){
+    res.locals.posts = JSON.parse(data);
+    next();
+  });
+});
+
+app.get('/', function(req, res){
+  res.render('index.ejs');
+});
+
+app.get('/post/:slug', function(req, res, next){
+  res.locals.posts.forEach(function(post){
+    if (req.params.slug === post.slug){
+      res.render('post.ejs', { post: post });
+    }
+  })
+});
+
+app.get('/api/posts', function(req, res){
+  res.json(res.locals.posts);
+});
+
+app.listen(3000);
+
+console.log('app is listening at localhost:3000');
+```
+
+Next, we'll need the views for rendering html. We'll use a templating language named ejs for our views.
+
+First, install ejs:
+
+```
+npm install --save ejs
+```
+
+The only downside to ejs is that it doesn't allow us to specify a layout view like we did with sinatra and erb.
+
+To get around that we'll create header and footer views that we later include on other views.
+
+Let's a views folder for all the views to live in:
+
+```
+mkdir views
+```
+
+And create all the view files that we need:
+
+```
+touch views/header.ejs views/footer.ejs views/index.ejs views/post.ejs
+```
+
+Add this content to the header.ejs file:
+
+```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/public/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1><a href="/"><%= title %></a></h1>
+  </div>
+</header>
+```
+
+Add this content to the footer.ejs file:
+
+```
+<footer>
+  <div class="container">
+    <p>Posts are also available via json at <a href="/api/posts">/api/posts</a>/
+  </div>
+</footer>
+
+</body>
+</html>
+```
+
+Add this content to the index.ejs file:
+
+```
+<% include header %>
+
+<main role="main">
+  <div class="container">
+    <% posts.forEach(function(post){ %>
+      <h3>
+        <a href="/post/<%= post.slug %>">
+          <%= post.title %>
+        </a>
+      </h3>
+      <div><%= post.content %></div>
+    <% }); %>
+  </main>
+</div>
+
+<% include footer %>
+```
+
+Add this content to the post.ejs file:
+
+```
+<% include header %>
+
+<main role="main">
+  <div class="container">
+    <h3><%= post.title %></h3>
+    <div><%= post.content %></div>
+  </main>
+</div>
+
+<% include footer %>
+```
+
+Let's add some css styling so this looks a little more readable.
+
+First create the public folder and the styles.css file:
+
+```
+mkdir public
+touch public/styles.css
+```
+
+Now add this content the styles.css file:
+
+```
+body {
+  font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #787876;
+}
+
+h1, h3 {
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #EA6045;
+}
+
+a:hover {
+  color: #2F3440;
+}
+
+.container {
+  width: 90%;
+  margin: 0px auto;
+}
+
+footer {
+  margin-top: 30px;
+  border-top: 1px solid #efefef;
+  padding-top: 20px;
+  font-style: italic;
+}
+
+@media (min-width: 600px){
+  .container {
+    width: 60%;
+  }
+}
+```
+
+
+
 ### Express resources
 
 Learn more about express at the express website: [http://expressjs.com](http://expressjs.com/)
@@ -1648,16 +1863,15 @@ Learn more about express at the express website: [http://expressjs.com](http://e
 
 Python is a language that is readable, quick to learn, and used for a wide range of purposes, including web development, science, and in academia.
 
+In this chapter we'll review some basics of the Python language, testing with UnitTest, creating dev environments with pip and virtualenv, and building apps with flask, a small web development framework.
+
+We'll be working with Python version 2.7, which should be installed by default on most systems, and is still best supported by various Python libraries. In the future we'll do an update to this book to support Python 3.
 
 
 ## Language website
-
 http://www.python.org/
 
-
-
 ## Documentation
-
 http://www.python.org/doc/
 
 
@@ -1677,8 +1891,6 @@ vagrant init
 ## Installing python
 Python is most likely already installed on your machine.
 
-On a mac you can install python with homebrew.
-
 
 
 ## Package manager: pip
@@ -1697,7 +1909,7 @@ For automating tasks in python development, use [fabric](http://fabfile.org).
 
 ### Install
 
-First, install the rake gem:
+First, install fabric:
 
 ```
 pip install fabric
@@ -1709,10 +1921,31 @@ Learn more about fabric by reading the [project documentation](http://docs.fabfi
 
 We'll go in-depth with fabric in the extended python example later in the chapter.
 
+
+
 ## Testing: unittest
-unittest: [http://docs.python.org/3/library/unittest.html](http://docs.python.org/3/library/unittest.html)
+We'll be using unittest as the testing framework with python. It comes bundled with python so it doesn't have to be installed separately.
 
+unittest documentation: [http://docs.python.org/2.7/library/unittest.html](http://docs.python.org/2.7/library/unittest.html)
 
+Here's a very simple example of unittest usage:
+
+A simple example of a test written with tape:
+
+```
+import unittest
+
+class PizzaTest(unittest.TestCase):
+
+    def setUp(self):
+        self.pizza = 'pizza'
+
+    def test_pizza(self):
+        self.assertEqual(self.pizza, 'pizza')
+
+if __name__ -- '__main__':
+    unittest.main()
+```
 
 ## Language basics
 
@@ -2010,6 +2243,10 @@ There are many resources that can help you along the way.
 
 
 # Changelog
+
+## v0.1.3 - September 27, 2013
+- Add to unittest and other edits in python section
+- Add extended express example to javascript section
 
 ## v0.1.2 - September 3, 2013
 - added rake, grunt, and fabric sections
