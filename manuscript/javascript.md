@@ -450,16 +450,45 @@ This will generate a bunch of files for you. I won't go into the details of what
 
 ### Extended example
 
-In this example our app will do three things:  
+Let's make a small website with [express](http://expressjs.com) to explore how it works.
+
+In this example our site will do three things:  
 - serve html at the root route from a view that has a list of posts
 - serve html for a single post at `/post/:id`
 - serve json at `/api/posts` that has a list of posts
 
 We won't be using a database for this example, but instead will use a json file with a list of posts.
 
-Here's the json you can use as the data for the app. Put the following in a file named posts.json:
+To get started, create and change directory into a new project folder, then run `npm init` to create a package.json file.
 
-~~~~~~~~
+```
+mkdir express-example
+cd express-example
+```
+
+We'll be using express and for templates we'll use the [ejs](https://github.com/visionmedia/ejs "ejs") module, so let's install those dependencies:
+
+```
+npm install --save express ejs
+```
+
+We will use [nodemon](https://github.com/remy/nodemon "nodemon") to run the app – nodemon will automatically restart the server each time you edit a file in the project.
+
+Install nodemon:
+
+```
+npm install -g nodemon
+```
+
+Run nodemon with these options so that changes to ejs views and public files also trigger the restart:
+
+```
+nodemon -e js,css,html,ejs
+```
+
+Create a file named posts.json with the following json:
+
+```
 [
 {
   "title": "This is the first post",
@@ -477,11 +506,11 @@ Here's the json you can use as the data for the app. Put the following in a file
   "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
 }
 ]
-~~~~~~~~
+```
 
 First we'll create the app.js file:
 
-~~~~~~~~
+```
 var express = require('express');
 var fs = require('fs');
 var app = express();
@@ -516,17 +545,79 @@ app.get('/api/posts', function(req, res){
 });
 
 app.listen(3000);
-
 console.log('app is listening at localhost:3000');
-~~~~~~~~
+```
+
+Let's break down this example code chunk by chunk:
+
+Require the needed modules and create the app variable:
+
+```
+var express = require('express');
+var fs = require('fs');
+var app = express();
+```
+
+Set up the app to serve whatever is in the public folder at the url `/public/:filename`:
+
+```
+app.use('/public', express.static(__dirname + '/public'));
+```
+
+You can add local variables that can be used in views and throughout the app by passing an object to `app.locals()`:
+
+```
+app.locals({
+  title: 'Extended Express Example'
+});
+```
+
+In this example we're loading the posts from the json file before responding to routes:
+
+```
+app.all('*', function(req, res, next){
+  fs.readFile('posts.json', function(err, data){
+    res.locals.posts = JSON.parse(data);
+    next();
+  });
+});
+```
+
+When a browser requests the root url, our app responds with the index.ejs file. Express automatically looks in a folder named views, so you only have to pass the file name:
+
+```
+app.get('/', function(req, res){
+  res.render('index.ejs');
+});
+```
+
+The following code block listens for requests for a specific blog post. We search the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is returned:
+
+```
+app.get('/post/:slug', function(req, res, next){
+  res.locals.posts.forEach(function(post){
+    if (req.params.slug === post.slug){
+      res.render('post.ejs', { post: post });
+    }
+  })
+});
+```
+
+The following is a simple example of exposing a simple json feed of the posts:
+
+```
+app.get('/api/posts', function(req, res){
+  res.json(res.locals.posts);
+});
+```
+And finally, we make the app listen on port 3000, and print a message to the terminal:
+
+```
+app.listen(3000);
+console.log('app is listening at localhost:3000');
+```
 
 Next, we'll need the views for rendering html. We'll use a templating language named ejs for our views.
-
-First, install ejs:
-
-~~~~~~~~
-npm install --save ejs
-~~~~~~~~
 
 The only downside to ejs is that it doesn't allow us to specify a layout view like we did with sinatra and erb.
 
@@ -534,19 +625,19 @@ To get around that we'll create header and footer views that we later include on
 
 Let's a views folder for all the views to live in:
 
-~~~~~~~~
+```
 mkdir views
-~~~~~~~~
+```
 
 And create all the view files that we need:
 
-~~~~~~~~
+```
 touch views/header.ejs views/footer.ejs views/index.ejs views/post.ejs
-~~~~~~~~
+```
 
 Add this content to the header.ejs file:
 
-~~~~~~~~
+```
 <!doctype html>
 <html lang="en">
 <head>
@@ -562,11 +653,11 @@ Add this content to the header.ejs file:
     <h1><a href="/"><%= title %></a></h1>
   </div>
 </header>
-~~~~~~~~
+```
 
 Add this content to the footer.ejs file:
 
-~~~~~~~~
+```
 <footer>
   <div class="container">
     <p>Posts are also available via json at <a href="/api/posts">/api/posts</a>/
@@ -575,11 +666,11 @@ Add this content to the footer.ejs file:
 
 </body>
 </html>
-~~~~~~~~
+```
 
 Add this content to the index.ejs file:
 
-~~~~~~~~
+```
 <% include header %>
 
 <main role="main">
@@ -596,11 +687,11 @@ Add this content to the index.ejs file:
 </div>
 
 <% include footer %>
-~~~~~~~~
+```
 
 Add this content to the post.ejs file:
 
-~~~~~~~~
+```
 <% include header %>
 
 <main role="main">
@@ -611,20 +702,20 @@ Add this content to the post.ejs file:
 </div>
 
 <% include footer %>
-~~~~~~~~
+```
 
 Let's add some css styling so this looks a little more readable.
 
 First create the public folder and the styles.css file:
 
-~~~~~~~~
+```
 mkdir public
 touch public/styles.css
-~~~~~~~~
+```
 
 Now add this content the styles.css file:
 
-~~~~~~~~
+```
 body {
   font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #787876;
@@ -661,8 +752,13 @@ footer {
     width: 60%;
   }
 }
-~~~~~~~~
+```
 
+You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
+
+```
+nodemon -e js,css,html,ejs
+```
 
 
 ### Express resources
