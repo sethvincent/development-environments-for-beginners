@@ -1175,6 +1175,294 @@ end
 
 ### Extended example
 
+Let's make a small website with [sinatra](http://sinatrarb.com) to explore how it works.
+
+In this example our site will do three things:  
+- serve html at the root route from a view that has a list of posts
+- serve html for a single post at `/post/:id`
+- serve json at `/api/posts` that has a list of posts
+
+We won't be using a database for this example, but instead will use a json file with a list of posts.
+
+To get started, create and change directory into a new project folder.
+
+```
+mkdir sinatra-example
+cd sinatra-example
+```
+
+We'll be using sinatra and will utilize the default template language, erb. Let's install sinatra by creating a Gemfile:
+
+```
+touch Gemfile
+```
+
+Add the sinatra gem to the Gemfile:
+
+```
+gem 'sinatra'
+```
+
+Now run bundle to install sinatra:
+
+```
+bundle
+```
+
+We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app – shotgun will automatically restart the server each time you edit a file in the project.
+
+Install shotgun:
+
+```
+gem install shotgun
+```
+
+To run the sinatra app you'll use this command:
+
+```
+shotgun app.rb
+```
+
+Create a file named posts.json with the following json:
+
+```
+[
+{
+  "title": "This is the first post",
+  "slug": "first-post",
+  "content": "The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome."
+},
+{
+  "title": "Another post that you might like",
+  "slug": "second-post",
+  "content": "Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great."
+},
+{
+  "title": "The third and last post",
+  "slug": "third-post",
+  "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
+}
+]
+```
+
+Now create the app.rb file:
+
+```
+require 'sinatra'
+require 'json'
+
+before do
+  @title = 'Extended Sinatra example'
+  @posts = JSON.parse( IO.read('posts.json') )
+end
+
+get '/' do
+  erb :index
+end
+
+get '/post/:slug' do
+  @posts.each do |post| 
+    if post['slug'] == params[:slug] 
+      @post = post
+    end
+  end
+  erb :post
+end
+
+get '/api/posts' do
+  data = { 
+    meta: { name: @title },
+    posts: @posts
+  }
+  data.to_json
+end
+```
+
+Let's break down this example code chunk by chunk:
+
+Require the necessary ruby libraries:
+
+```
+require 'sinatra'
+require 'json'
+```
+
+
+Create global variables that are available to our views using the before method, which runs before a request is processed:
+
+```
+before do
+  @title = 'Extended Sinatra example'
+  @posts = JSON.parse( IO.read('posts.json') )
+end
+```
+
+Serve the index.erb view on the root url with the following code block. note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
+
+```
+get '/' do
+  erb :index
+end
+```
+
+The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is set to a global `@post` variable that's available in our post view.
+
+```
+get '/post/:slug' do
+  @posts.each do |post| 
+    if post['slug'] == params[:slug] 
+      @post = post
+    end
+  end
+  erb :post
+end
+```
+
+The following is a simple example of exposing a simple json feed of the posts:
+
+```
+get '/api/posts' do
+  data = { 
+    meta: { name: @title },
+    posts: @posts
+  }
+  data.to_json
+end
+```
+
+
+Next, we'll need the erb views for rendering html.
+
+Let's make a views folder for all the views to live in:
+
+```
+mkdir views
+```
+
+And create all the view files that we need:
+
+```
+touch views/layout.erb views/index.erb views/post.erb
+```
+
+Add this content to the layout.erb file:
+
+```
+
+```
+
+Add this content to the footer.ejs file:
+
+```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title><%= @title %></title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1><a href="/"><%= @title %></a></h1>
+  </div>
+</header>
+
+<main role="main">
+  <div class="container">
+    <%= yield %>
+  </main>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Posts are also available via json at <a href="/api/posts">/api/posts</a>/
+  </div>
+</footer>
+
+</body>
+</html>
+```
+
+Add this content to the index.erb file:
+
+```
+<% for @post in @posts %>
+  <h3>
+    <a href="/post/<%= @post['slug'] %>">
+      <%= @post['title'] %>
+    </a>
+  </h3>
+  <div><%= @post['content'] %></div>
+<% end %>
+```
+
+Add this content to the post.erb file:
+
+```
+<h3><%= @post['title'] %></h3>
+<div><%= @post['content'] %></div>
+```
+
+Let's add some css styling so this looks a little more readable.
+
+First create the public folder and the styles.css file:
+
+```
+mkdir public
+touch public/styles.css
+```
+
+Now add this content the styles.css file:
+
+```
+body {
+  font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #787876;
+}
+
+h1, h3 {
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #EA6045;
+}
+
+a:hover {
+  color: #2F3440;
+}
+
+.container {
+  width: 90%;
+  margin: 0px auto;
+}
+
+footer {
+  margin-top: 30px;
+  border-top: 1px solid #efefef;
+  padding-top: 20px;
+  font-style: italic;
+}
+
+@media (min-width: 600px){
+  .container {
+    width: 60%;
+  }
+}
+```
+
+You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
+
+```
+shotgun app.rb
+```
+
+
 ### Sinatra resources
 
 Learn more about sinatra at the sinatra website: [http://www.sinatrarb.com](http://www.sinatrarb.com/)
@@ -1710,7 +1998,7 @@ app.locals({
 
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
-    res.locals.posts = JSON.parse(data);
+    app.locals.posts = JSON.parse(data);
     next();
   });
 });
@@ -1720,7 +2008,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/post/:slug', function(req, res, next){
-  res.locals.posts.forEach(function(post){
+  app.locals.posts.forEach(function(post){
     if (req.params.slug === post.slug){
       res.render('post.ejs', { post: post });
     }
@@ -1728,7 +2016,11 @@ app.get('/post/:slug', function(req, res, next){
 });
 
 app.get('/api/posts', function(req, res){
-  res.json(res.locals.posts);
+  var data = {
+    meta: { name: app.locals.title },
+    posts: app.locals.posts 
+  }
+  res.json(data);
 });
 
 app.listen(3000);
@@ -1764,7 +2056,7 @@ In this example we're loading the posts from the json file before responding to 
 ```
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
-    res.locals.posts = JSON.parse(data);
+    app.locals.posts = JSON.parse(data);
     next();
   });
 });
@@ -1778,11 +2070,11 @@ app.get('/', function(req, res){
 });
 ```
 
-The following code block listens for requests for a specific blog post. We search the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is returned:
+The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is returned:
 
 ```
 app.get('/post/:slug', function(req, res, next){
-  res.locals.posts.forEach(function(post){
+  app.locals.posts.forEach(function(post){
     if (req.params.slug === post.slug){
       res.render('post.ejs', { post: post });
     }
@@ -1790,11 +2082,15 @@ app.get('/post/:slug', function(req, res, next){
 });
 ```
 
-The following is a simple example of exposing a simple json feed of the posts:
+The following is a simple example of exposing a simple json feed of the posts.
 
 ```
 app.get('/api/posts', function(req, res){
-  res.json(res.locals.posts);
+  var data = {
+    meta: { name: app.locals.title },
+    posts: app.locals.posts 
+  }
+  res.json(data);
 });
 ```
 And finally, we make the app listen on port 3000, and print a message to the terminal:
@@ -1810,7 +2106,7 @@ The only downside to ejs is that it doesn't allow us to specify a layout view li
 
 To get around that we'll create header and footer views that we later include on other views.
 
-Let's a views folder for all the views to live in:
+Let's make a views folder for all the views to live in:
 
 ```
 mkdir views
@@ -1829,7 +2125,7 @@ Add this content to the header.ejs file:
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width">
   <title><%= title %></title>
   <link rel="stylesheet" href="/public/styles.css">
 </head>

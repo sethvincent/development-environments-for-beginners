@@ -721,7 +721,7 @@ mkdir public
 touch public/styles.css
 ```
 
-Now add this content the styles.css file:
+Now add this content to the styles.css file:
 
 ```
 body {

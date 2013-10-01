@@ -592,7 +592,7 @@ mkdir public
 touch public/styles.css
 ```
 
-Now add this content the styles.css file:
+Now add this content to the styles.css file:
 
 ```
 body {
@@ -633,7 +633,7 @@ footer {
 }
 ```
 
-You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
+You should now be able to navigate the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
 
 ```
 shotgun app.rb

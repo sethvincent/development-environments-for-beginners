@@ -288,6 +288,324 @@ if __name__ == "__main__":
 
 ### Extended example
 
+Let's make a small website with [flask](http://flask.pocoo.org/) to explore how it works.
+
+In this example our site will do three things:  
+- serve html at the root route from a view that has a list of posts
+- serve html for a single post at `/post/:id`
+- serve json at `/api/posts` that has a list of posts
+
+We won't be using a database for this example, but instead will use a json file with a list of posts.
+
+We'll be using the default template language that flask uses, [jinja](http://jinja.pocoo.org/). Let's install flask by creating a virtualenv and using pip:
+
+```
+virtualenv flask-example
+cd flask-example
+```
+
+Activate the virtualenv:
+
+```
+source bin/activate
+```
+
+Now use pip to install flask and its dependencies
+
+```
+pip install flask
+```
+
+For this project we'll put the source files inside the virtualenv folder. Create a new folder called source for our application code:
+
+```
+mkdir source
+cd source
+```
+
+Your directory structure should now look like this:
+
+```
+flask-example
+- bin
+- source
+- include
+- lib
+```
+
+Make sure you put new files inside the source folder.
+
+We'll run the application with this command:
+
+```
+python app.py
+```
+
+Create a file named posts.json with the following json:
+
+```
+[
+{
+  "title": "This is the first post",
+  "slug": "first-post",
+  "content": "The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome. The pizza is awesome."
+},
+{
+  "title": "Another post that you might like",
+  "slug": "second-post",
+  "content": "Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great. Eating pizza is great."
+},
+{
+  "title": "The third and last post",
+  "slug": "third-post",
+  "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
+}
+]
+```
+
+Now create the app.py file:
+
+```
+from flask import Flask, render_template, g, jsonify
+import json
+
+
+app = Flask('extended-flask-example')
+app.config['DEBUG'] = True
+
+
+@app.before_request
+def before_request():
+    g.title = 'Extended flask example'
+    posts = open('posts.json')
+    g.posts = json.load(posts)
+    posts.close()
+
+
+@app.route('/')
+def index():
+    posts = getattr(g, 'posts', None)
+    return render_template('index.html', posts=posts)
+
+
+@app.route('/post/<slug>')
+def show_post(slug):
+    for post in g.posts:
+        if slug == post['slug']:
+            return render_template('post.html', post=post)
+
+
+@app.route('/api/posts')
+def show_json():
+    meta = { 'name': g.title }
+    return jsonify(posts=g.posts, meta=meta)
+
+
+if __name__ == '__main__':
+    app.run()
+```
+
+Let's break down this example code chunk by chunk:
+
+Require the necessary python libraries. Note that there are multiple classes from the flask library that we're importing individually:
+
+```
+from flask import Flask, render_template, g, jsonify
+import json
+```
+
+
+Create the application with a name and turn on debug so the application will reload each time you make changes to the app.py file and provide useful error messages:
+
+```
+app = Flask('extended-flask-example')
+app.config['DEBUG'] = True
+```
+
+Create global variables that are available to our views using the before method, which runs before a request is processed. Here we're loading the posts.json file into the application so we can use it in our views:
+
+```
+@app.before_request
+def before_request():
+    g.title = 'Extended flask example'
+    posts = open('posts.json')
+    g.posts = json.load(posts)
+    posts.close()
+```
+
+Serve the index.html template on the root url with the following code block. Note that with flask, templates are the equivalent to views in sinatra or express. Flask automatically looks in a folder named templates, so you only have to specify the filename:
+
+```
+@app.route('/')
+def index():
+    posts = getattr(g, 'posts', None)
+    return render_template('index.html', posts=posts)
+```
+
+The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, we render the page with that post set as the `post` variable.
+
+```
+@app.route('/post/<slug>')
+def show_post(slug):
+    for post in g.posts:
+        if slug == post['slug']:
+            return render_template('post.html', post=post)
+```
+
+The following is a simple example of exposing a simple json feed of the posts:
+
+```
+@app.route('/api/posts')
+def show_json():
+    meta = { 'name': g.title }
+    return jsonify(posts=g.posts, meta=meta)
+```
+
+Finally, this code block checks to make sure our application is not a module being loaded into another application, and then runs the app. This is particularly useful in the case that your app might be used on its own or as part of another application:
+
+```
+if __name__ == '__main__':
+    app.run()
+```
+
+
+Next, we'll need the templates for rendering html.
+
+Let's make a templates folder for all the templates to live in:
+
+```
+mkdir templates
+```
+
+And create all the template files that we need:
+
+```
+touch templates/base.html templates/index.html templates/post.html
+```
+
+Add this content to the base.html file:
+
+```
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>{{ g.title }}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1><a href="/">{{ g.title }}</a></h1>
+  </div>
+</header>
+
+<main role="main">
+  <div class="container">
+    {% block content %}{% endblock %}
+  </main>
+</div>
+
+<footer>
+  <div class="container">
+    <p>Posts are also available via json at <a href="/api/posts">/api/posts</a>/
+  </div>
+</footer>
+
+</body>
+</html>
+```
+
+Add this content to the index.html file:
+
+```
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for post in posts %}
+<h3>
+  <a href="/post/{{ post.slug }}">
+    {{ post.title }}
+  </a>
+</h3>
+<div>{{ post.content }}</div>
+{% endfor %}
+
+{% endblock %}
+```
+
+Add this content to the post.erb file:
+
+```
+{% extends "base.html" %}
+
+{% block content %}
+
+<h3>{{ post.title }}</h3>
+<div>{{ post.content }}</div>
+
+{% endblock %}
+```
+
+Let's add some css styling so this looks a little more readable. By default flask will look in a folder named static for static files.
+
+First create the static folder and the styles.css file:
+
+```
+mkdir static
+touch static/styles.css
+```
+
+Now add this content to the styles.css file:
+
+```
+body {
+  font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #787876;
+}
+
+h1, h3 {
+  font-weight: 300;
+  margin-bottom: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: #EA6045;
+}
+
+a:hover {
+  color: #2F3440;
+}
+
+.container {
+  width: 90%;
+  margin: 0px auto;
+}
+
+footer {
+  margin-top: 30px;
+  border-top: 1px solid #efefef;
+  padding-top: 20px;
+  font-style: italic;
+}
+
+@media (min-width: 600px){
+  .container {
+    width: 60%;
+  }
+}
+```
+
+You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
+
+```
+python app.py
+```
+
 ### Flask resources
 
 Learn more about flask at the project website: [http://flask.pocoo.org/](http://flask.pocoo.org/)
