@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.1.4 - September 30, 2013
+- Add ruby/sinatra extended example
+- Add python/flask extended example
+- fix some typos
+
 ## v0.1.3 - September 27, 2013
 - Add to unittest and other edits in python section
 - Add extended express example to javascript section
