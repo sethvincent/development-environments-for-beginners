@@ -523,7 +523,7 @@ app.locals({
 
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
-    res.locals.posts = JSON.parse(data);
+    app.locals.posts = JSON.parse(data);
     next();
   });
 });
@@ -533,7 +533,7 @@ app.get('/', function(req, res){
 });
 
 app.get('/post/:slug', function(req, res, next){
-  res.locals.posts.forEach(function(post){
+  app.locals.posts.forEach(function(post){
     if (req.params.slug === post.slug){
       res.render('post.ejs', { post: post });
     }
@@ -541,7 +541,11 @@ app.get('/post/:slug', function(req, res, next){
 });
 
 app.get('/api/posts', function(req, res){
-  res.json(res.locals.posts);
+  var data = {
+    meta: { name: app.locals.title },
+    posts: app.locals.posts 
+  }
+  res.json(data);
 });
 
 app.listen(3000);
@@ -577,7 +581,7 @@ In this example we're loading the posts from the json file before responding to 
 ```
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
-    res.locals.posts = JSON.parse(data);
+    app.locals.posts = JSON.parse(data);
     next();
   });
 });
@@ -591,11 +595,11 @@ app.get('/', function(req, res){
 });
 ```
 
-The following code block listens for requests for a specific blog post. We search the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is returned:
+The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is returned:
 
 ```
 app.get('/post/:slug', function(req, res, next){
-  res.locals.posts.forEach(function(post){
+  app.locals.posts.forEach(function(post){
     if (req.params.slug === post.slug){
       res.render('post.ejs', { post: post });
     }
@@ -603,11 +607,15 @@ app.get('/post/:slug', function(req, res, next){
 });
 ```
 
-The following is a simple example of exposing a simple json feed of the posts:
+The following is a simple example of exposing a simple json feed of the posts.
 
 ```
 app.get('/api/posts', function(req, res){
-  res.json(res.locals.posts);
+  var data = {
+    meta: { name: app.locals.title },
+    posts: app.locals.posts 
+  }
+  res.json(data);
 });
 ```
 And finally, we make the app listen on port 3000, and print a message to the terminal:
@@ -623,7 +631,7 @@ The only downside to ejs is that it doesn't allow us to specify a layout view li
 
 To get around that we'll create header and footer views that we later include on other views.
 
-Let's a views folder for all the views to live in:
+Let's make a views folder for all the views to live in:
 
 ```
 mkdir views
@@ -642,7 +650,7 @@ Add this content to the header.ejs file:
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="viewport" content="width=device-width">
   <title><%= title %></title>
   <link rel="stylesheet" href="/public/styles.css">
 </head>
