@@ -63,7 +63,7 @@ docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup
 
 ## Set up your first vagrant machine
 
-Here's the basics of using vagrant:
+Let's get started with the basics of using vagrant.
 
 Open the terminal on your computer and run this command:
 
@@ -75,9 +75,10 @@ Running the command by itself will show you all the possible sub-commands and op
 
 Let's try this thing out.
 
-Navigate to your DevEnvs folder:
+Create and navigate to your DevEnvs folder:
 
 ~~~~~~~~
+mkdir ~/DevEnvs
 cd ~/DevEnvs
 ~~~~~~~~
 
@@ -190,7 +191,32 @@ To see which boxes you've currently got downloaded run this command:
 vagrant box list
 ~~~~~~~~
 
+Let's stop this vagrant instance we created in our ~/DevEnvs/tmp folder.
 
+Run this command:
+
+~~~~~~~~
+vagrant halt
+~~~~~~~~
+
+We can start the box back up again any time by running `vagrant up` from inside this folder.
+
+Let's now destroy the vagrant instance.
+
+To learn about this use the following command:
+
+~~~~~~~~
+vagrant destroy --help
+~~~~~~~~
+
+You'll see output like this:
+
+~~~~~~~~
+Usage: vagrant destroy [vm-name]
+
+    -f, --force                      Destroy without confirmation.
+    -h, --help                       Print this help
+~~~~~~~~
 
 
 ## Alternatives to vagrant/virtualbox
@@ -209,4 +235,4 @@ You can have a development environment that you access through the web using nit
 
 This is great if you're on a machine that runs an operating system like ChromeOS, or it's something you can't install software on for whatever reason.
 
-You can set up one "box" for free, and beyond that it costs money.
+You can set up one box on nitrous.io for free, and beyond that it costs money.

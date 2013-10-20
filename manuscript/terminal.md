@@ -4,7 +4,15 @@ Get excited, it's time to use the terminal.
 
 The most important thing to keep in mind: don't be afraid of the terminal.
 
-You can only break your computer using the terminal if you do really weird stuff. I mean, you mostly have to go out of your way to break your computer. Most commands are completely harmless. There are a few ways you can crunch your machine, so it's worthwhile to be skeptical about new commands and research what they do before you use them.
+You can only break your computer using the terminal if you do really weird stuff. I mean, you mostly have to go out of your way to break your computer. There are a few ways you can crunch your machine, so it's worthwhile to be skeptical about new commands and research what they do before you use them.
+
+Each command that you run on the terminal will use a pattern similar to this:
+
+~~~~~~~~
+name-of-command --options input-file-or-text output
+~~~~~~~~
+
+The `name-of-command` is the actual command. Options are often preceeded by two dashes, or they can likely be shorted to one dash and the first letter or an abbreviation. Then, there will occasionally be some kind of input text or file that the command is acting on, or changing. Similarly, you might specify a filename for the output of the command. You'll see that many of the commands below are more simple.
 
 ## Mac / Linux
 
@@ -166,9 +174,15 @@ mkdir new-folder && cd new-folder
 
 Aliases allow you to create abbreviated commands that alias long, complex, or regularly used commands.
 
-Here are some examples:
+Here is an example:
 
+~~~~~~~~
+alias l="ls -al"
+~~~~~~~~
 
+The above aliases the `ls -al` command to a shortened `l`.
+
+To create an alias you will op
 
 
 ## Windows
