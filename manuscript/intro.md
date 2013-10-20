@@ -4,7 +4,7 @@
 
 Thank you for buying this book! It is independently published, and each sale makes a huge difference.
 
-This book is a work in progress, and you'll get all updates for free.
+This book is a work in progress, and you'll get all updates for free. If you haven't already, consider signing up for the newsletter at [superbigtree.com](http://superbigtree.com) to stay updated about new books and related projects.
 
 ## Why write this?
 When I first started programming, learning the languages was the easy part compared to figuring out text editors, version control, testing, and all the different tools that come along with writing code for a real project.
