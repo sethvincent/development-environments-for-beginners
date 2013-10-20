@@ -2,7 +2,7 @@
 
 ### Wait, what is this development environment thing?
 
-Think of it like your workshop.
+Think of it like a workshop.
 
 Except your workshop is pretty much all inside your computer.
 
@@ -16,5 +16,3 @@ A development environment is also considered a stage in the workflow, or release
 - production
 
 There can be other stages, too, depending on the complexity of the project and the requirements you must meet for quality assurance and user testing.
-
-## 
