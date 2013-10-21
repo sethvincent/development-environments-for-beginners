@@ -9,12 +9,12 @@ Thanks for checking out the book! Please consider supporting the work by purchas
 
 Thank you for buying this book! It is independently published, and each sale makes a huge difference.
 
-This book is a work in progress, and you'll get all updates for free.
+This book is a work in progress, and you'll get all updates for free. If you haven't already, consider signing up for the newsletter at [superbigtree.com](http://superbigtree.com) to stay updated about new books and related projects.
 
 ## Why write this?
 When I first started programming, learning the languages was the easy part compared to figuring out text editors, version control, testing, and all the different tools that come along with writing code for a real project.
 
-My goal is for this book to help flatten the learning curve a little, so that going from hello world to a working on a complex application isn't quite as difficult for you as it was for me when I started out.
+My goal for this book is to help flatten the learning curve a little, so that going from hello world to a complex application isn't quite as difficult for you as it was for me when I started out.
 
 ## About the book
 If you're not sure how to choose between programming in ruby, python, or javascript, this guide will get you familiar with the tools, syntax, and workflow associated with each language.
@@ -40,7 +40,7 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 
 ### Wait, what is this development environment thing?
 
-Think of it like your workshop.
+Think of it like a workshop.
 
 Except your workshop is pretty much all inside your computer.
 
@@ -55,8 +55,6 @@ A development environment is also considered a stage in the workflow, or release
 
 There can be other stages, too, depending on the complexity of the project and the requirements you must meet for quality assurance and user testing.
 
-## 
-
 
 # Terminal: conquer the command line
 
@@ -64,7 +62,15 @@ Get excited, it's time to use the terminal.
 
 The most important thing to keep in mind: don't be afraid of the terminal.
 
-You can only break your computer using the terminal if you do really weird stuff. I mean, you mostly have to go out of your way to break your computer. Most commands are completely harmless. There are a few ways you can crunch your machine, so it's worthwhile to be skeptical about new commands and research what they do before you use them.
+You can only break your computer using the terminal if you do really weird stuff. I mean, you mostly have to go out of your way to break your computer. There are a few ways you can crunch your machine, so it's worthwhile to be skeptical about new commands and research what they do before you use them.
+
+Each command that you run on the terminal will use a pattern similar to this:
+
+```
+name-of-command --options input-file-or-text output
+```
+
+The `name-of-command` is the actual command. Options are often preceeded by two dashes, or they can likely be shorted to one dash and the first letter or an abbreviation. Then, there will occasionally be some kind of input text or file that the command is acting on, or changing. Similarly, you might specify a filename for the output of the command. You'll see that many of the commands below are more simple.
 
 ## Mac / Linux
 
@@ -222,11 +228,110 @@ mkdir new-folder && cd new-folder
 ```
 
 
-## Aliases, scripting, and environment variables
+## Aliases and environment variables
+
+
+### Aliases
 
 Aliases allow you to create abbreviated commands that alias long, complex, or regularly used commands.
 
-Here are some examples:
+Here is an example:
+
+```
+alias l="ls -al"
+```
+
+The above aliases the `ls -al` command to a shortened `l`.
+
+To create an alias you will open the .bashrc file in your home folder.
+
+Open the .bashrc file with nano:
+
+```
+nano ~/.bashrc
+```
+
+Add the following alias to the bottom of the file:
+
+```
+alias pizza="echo 'pizza is awesome!'"
+```
+
+Save the file by pressing `control + O`.
+
+Exit nano by pressing `control + x`.
+
+### Environment variables
+
+Environment variables represent values that are useful across for processes running on your computer.
+
+#### Reading an environment variable:
+
+In the terminal, run the following:
+
+```
+echo $HOME
+```
+
+If you're logged into a vagrant machine, you'll see output like this:
+
+```
+/home/vagrant
+```
+
+This is your home folder, also known as your user folder.
+
+On a Mac you'll see output like this:
+
+```
+/Users/your-user-name
+```
+
+#### Setting an environment variable
+
+In the terminal, set an environment variable like this:
+
+```
+PIZZA="ooooooh, pizza"
+```
+
+Now, you can read the variable the same as we did before:
+
+```
+echo $PIZZA
+```
+
+If you close or reset your terminal session, you'll lose this temporary variable. To save an environment variable so it can be accessed in all your sessions, we'll place the definition of the variable in the ~/.bashrc file.
+
+Open the ~/.bashrc file:
+
+```
+nano ~/.bashrc
+```
+
+Add the following to the bottom of the ~/.bashrc file:
+
+```
+export PIZZA="ooooooh, pizza"
+```
+
+Source the .bashrc file:
+
+```
+source ~/.bashrc
+```
+
+Now, you can close the terminal window, open a new one, and run the following command:
+
+```
+echo $PIZZA
+```
+
+And you'll still see the following output:
+
+```
+ooooooh, pizza
+```
 
 
 
@@ -305,7 +410,7 @@ docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup
 
 ## Set up your first vagrant machine
 
-Here's the basics of using vagrant:
+Let's get started with the basics of using vagrant.
 
 Open the terminal on your computer and run this command:
 
@@ -317,9 +422,10 @@ Running the command by itself will show you all the possible sub-commands and op
 
 Let's try this thing out.
 
-Navigate to your DevEnvs folder:
+Create and navigate to your DevEnvs folder:
 
 ```
+mkdir ~/DevEnvs
 cd ~/DevEnvs
 ```
 
@@ -432,7 +538,32 @@ To see which boxes you've currently got downloaded run this command:
 vagrant box list
 ```
 
+Let's stop this vagrant instance we created in our ~/DevEnvs/tmp folder.
 
+Run this command:
+
+```
+vagrant halt
+```
+
+We can start the box back up again any time by running `vagrant up` from inside this folder.
+
+Let's now destroy the vagrant instance.
+
+To learn about this use the following command:
+
+```
+vagrant destroy --help
+```
+
+You'll see output like this:
+
+```
+Usage: vagrant destroy [vm-name]
+
+    -f, --force                      Destroy without confirmation.
+    -h, --help                       Print this help
+```
 
 
 ## Alternatives to vagrant/virtualbox
@@ -451,7 +582,7 @@ You can have a development environment that you access through the web using nit
 
 This is great if you're on a machine that runs an operating system like ChromeOS, or it's something you can't install software on for whatever reason.
 
-You can set up one "box" for free, and beyond that it costs money.
+You can set up one box on nitrous.io for free, and beyond that it costs money.
 
 
 # Text editors
