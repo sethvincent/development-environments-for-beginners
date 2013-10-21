@@ -170,7 +170,10 @@ mkdir new-folder && cd new-folder
 ~~~~~~~~
 
 
-## Aliases, scripting, and environment variables
+## Aliases and environment variables
+
+
+### Aliases
 
 Aliases allow you to create abbreviated commands that alias long, complex, or regularly used commands.
 
@@ -182,7 +185,97 @@ alias l="ls -al"
 
 The above aliases the `ls -al` command to a shortened `l`.
 
-To create an alias you will op
+To create an alias you will open the .bashrc file in your home folder.
+
+Open the .bashrc file with nano:
+
+~~~~~~~~
+nano ~/.bashrc
+~~~~~~~~
+
+Add the following alias to the bottom of the file:
+
+~~~~~~~~
+alias pizza="echo 'pizza is awesome!'"
+~~~~~~~~
+
+Save the file by pressing `control + O`.
+
+Exit nano by pressing `control + x`.
+
+### Environment variables
+
+Environment variables represent values that are useful across for processes running on your computer.
+
+#### Reading an environment variable:
+
+In the terminal, run the following:
+
+~~~~~~~~
+echo $HOME
+~~~~~~~~
+
+If you're logged into a vagrant machine, you'll see output like this:
+
+~~~~~~~~
+/home/vagrant
+~~~~~~~~
+
+This is your home folder, also known as your user folder.
+
+On a Mac you'll see output like this:
+
+~~~~~~~~
+/Users/your-user-name
+~~~~~~~~
+
+#### Setting an environment variable
+
+In the terminal, set an environment variable like this:
+
+~~~~~~~~
+PIZZA="ooooooh, pizza"
+~~~~~~~~
+
+Now, you can read the variable the same as we did before:
+
+~~~~~~~~
+echo $PIZZA
+~~~~~~~~
+
+If you close or reset your terminal session, you'll lose this temporary variable. To save an environment variable so it can be accessed in all your sessions, we'll place the definition of the variable in the ~/.bashrc file.
+
+Open the ~/.bashrc file:
+
+~~~~~~~~
+nano ~/.bashrc
+~~~~~~~~
+
+Add the following to the bottom of the ~/.bashrc file:
+
+~~~~~~~~
+export PIZZA="ooooooh, pizza"
+~~~~~~~~
+
+Source the .bashrc file:
+
+~~~~~~~~
+source ~/.bashrc
+~~~~~~~~
+
+Now, you can close the terminal window, open a new one, and run the following command:
+
+~~~~~~~~
+echo $PIZZA
+~~~~~~~~
+
+And you'll still see the following output:
+
+~~~~~~~~
+ooooooh, pizza
+~~~~~~~~
+
+
 
 
 ## Windows
