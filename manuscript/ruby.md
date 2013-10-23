@@ -15,25 +15,184 @@ docs: [http://www.ruby-lang.org/en/documentation](http://www.ruby-lang.org/en/do
 Let's create a vagrant machine in your ruby DevEnvs folder:
 
 ~~~~~~~~
+mkdir ~/DevEnvs/ruby
 cd ~/DevEnvs/ruby
 ~~~~~~~~
 
+Create a new vagrant machine using the Ubuntu Precise box:
+
 ~~~~~~~~
-vagrant init
+vagrant init precise32
+~~~~~~~~
+
+Now start the vagrant machine:
+
+~~~~~~~~
+vagrant up
+~~~~~~~~
+
+If all goes well that'll result in output similar to the following:
+
+~~~~~~~~
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Fixed port collision for 22 => 2222. Now on port 2200.
+[default] Creating shared folders metadata...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 => 2200 (adapter 1)
+[default] Booting VM...
+[default] Waiting for VM to boot. This can take a few minutes.
+[default] VM booted and ready for use!
+[default] Configuring and enabling network interfaces...
+[default] Mounting shared folders...
+[default] -- /vagrant
+~~~~~~~~
+
+Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
+
+Use this command:
+
+~~~~~~~~
+vagrant ssh
+~~~~~~~~
+
+You should see output similar to the following:
+
+~~~~~~~~
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
+
+ * Documentation:  https://help.ubuntu.com/
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+~~~~~~~~
+
+We'll now install ruby and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
+
+## Install git & dependencies
+
+To get started, we'll need to install git and some necessary system dependencies while logged in to the virtual machine:
+
+~~~~~~~~
+sudo apt-get install git gcc make zlib1g zlib1g-dev
 ~~~~~~~~
 
 ## Installing ruby
-rbenv / ruby-build / rbenv-vars
-
 
 We'll be using rbenv to install ruby: [https://github.com/sstephenson/rbenv](https://github.com/sstephenson/rbenv).
 
-We'll also need ruby-build.
+We'll also need ruby-build: [https://github.com/sstephenson/ruby-build](https://github.com/sstephenson/ruby-build).
+
+### Install rbenv into `~/.rbenv`.
+
+~~~~~~~~
+git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
+~~~~~~~~
+
+### Make sure `~/.rbenv/bin` is in your `$PATH` so you can use the `rbenv` command-line utility.
+
+~~~~~~~~
+echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+~~~~~~~~
+
+### To use shims and autocompletion with rbenv, add `rbenv init` to your ~/.bashrc file.
+
+~~~~~~~~
+echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+~~~~~~~~
+
+### Source the ~/.bashrc file so that the `rbenv` command is available.
+
+~~~~~~~~
+source ~/.bashrc
+~~~~~~~~
+
+### Check if rbenv was set up by running the `rbenv` command:
+
+~~~~~~~~
+rbenv
+~~~~~~~~
+
+If `rbenv` was successfully installed, you'll see the following help output:
+
+~~~~~~~~
+Usage: rbenv <command> [<args>]
+
+Some useful rbenv commands are:
+   commands    List all available rbenv commands
+   local       Set or show the local application-specific Ruby version
+   global      Set or show the global Ruby version
+   shell       Set or show the shell-specific Ruby version
+   rehash      Rehash rbenv shims (run this after installing executables)
+   version     Show the current Ruby version and its origin
+   versions    List all Ruby versions available to rbenv
+   which       Display the full path to an executable
+   whence      List all Ruby versions that contain the given executable
+
+See `rbenv help <command>' for information on a specific command.
+For full documentation, see: https://github.com/sstephenson/rbenv#readme
+~~~~~~~~
+
+### Install ruby-build
+
+In order to install different versions of ruby using rbenv, we'll install the ruby-build tool.
+
+~~~~~~~~
+git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
+~~~~~~~~
+
+Now we can install a new version of ruby using the `ruby install` command.
+
+To see a list of the names of all possible ruby versions and implementations you can install, run this command:
+
+~~~~~~~~
+rbenv install -l
+~~~~~~~~
+
+Let's install the latest version of ruby 2.0, which as of this writing is 2.0.0-p247 using this command:
+
+~~~~~~~~
+rbenv install 2.0.0-p247
+~~~~~~~~
+
+This will download and install the latest ruby. It'll take a while, so take a break for a few minutes.
+
+If you want to set this new ruby version as the default, which I recommend doing for now, run this command:
+
+~~~~~~~~
+rbenv global 2.0.0-p247
+~~~~~~~~
+
+This sets ruby 2.0.0-p247 as the global ruby, so it'll always be the version used with your projects in this vagrant machine.
+
+
+### Install rbenv-gem-rehash
+
+By default you would need to run `rbenv rehash` every time you install new gems to set up rbenv shims for each of the bin commands associated with the new gems. This rbenv plugin makes it so you don't have to run `rbenv rehash` each time.
+
+~~~~~~~~
+git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+~~~~~~~~
 
 ## Package manager: rubygems
 
-### Use bundler
-http://bundler.io/
+To install ruby packages, you'll use the `gem` command.
+
+For example, basic `gem` command usage looks like this:
+
+~~~~~~~~
+gem install some-package-name
+~~~~~~~~
+
+As an example, we'll install the bundler gem, which we'll put to use later:
+
+~~~~~~~~
+gem install bundler
+~~~~~~~~
 
 ## Automating repetitive tasks
 
