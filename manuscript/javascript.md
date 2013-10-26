@@ -39,12 +39,73 @@ The MDN docs are great. There are bits that are specific to Mozilla, but the maj
 Let's create a vagrant machine in your javascript DevEnvs folder:
 
 ~~~~~~~~
+mkdir ~/DevEnvs/javascript
 cd ~/DevEnvs/javascript
 ~~~~~~~~
 
+Create a new vagrant machine using the Ubuntu Precise box:
+
 ~~~~~~~~
-vagrant init
+vagrant init precise32
 ~~~~~~~~
+
+Now start the vagrant machine:
+
+~~~~~~~~
+vagrant up
+~~~~~~~~
+
+If all goes well that'll result in output similar to the following:
+
+~~~~~~~~
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Fixed port collision for 22 => 2222. Now on port 2200.
+[default] Creating shared folders metadata...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 => 2200 (adapter 1)
+[default] Booting VM...
+[default] Waiting for VM to boot. This can take a few minutes.
+[default] VM booted and ready for use!
+[default] Configuring and enabling network interfaces...
+[default] Mounting shared folders...
+[default] -- /vagrant
+~~~~~~~~
+
+Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
+
+Use this command:
+
+~~~~~~~~
+vagrant ssh
+~~~~~~~~
+
+You should see output similar to the following:
+
+~~~~~~~~
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
+
+ * Documentation:  https://help.ubuntu.com/
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+~~~~~~~~
+
+We'll now install ruby and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
+
+## Install git & dependencies
+
+To get started, we'll need to install git and some necessary system dependencies while logged in to the virtual machine:
+
+~~~~~~~~
+sudo apt-get install git gcc make
+~~~~~~~~
+
+
 
 ## Installing node.js
 
@@ -54,10 +115,31 @@ If you're on Windows, install node.js using the .msi package on the nodejs.org d
 
 **nvm:** [https://github.com/creationix/nvm](https://github.com/creationix/nvm).
 
-**Javascript in the browser:**
+We have git installed, so we can clone nvm to our home folder:
+
+~~~~~~~~
+git clone https://github.com/creationix/nvm.git ~/.nvm
+~~~~~~~~
+
+Source nvm to make it the `nvm` command available in the terminal:
+
+~~~~~~~~
+source ~/.nvm/nvm.sh
+~~~~~~~~
+
+To ensure that `nvm` is available at all times in the terminal, add the above line to your ~/.bashrc file:
+
+~~~~~~~~
+nano ~/.bashrc
+~~~~~~~~
+
+Add `source ~/.nvm/nvm.sh` to the ~/.bashrc file.
+
+## Javascript in the browser
 
 You don't need to install anything for javascript in the browser. The browser takes care of that for you. I recommend using Chrome for the examples in this book. Firefox is also excellent, and if you choose to use it, there will be just slight differences between the developer tools compared to Chrome.
 
+Download Chrome here: [https://www.google.com/intl/en/chrome/browser/](https://www.google.com/intl/en/chrome/browser/)
 
 
 ## Package manager: npm
