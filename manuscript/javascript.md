@@ -109,7 +109,7 @@ sudo apt-get install git gcc make
 
 ## Installing node.js
 
-I recommend using a tool called `nvm` for installing node.js if you're on mac or linux.
+I recommend using a tool called `nvm` for installing node.js if you're on mac or linux. It's very similar to the rbenv tool we used in the last chapter for installing ruby.
 
 If you're on Windows, install node.js using the .msi package on the nodejs.org downloads page: [http://nodejs.org/downloads](http://nodejs.org/downloads).
 
@@ -134,6 +134,76 @@ nano ~/.bashrc
 ~~~~~~~~
 
 Add `source ~/.nvm/nvm.sh` to the ~/.bashrc file.
+
+To get the `nvm` command after adding that line to your ~/.bashrc file, source your ~/.bashrc file:
+
+~~~~~~~~
+source ~/.bashrc
+~~~~~~~~
+
+To ensure `nvm` is working, run the command without options:
+
+~~~~~~~~
+nvm
+~~~~~~~~
+
+You should see output like this:
+
+~~~~~~~~
+Node Version Manager
+
+Usage:
+    nvm help                    Show this message
+    nvm install [-s] <version>  Download and install a <version>
+    nvm uninstall <version>     Uninstall a version
+    nvm use <version>           Modify PATH to use <version>
+    nvm run <version> [<args>]  Run <version> with <args> as arguments
+    nvm ls                      List installed versions
+    nvm ls <version>            List versions matching a given description
+    nvm ls-remote               List remote versions available for install
+    nvm deactivate              Undo effects of NVM on current shell
+    nvm alias [<pattern>]       Show all aliases beginning with <pattern>
+    nvm alias <name> <version>  Set an alias named <name> pointing to <version>
+    nvm unalias <name>          Deletes the alias named <name>
+    nvm copy-packages <version> Install global NPM packages contained in <version> to current version
+
+Example:
+    nvm install v0.4.12         Install a specific version number
+    nvm use 0.2                 Use the latest available 0.2.x release
+    nvm run 0.4.12 myApp.js     Run myApp.js using node v0.4.12
+    nvm alias default 0.4       Auto use the latest installed v0.4.x version
+~~~~~~~~
+
+The above help text gives a good overview of usage of the `nvm` command.
+
+
+### Now we install node.js
+
+Install the latest version of node v0.10.x:
+
+~~~~~~~~
+nvm install 0.10
+~~~~~~~~
+
+You'll see output like this:
+
+~~~~~~~~
+######################################################################## 100.0%
+Now using node v0.10.21
+~~~~~~~~
+
+We can switch to that new version using this command:
+
+~~~~~~~~
+nvm use 0.10.21
+~~~~~~~~
+
+And to set that version as the default, set the default alias:
+
+~~~~~~~~
+nvm alias default 0.10.21
+~~~~~~~~
+
 
 ## Javascript in the browser
 
