@@ -1,6 +1,6 @@
 # Development environments for beginners
 
-![http://superbigtree.com/img/dev-envs.cover.300x388.jpg](http://superbigtree.com/img/dev-envs.cover.300x388.jpg)
+[![http://superbigtree.com/img/dev-envs.cover.300x388.jpg](http://superbigtree.com/img/dev-envs.cover.300x388.jpg)](superbigtree.com/books/dev-envs)
 
 Thanks for checking out the book! Please consider supporting the work by purchasing the book: [superbigtree.com/books/dev-envs](http://superbigtree.com/books/dev-envs).
 
