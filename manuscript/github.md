@@ -40,7 +40,7 @@ Visit that github project, make sure you're logged in, and click Fork in the upp
 
 Fork gh-pages-template to your personal account.
 
-Rename the repository from gh-pages-template to whatever you want by clicking on Settings on the right side of your fork of the repository, and changing the name there. GitHub will warn
+Rename the repository from gh-pages-template to whatever you want by clicking on Settings on the right side of your fork of the repository, and changing the name there.
 
 That's it! You now have a website hosted through GitHub Pages.
 

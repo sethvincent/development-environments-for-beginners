@@ -1,5 +1,9 @@
 # Changelog
 
+## v0.2.0 - October 26, 2013
+- Expand terminal and vagrant sections
+- Add vagrant instructions to ruby, javascript, and python chapters
+
 ## v0.1.4 - September 30, 2013
 - Add ruby/sinatra extended example
 - Add python/flask extended example
