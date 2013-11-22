@@ -28,3 +28,8 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 - testing
 - language basics
 - intro to web frameworks
+
+## Additional books
+This book is meant as a primer for books that explore ruby, javascript, and python in more depth.
+
+You may be interested in the Learn.js series of books, that explore creating javascript projects using node.js and browserify. Learn more at http://learnjs.io.
