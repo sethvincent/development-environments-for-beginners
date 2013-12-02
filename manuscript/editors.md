@@ -128,7 +128,7 @@ This is a Python console that uses Sublime's embedded version of Python intended
 You can use TextMate snippets, color schemes, `.tmLanguage` files, and `.tmPreferences` files with Sublime 2.
 
 
-### Installing Sublime packages
+### Installing Sublime packages with Package Control
 
 You can easily install third-party packages in Sublime to add new functionality by using a package manager called Package Control. This is useful for adding new color schemes, language syntax highlighters, 
 
@@ -136,10 +136,16 @@ The Package Control website: [sublime.wbond.net](https://sublime.wbond.net)
 
 #### Installing Package Control
 
+Install Package control by copying and pasting the following code into the Sublime console (press ``Control + ``` to open the console).
 
 ```
 import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
 ```
+
+Next you'll need to restart Sublime.
+
+#### Finding and installing Packages
+
 
 ### Resources
 
