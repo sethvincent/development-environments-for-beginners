@@ -1,8 +1,7 @@
 var ReadmeBuilder = require('manuscript-builder');
 
 var readme = new ReadmeBuilder({
-  target: '/readme.md',
-  include: ['preface.md'],
+  target: '/book.md',
   bookDir: '/manuscript/',
   tableOfContents: '/manuscript/Book.txt'
 });

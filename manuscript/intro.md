@@ -28,3 +28,5 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 - testing
 - language basics
 - intro to web frameworks
+
+## This book is open source

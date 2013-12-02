@@ -6,7 +6,7 @@ Think of it like a workshop.
 
 Except your workshop is pretty much all inside your computer.
 
-A development environment is typically a set of tools isntalled on your computer that consist of everything you need to work on a project.
+A development environment is a set of tools installed on your computer that consist of everything you need to work on a project.
 
 A development environment is also considered a stage in the workflow, or release cycle, of a project.
 
