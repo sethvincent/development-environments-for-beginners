@@ -30,7 +30,7 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 - intro to web frameworks
 
 ## This book is open source
-Contribute errata or content requests at the GitHub repository for this book: [github.com/sethvincent/dev-env-book](https://github.com/sethvincent/dev-env-book).
+Contribute errata or content requests at the GitHub repository for this book: [github.com/sethvincent/dev-envs-book](https://github.com/sethvincent/dev-envs-book).
 
 ## Additional books
 This book is meant as a primer for books that explore ruby, javascript, and python in more depth.
