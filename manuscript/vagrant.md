@@ -50,9 +50,7 @@ Installing vagrant is pretty easy. Just grab the downloader for your operating s
 
 **download vagrant:**
 
-[http://downloads.vagrantup.com](http://downloads.vagrantup.com)
-
-You'll see a list of version numbers on that first page – just click the very top one to get the latest release of vagrant.
+[http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)
 
 **installation instructions:**
 
