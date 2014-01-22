@@ -217,7 +217,7 @@ When you install node.js, you get npm.
 
 **npm:** [http://npmjs.org](http://npmjs.org)
 
-You may also want to use bower or component, two package managers that specifically target client-side code. Remember that javascript packages distributed are not limited to node.js, and can also be used in the browser in many cases.
+You may also want to use [bower](http://bower.io/) or [component](http://component.io), two package managers that specifically target client-side code. Remember that javascript packages distributed via npm are not limited to node.js, and can also be used in the browser in many cases through the use of module bundlers like [browserify](http://browserify.org) and [webpack](http://webpack.github.io/).
 
 ## Automating repetitive tasks
 
