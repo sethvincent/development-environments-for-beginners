@@ -16,6 +16,14 @@ http://git-scm.com/
 ## Install
 download / install: http://git-scm.com/downloads
 
+If you are using a Mac, you can install using [homebrew](http://brew.sh/):
+
+```
+brew install git
+```
+
+> For more information about homebrew, check out the project's homepage: [brew.sh](http://brew.sh/).
+
 ## Documentation
 docs: http://git-scm.com/documentation
 
