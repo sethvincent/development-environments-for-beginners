@@ -24,6 +24,14 @@ brew install git
 
 > For more information about homebrew, check out the project's homepage: [brew.sh](http://brew.sh/).
 
+On Debian/Ubuntu, install using apt-get:
+
+```
+apt-get install git
+```
+
+For Windows machines, download git from the git website: [git-scm.com/downloads](http://git-scm.com/downloads)
+
 ## Documentation
 docs: http://git-scm.com/documentation
 
