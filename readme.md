@@ -11,3 +11,5 @@ You can buy it directly from me here: [superbigtree.com/books/dev-envs](http://s
 Or you can purchase it through leanpub: [leanpub.com/dev-envs](https://leanpub.com/dev-envs)
 
 You can also tip me via GitTip: [gittip.com/sethvincent/](https://www.gittip.com/sethvincent/)
+
+You can view the in-progress book in book.md or the chapters folder. If you like it, consider buying it to support the work!
