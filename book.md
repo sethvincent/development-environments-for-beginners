@@ -3570,7 +3570,7 @@ There are many resources that can help you along the way.
 
 # Changelog
 
-## v0.3.0
+## v0.3.0 - Feruary 3, 2014
 - add sublime text editor tips and small typo edits/revisions
 - add info about package control to sublime section
 - fixes from [suisea](https://github.com/suisea)
