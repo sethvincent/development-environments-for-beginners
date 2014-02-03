@@ -1,0 +1,14 @@
+01-intro.md
+02-whatisdevenv.md
+03-terminal.md
+04-vagrant.md
+05-editors.md
+06-git.md
+07-github.md
+08-setup.md
+09-ruby.md
+10-javascript.md
+11-python.md
+12-recap.md
+x01-next.md
+x02-changelog.md
