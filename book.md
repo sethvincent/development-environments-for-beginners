@@ -30,6 +30,13 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 - intro to web frameworks
 
 ## This book is open source
+Contribute errata or content requests at the GitHub repository for this book: [github.com/sethvincent/dev-envs-book](https://github.com/sethvincent/dev-envs-book).
+
+## Additional books
+This book is meant as a primer for books that explore ruby, javascript, and python in more depth.
+
+You may be interested in the Learn.js series of books, that explore creating javascript projects using node.js and browserify. Learn more at [learnjs.io](http://learnjs.io).
+
 
 
 # What is a development environment?
@@ -56,7 +63,7 @@ There can be other stages, too, depending on the complexity of the project and t
 
 Get excited, it's time to use the terminal.
 
-The most important thing to keep in mind: don't be afraid of the terminal.
+The most important thing to keep in mind: **don't be afraid of the terminal.**
 
 You can only break your computer using the terminal if you do really weird stuff. I mean, you mostly have to go out of your way to break your computer. There are a few ways you can crunch your machine, so it's worthwhile to be skeptical about new commands and research what they do before you use them.
 
@@ -341,6 +348,7 @@ This gives you a linux-like terminal to use.
 > _This section of the book is still a work in progress._
 
 
+
 # Vagrant: install an operating system inside of your operating system!
 
 Vagrant is a tool for running "virtual machines" on a computer. Let's say your computer is a Mac. With vagrant, you can run a virtual machine with a different operating system on your computer. 
@@ -393,9 +401,7 @@ Installing vagrant is pretty easy. Just grab the downloader for your operating s
 
 **download vagrant:**
 
-[http://downloads.vagrantup.com](http://downloads.vagrantup.com)
-
-You'll see a list of version numbers on that first page – just click the very top one to get the latest release of vagrant.
+[http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)
 
 **installation instructions:**
 
@@ -581,6 +587,7 @@ This is great if you're on a machine that runs an operating system like ChromeOS
 You can set up one box on nitrous.io for free, and beyond that it costs money.
 
 
+
 # Text editors
 
 ## Sublime Text Editor
@@ -711,7 +718,7 @@ This is a Python console that uses Sublime's embedded version of Python intended
 You can use TextMate snippets, color schemes, `.tmLanguage` files, and `.tmPreferences` files with Sublime 2.
 
 
-### Installing Sublime packages
+### Installing Sublime packages with Package Control
 
 You can easily install third-party packages in Sublime to add new functionality by using a package manager called Package Control. This is useful for adding new color schemes, language syntax highlighters, 
 
@@ -719,10 +726,16 @@ The Package Control website: [sublime.wbond.net](https://sublime.wbond.net)
 
 #### Installing Package Control
 
+Install Package control by copying and pasting the following code into the Sublime console (press ``Control + ``` to open the console).
 
 ```
 import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
 ```
+
+Next you'll need to restart Sublime.
+
+#### Finding and installing Packages
+
 
 ### Resources
 
@@ -771,11 +784,11 @@ control+W
 ```
 
 
-# Git: it's like File>Save only collaborative
+# Git: it's like File > Save, only collaborative
 
-Seriously. You know how important it is to save your work. We've all been beaten into a sad sack of anger and dissapointment when we've lost our work.
+Seriously. You know how important it is to save your work. We've all been beaten into a sad sack of anger and disappointment when we've lost our work.
 
-Consider git to be the equivalent of File>Save that keeps track of every version of your work, and allows you to share those versions with other people and collaborate in a way that won't have you overwriting each other's changes.
+Consider git to be the equivalent of File > Save that keeps track of every version of your work, and allows you to share those versions with other people and collaborate in a way that won't have you overwriting each other's changes.
 
 Git is version control software.
 
@@ -788,6 +801,22 @@ http://git-scm.com/
 
 ## Install
 download / install: http://git-scm.com/downloads
+
+If you are using a Mac, you can install using [homebrew](http://brew.sh/):
+
+```
+brew install git
+```
+
+> For more information about homebrew, check out the project's homepage: [brew.sh](http://brew.sh/).
+
+On Debian/Ubuntu, install using apt-get:
+
+```
+apt-get install git
+```
+
+For Windows machines, download git from the git website: [git-scm.com/downloads](http://git-scm.com/downloads)
 
 ## Documentation
 docs: http://git-scm.com/documentation
@@ -816,6 +845,7 @@ git add .
 When you add files to a git repository they are "staged" and ready to be committed.
 
 Remove files:
+
 ```
 git rm name-of-file
 
@@ -2066,7 +2096,7 @@ When you install node.js, you get npm.
 
 **npm:** [http://npmjs.org](http://npmjs.org)
 
-You may also want to use bower or component, two package managers that specifically target client-side code. Remember that javascript packages distributed are not limited to node.js, and can also be used in the browser in many cases.
+You may also want to use [bower](http://bower.io/) or [component](http://component.io), two package managers that specifically target client-side code. Remember that javascript packages distributed via npm are not limited to node.js, and can also be used in the browser in many cases through the use of module bundlers like [browserify](http://browserify.org) and [webpack](http://webpack.github.io/).
 
 ## Automating repetitive tasks
 
@@ -2775,6 +2805,7 @@ nodemon -e js,css,html,ejs
 Learn more about express at the express website: [http://expressjs.com](http://expressjs.com/)
 
 ## Resources
+
 
 
 # Python
@@ -3538,6 +3569,12 @@ There are many resources that can help you along the way.
 
 
 # Changelog
+
+## v0.3.0
+- add sublime text editor tips and small typo edits/revisions
+- add info about package control to sublime section
+- fixes from [suisea](https://github.com/suisea)
+- update git and javascript chapters
 
 ## v0.2.0 - October 26, 2013
 - Expand terminal and vagrant sections

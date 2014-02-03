@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.3.0
+- add sublime text editor tips and small typo edits/revisions
+- add info about package control to sublime section
+- fixes from [suisea](https://github.com/suisea)
+- update git and javascript chapters
+
 ## v0.2.0 - October 26, 2013
 - Expand terminal and vagrant sections
 - Add vagrant instructions to ruby, javascript, and python chapters

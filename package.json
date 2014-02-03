@@ -6,9 +6,14 @@
   "dependencies": {
     "manuscript-builder": "~0.0.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "manuscript-builder": "0.0.3",
+    "ebook-convert": "0.0.2"
+  },
   "scripts": {
-    "readme": "node index.js"
+    "leanpub": "./bin/leanpub",
+    "compile": "./bin/compile",
+    "dist": "./bin/dist"
   },
   "author": "",
   "license": "MIT"
