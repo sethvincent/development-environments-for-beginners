@@ -71,7 +71,9 @@ Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
 ~~~~~~~~
 
-We'll now install ruby and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
+We'll now install ruby and related tools, and get started building applications. 
+
+**Complete all the following instructions while logged in to the vagrant machine.**
 
 ## Install git & dependencies
 
