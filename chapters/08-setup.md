@@ -6,31 +6,39 @@ To get ready for working through the upcoming examples, we'll set up a few thing
 
 ### vagrant
 
+Running `vagrant --help` should return the help text of vagrant.
+
 ### git
 
+Running the command `git --help` should return the help text of git.
+
 ### sublime
+
+Open up the Sublime text editor to ensure that it is installed properly.
 
 ## Create a folder for working through examples
 
 Let's make a folder named dev-envs in your home directory.
 
-On Macs the home directory is:
+### On Macs the home directory is:
 
 ~~~~~~~~
 /Users/YOUR-USERNAME
 ~~~~~~~~
 
-On Windows:
+### On Windows:
 
 ~~~~~~~~
 %userprofile%
 ~~~~~~~~
 
-On Linux:
+### On Linux:
 
 ~~~~~~~~
 /home/YOUR-USERNAME
 ~~~~~~~~
+
+### Shortcut
 
 On Mac, Linux, and recent versions of Windows (in the Powershell terminal / in Windows 7+), there's a useful alias for a user's home directory, the tilde:
 
