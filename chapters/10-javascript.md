@@ -955,5 +955,3 @@ nodemon -e js,css,html,ejs
 ### Express resources
 
 Learn more about express at the express website: [http://expressjs.com](http://expressjs.com/)
-
-## Resources
