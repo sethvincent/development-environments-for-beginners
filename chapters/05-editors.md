@@ -15,11 +15,17 @@ This will download a .dmg file. Once the download has completed, double-click th
 
 ### Use Sublime from the command line
 
-In order to use Sublime from the command line, you'll need to create a symbolic link:
+To use Sublime from the command line using Mac or Linux, you'll need to create a symbolic link:
 
 ~~~~~~~~
 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 ~~~~~~~~
+
+If you get an error you may need to create the `bin` folder:
+
+```
+mkdir ~/bin
+```
 
 `ln -s` is a command used for creating symbolic links, which you can think of like aliases.
 
@@ -153,7 +159,9 @@ Next you'll need to restart Sublime.
 Check out the main Sublime website: [sublimetext.com](http://www.sublimetext.com/)
 
 #### Documentation
-Read Sublime 2 documentation: [docs.sublimetext.info/en/sublime-text-2](http://docs.sublimetext.info/en/sublime-text-2)
+Official Sublime documentation: [sublimetext.com/docs/2](http://www.sublimetext.com/docs/2/)
+
+Sublime Text unofficial documentation: [docs.sublimetext.info/en/sublime-text-2](http://docs.sublimetext.info/en/sublime-text-2)
 
 
 ### Alternative text editors:
