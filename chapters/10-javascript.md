@@ -19,6 +19,8 @@ There isn't really a website for the javascript language in the same way ruby an
 
 ## Documentation
 
+One of the best places to start learning Node.js is [nodeschool.io](http://nodeschool.io/). These are a set of interactive workshops you complete using the terminal. Highly recommended.
+
 The node.js API documentation:
 [http://nodejs.org/api/index.html](http://nodejs.org/api/index.html)
 
@@ -955,3 +957,5 @@ nodemon -e js,css,html,ejs
 ### Express resources
 
 Learn more about express at the express website: [http://expressjs.com](http://expressjs.com/)
+
+Try out the ExpressWorks workshop on nodeschool.io: [nodeschool.io/#expressworks](http://nodeschool.io/#expressworks)
