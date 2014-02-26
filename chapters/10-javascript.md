@@ -104,9 +104,8 @@ We'll now install ruby and related tools, and get started building applications.
 To get started, we'll need to install git and some necessary system dependencies while logged in to the virtual machine:
 
 ~~~~~~~~
-sudo apt-get install git gcc make
+sudo apt-get install git gcc make curl
 ~~~~~~~~
-
 
 
 ## Installing node.js
