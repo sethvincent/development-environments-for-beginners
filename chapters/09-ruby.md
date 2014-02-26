@@ -208,11 +208,32 @@ First, install the rake gem:
 gem install rake
 ~~~~~~~~
 
-Next, you'll create a Rakefile in your project.
+Create a Rakefile for your project:
+
+```
+touch Rakefile
+```
+
+Add this simple example to your Rakefile:
+
+```
+task :default => [:start]
+
+task :start do
+  ruby "app.rb"
+end
+```
+
+When you run this command on the terminal:
+
+```
+rake
+```
+
+The start task defined in your Rakefile will be executed.
 
 Learn more about rake by reading the [project documentation](http://rake.rubyforge.org/).
 
-We'll go in-depth with rake in the extended ruby example later in the chapter.
 
 ## Testing: minitest
 https://github.com/seattlerb/minitest

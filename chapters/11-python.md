@@ -109,16 +109,35 @@ For automating tasks in python development, use [fabric](http://fabfile.org).
 
 First, install fabric:
 
-~~~~~~~~
+```
 pip install fabric
-~~~~~~~~
+```
 
-Next, you'll create a fabfile.py in your project.
+Create a fabfile.py in your project directory:
+
+```
+touch fabfile.py
+```
+
+Add this example to your fabfile.py:
+
+```
+from fabric.api import local
+
+def start():
+    local("python app.py")
+```
+
+Run this command:
+
+```
+fab start
+```
+
+The start task defined in your fabfile.py will be executed.
+
 
 Learn more about fabric by reading the [project documentation](http://docs.fabfile.org/en/1.7/).
-
-We'll go in-depth with fabric in the extended python example later in the chapter.
-
 
 
 ## Testing: unittest
