@@ -10,5 +10,4 @@
 10-javascript.md
 11-python.md
 12-recap.md
-x01-next.md
-x02-changelog.md
+changelog.md

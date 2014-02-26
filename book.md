@@ -3670,6 +3670,9 @@ Javascript has npm for installing packages, and you can define dependencies. Rem
 
 Python has a few options for installing packages, but I recommend using pip. With pip you'll define dependencies in a requirements.txt file. It's also common to use pip in combination with a tool like virtualenv, which keeps the dependencies of your application separate from what's installed globally on your operating system.
 
+## Build tools / task automation
+
+We took a quick look at npm scripts and Grunt for JavaScript, rake for Ruby, and fabric for Python, providing a glimpse of the differences in the way the build tools work with each language.
 
 ## Simple web framework examples
 
@@ -3720,20 +3723,40 @@ Python feels different because of it's use of meaningful whitespace and lack of 
 
 These three examples still feel very similar, though. That's no coincidence. Both express and flask wer inspired by sinatra's clean and simple API.
 
+# Continued learning
 
-# What happens next?
+## Other books
 
-Next, you build an app.
+There's a good chance that if you like this book you'll be interested in the other books in the Learn.js series.
 
-Now that you have a development environment set up, the best way to learn a language in depth is to just use it. 
-And most important: define a goal for a simple application you can build. Something small, but that solves a real problem for you. Something that automates a repetitive task you find yourself doing regularly.
+**Check them out!**
 
-You'll need a guide to language syntax and API documentation. And doing some further reading about the language of your choice is a good idea.
+- [Introduction to JavaScript & Node.js](http://learnjs.io/books/learnjs-01)
+- [Making 2d Games with Node.js & Browserify](http://learnjs.io/books/learnjs-02)
+- [Mapping with Leaflet.js](http://learnjs.io/books/learnjs-03)
+- [Theming with Ghost](http://themingwithghost.com)
+- [npm recipes](http://learnjs.io/npm-recipes)
 
-There are many resources that can help you along the way.
+Learn more at [learnjs.io](http://learnjs.io).
+
 
 
 # Changelog
+
+## v0.4.0 – February 26, 2014
+- revise introduction
+- expand 02-whatisdevenv
+- improve windows instructions
+- add to vagrant section
+- update editors chapter
+- add resources to git section
+- change `DevEnvs` folder to `dev-envs`
+- add npm scripts info to javascript automating tasks section
+- update js import/require section
+- add resources to javascript section
+- the automating tasks sections of ruby & python chapters need actual content
+- add to ending summary.
+- fix typos and clean up resource link text styles
 
 ## v0.3.0 - Feruary 3, 2014
 - add sublime text editor tips and small typo edits/revisions

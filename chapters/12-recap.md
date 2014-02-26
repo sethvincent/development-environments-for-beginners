@@ -16,6 +16,9 @@ Javascript has npm for installing packages, and you can define dependencies. Rem
 
 Python has a few options for installing packages, but I recommend using pip. With pip you'll define dependencies in a requirements.txt file. It's also common to use pip in combination with a tool like virtualenv, which keeps the dependencies of your application separate from what's installed globally on your operating system.
 
+## Build tools / task automation
+
+We took a quick look at npm scripts and Grunt for JavaScript, rake for Ruby, and fabric for Python, providing a glimpse of the differences in the way the build tools work with each language.
 
 ## Simple web framework examples
 
@@ -65,3 +68,19 @@ if __name__ == '__main__':
 Python feels different because of it's use of meaningful whitespace and lack of curly brackets or `do end` for blocks. Everything is just indented 4 spaces instead to represent blocks of code.
 
 These three examples still feel very similar, though. That's no coincidence. Both express and flask wer inspired by sinatra's clean and simple API.
+
+# Continued learning
+
+## Other books
+
+There's a good chance that if you like this book you'll be interested in the other books in the Learn.js series.
+
+**Check them out!**
+
+- [Introduction to JavaScript & Node.js](http://learnjs.io/books/learnjs-01)
+- [Making 2d Games with Node.js & Browserify](http://learnjs.io/books/learnjs-02)
+- [Mapping with Leaflet.js](http://learnjs.io/books/learnjs-03)
+- [Theming with Ghost](http://themingwithghost.com)
+- [npm recipes](http://learnjs.io/npm-recipes)
+
+Learn more at [learnjs.io](http://learnjs.io).
