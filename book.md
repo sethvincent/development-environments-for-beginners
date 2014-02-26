@@ -424,11 +424,11 @@ Running the command by itself will show you all the possible sub-commands and op
 
 Let's try this thing out.
 
-Create and navigate to your DevEnvs folder:
+Create and navigate to your dev-envs folder:
 
 ```
-mkdir ~/DevEnvs
-cd ~/DevEnvs
+mkdir ~/dev-envs
+cd ~/dev-envs
 ```
 
 Create a folder named `tmp` and change directory into it:
@@ -540,7 +540,7 @@ To see which boxes you've currently got downloaded run this command:
 vagrant box list
 ```
 
-Let's stop this vagrant instance we created in our ~/DevEnvs/tmp folder.
+Let's stop this vagrant instance we created in our ~/dev-envs/tmp folder.
 
 Run this command:
 
@@ -1022,7 +1022,7 @@ To get ready for working through the upcoming examples, we'll set up a few thing
 
 ## Create a folder for working through examples
 
-Let's make a folder named DevEnvs in your home directory.
+Let's make a folder named dev-envs in your home directory.
 
 On Macs the home directory is:
 
@@ -1050,16 +1050,16 @@ On Mac, Linux, and recent versions of Windows (in the Powershell terminal / in W
 
 So, you can run a command like `cd ~`, and that'll take you to your home directory.
 
-Once you've navigated to your home folder, create the DevEnvs folder:
+Once you've navigated to your home folder, create the dev-envs folder:
 
 ```
-mkdir DevEnvs
+mkdir dev-envs
 ```
 
-Change directory into DevEnvs, then create directories for javascript, ruby, and python:
+Change directory into dev-envs, then create directories for javascript, ruby, and python:
 
 ```
-cd DevEnvs
+cd dev-envs
 mkdir javascript ruby python
 ```
 
@@ -1080,11 +1080,11 @@ docs: [http://www.ruby-lang.org/en/documentation](http://www.ruby-lang.org/en/do
 
 ## Vagrant
 
-Let's create a vagrant machine in your ruby DevEnvs folder:
+Let's create a vagrant machine in your ruby dev-envs folder:
 
 ```
-mkdir ~/DevEnvs/ruby
-cd ~/DevEnvs/ruby
+mkdir ~/dev-envs/ruby
+cd ~/dev-envs/ruby
 ```
 
 Create a new vagrant machine using the Ubuntu Precise box:
@@ -1511,7 +1511,7 @@ Project website: [http://www.sinatrarb.com](http://www.sinatrarb.com/).
 Navigate to your ruby projects folder:
 
 ```
-cd ~/DevEnvs/ruby
+cd ~/dev-envs/ruby
 ```
 
 Create a folder named hello-sinatra and navigate into it:
@@ -1915,11 +1915,11 @@ The MDN docs are great. There are bits that are specific to Mozilla, but the maj
 
 ## Vagrant
 
-Let's create a vagrant machine in your javascript DevEnvs folder:
+Let's create a vagrant machine in your javascript dev-envs folder:
 
 ```
-mkdir ~/DevEnvs/javascript
-cd ~/DevEnvs/javascript
+mkdir ~/dev-envs/javascript
+cd ~/dev-envs/javascript
 ```
 
 Create a new vagrant machine using the Ubuntu Precise box:
@@ -2366,7 +2366,7 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 Navigate to your javascript projects folder:
 
 ```
-cd ~/DevEnvs/javascript
+cd ~/dev-envs/javascript
 ```
 
 Create a folder named hello-express and navigate into it:
@@ -2826,11 +2826,11 @@ http://www.python.org/doc/
 
 ## Vagrant
 
-Let's create a vagrant machine in your python DevEnvs folder:
+Let's create a vagrant machine in your python dev-envs folder:
 
 ```
-mkdir ~/DevEnvs/python
-cd ~/DevEnvs/python
+mkdir ~/dev-envs/python
+cd ~/dev-envs/python
 ```
 
 Create a new vagrant machine using the Ubuntu Precise box:
@@ -3082,7 +3082,7 @@ flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
 Navigate to your python projects folder:
 
 ```
-cd ~/DevEnvs/python
+cd ~/dev-envs/python
 ```
 
 Create a folder named hello-flask and navigate into it:

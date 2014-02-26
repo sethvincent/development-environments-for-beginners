@@ -12,11 +12,11 @@ docs: [http://www.ruby-lang.org/en/documentation](http://www.ruby-lang.org/en/do
 
 ## Vagrant
 
-Let's create a vagrant machine in your ruby DevEnvs folder:
+Let's create a vagrant machine in your ruby dev-envs folder:
 
 ~~~~~~~~
-mkdir ~/DevEnvs/ruby
-cd ~/DevEnvs/ruby
+mkdir ~/dev-envs/ruby
+cd ~/dev-envs/ruby
 ~~~~~~~~
 
 Create a new vagrant machine using the Ubuntu Precise box:
@@ -445,7 +445,7 @@ Project website: [http://www.sinatrarb.com](http://www.sinatrarb.com/).
 Navigate to your ruby projects folder:
 
 ~~~~~~~~
-cd ~/DevEnvs/ruby
+cd ~/dev-envs/ruby
 ~~~~~~~~
 
 Create a folder named hello-sinatra and navigate into it:

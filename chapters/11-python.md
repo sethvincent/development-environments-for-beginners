@@ -16,11 +16,11 @@ http://www.python.org/doc/
 
 ## Vagrant
 
-Let's create a vagrant machine in your python DevEnvs folder:
+Let's create a vagrant machine in your python dev-envs folder:
 
 ~~~~~~~~
-mkdir ~/DevEnvs/python
-cd ~/DevEnvs/python
+mkdir ~/dev-envs/python
+cd ~/dev-envs/python
 ~~~~~~~~
 
 Create a new vagrant machine using the Ubuntu Precise box:
@@ -272,7 +272,7 @@ flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
 Navigate to your python projects folder:
 
 ~~~~~~~~
-cd ~/DevEnvs/python
+cd ~/dev-envs/python
 ~~~~~~~~
 
 Create a folder named hello-flask and navigate into it:

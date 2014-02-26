@@ -36,11 +36,11 @@ The MDN docs are great. There are bits that are specific to Mozilla, but the maj
 
 ## Vagrant
 
-Let's create a vagrant machine in your javascript DevEnvs folder:
+Let's create a vagrant machine in your javascript dev-envs folder:
 
 ~~~~~~~~
-mkdir ~/DevEnvs/javascript
-cd ~/DevEnvs/javascript
+mkdir ~/dev-envs/javascript
+cd ~/dev-envs/javascript
 ~~~~~~~~
 
 Create a new vagrant machine using the Ubuntu Precise box:
@@ -487,7 +487,7 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 Navigate to your javascript projects folder:
 
 ~~~~~~~~
-cd ~/DevEnvs/javascript
+cd ~/dev-envs/javascript
 ~~~~~~~~
 
 Create a folder named hello-express and navigate into it:
