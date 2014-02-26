@@ -706,11 +706,6 @@ touch views/layout.erb views/index.erb views/post.erb
 
 Add this content to the layout.erb file:
 
-```
-
-```
-
-Add this content to the footer.ejs file:
 
 ```
 <!doctype html>
