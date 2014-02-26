@@ -50,14 +50,16 @@ Installing vagrant is pretty easy. Just grab the downloader for your operating s
 
 **download vagrant:**
 
-[http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)
+[http://www.vagrantup.com/downloads](http://www.vagrantup.com/downloads)
+
+Choose the installer package for your operating system.
 
 **installation instructions:**
 
-[http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant](http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant)
+[docs.vagrantup.com/v2/installation](http://docs.vagrantup.com/v2/installation/index.html)
 
 #### Documentation
-docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup.com/v1/docs/index.html)
+[docs.vagrantup.com/v2](http://docs.vagrantup.com/v2/)
 
 ## Set up your first vagrant machine
 
