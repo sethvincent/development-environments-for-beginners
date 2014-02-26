@@ -219,9 +219,31 @@ When you install node.js, you get npm.
 
 You may also want to use [bower](http://bower.io/) or [component](http://component.io), two package managers that specifically target client-side code. Remember that javascript packages distributed via npm are not limited to node.js, and can also be used in the browser in many cases through the use of module bundlers like [browserify](http://browserify.org) and [webpack](http://webpack.github.io/).
 
-## Automating repetitive tasks
+## Build tools / automating repetitive tasks
 
-For automating tasks in javascript development, use [grunt.js](http://gruntjs.com).
+There are a few ways to automate repetitive tasks in JavaScript projects.
+
+### npm scripts
+
+Using npm scripts and the `npm run` command is a clean, simple method for organizing the build tools of your JavaScript project.
+
+You specify npm scripts by adding to the `scripts` field of a package.json file in your JavaScript project.
+
+Take this example:
+
+```
+"scripts": {
+  "test": "node test.js",
+  "start": "node server.js",
+  "bundle": "browserify main.js -o bundle.js"
+}
+```
+
+We would run `npm test` to test the code, `npm start` to run a development server, and `npm run bundle` to create a bundled JavaScript file using the `browserify` command.
+
+### Grunt
+
+Another, more complicated option is [grunt.js](http://gruntjs.com).
 
 ### Install
 
@@ -235,7 +257,9 @@ Next, you'll create a Gruntfile.js in your project.
 
 Learn more about grunt.js by reading the [project documentation](http://gruntjs.com/getting-started).
 
-We'll go in-depth with grunt in the extended javascript example later in the chapter.
+### More information about npm scripts and Grunt
+
+Check out this blog post for more information about npm scripts, Grunt, and how I choose between the two: [http://superbigtree.tumblr.com/post/59519017137/introduction-to-grunt-js-and-npm-scripts-and-choosing](http://superbigtree.tumblr.com/post/59519017137/introduction-to-grunt-js-and-npm-scripts-and-choosing)
 
 ## Testing: tape
 For testing, we'll use a library named tape.

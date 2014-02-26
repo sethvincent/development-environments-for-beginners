@@ -101,7 +101,7 @@ https://github.com/pypa/pip
 virtualenv: [http://www.virtualenv.org/en/latest/](http://www.virtualenv.org/en/latest/)
 
 
-## Automating repetitive tasks
+## Build tools / automating repetitive tasks
 
 For automating tasks in python development, use [fabric](http://fabfile.org).
 

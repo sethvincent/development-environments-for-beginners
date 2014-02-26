@@ -196,7 +196,7 @@ As an example, we'll install the bundler gem, which we'll put to use later:
 gem install bundler
 ~~~~~~~~
 
-## Automating repetitive tasks
+## Build tools / automating repetitive tasks
 
 For automating tasks in ruby development, use [rake](http://rake.rubyforge.org/).
 
