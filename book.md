@@ -2,9 +2,7 @@
 
 ## Thank you
 
-Thank you for buying this book! It is independently published, and each sale makes a huge difference.
-
-This book is a work in progress, and you'll get all updates for free. If you haven't already, consider signing up for the newsletter at [superbigtree.com](http://superbigtree.com) to stay updated about new books and related projects.
+Thank you for buying this book! It is independently published, and each sale makes a significant difference.
 
 ## Why write this?
 When I first started programming, learning the languages was the easy part compared to figuring out text editors, version control, testing, and all the different tools that come along with writing code for a real project.
@@ -16,7 +14,7 @@ If you're not sure how to choose between programming in ruby, python, or javascr
 
 By comparing ruby, python, and javascript development environments you'll get a strong sense of which language best fits your style. 
 
-Maybe you'll learn that you want to work in all three, or two out of three. Whatever happens, you'll be able to use this guide as a reference if you need help remembering how to set up a development environment for any one of these three languages.
+Maybe you'll learn that you want to work with all three of these languages, or two out of three. Whatever your decision, you'll be able to use this guide as a reference if you need help remembering how to set up a development environment for any one of these three languages.
 
 ### Main concepts you'll learn:
 - command-line tools
@@ -32,10 +30,19 @@ Maybe you'll learn that you want to work in all three, or two out of three. What
 ## This book is open source
 Contribute errata or content requests at the GitHub repository for this book: [github.com/sethvincent/dev-envs-book](https://github.com/sethvincent/dev-envs-book).
 
-## Additional books
-This book is meant as a primer for books that explore ruby, javascript, and python in more depth.
+## Other books
 
-You may be interested in the Learn.js series of books, that explore creating javascript projects using node.js and browserify. Learn more at [learnjs.io](http://learnjs.io).
+There's a good chance that if you like this book you'll be interested in the other books in the Learn.js series.
+
+**Check them out!**
+
+- [Introduction to JavaScript & Node.js](http://learnjs.io/books/learnjs-01)
+- [Making 2d Games with Node.js & Browserify](http://learnjs.io/books/learnjs-02)
+- [Mapping with Leaflet.js](http://learnjs.io/books/learnjs-03)
+- [Theming with Ghost](http://themingwithghost.com)
+- [npm recipes](http://learnjs.io/npm-recipes)
+
+Learn more at [learnjs.io](http://learnjs.io).
 
 
 
@@ -43,13 +50,9 @@ You may be interested in the Learn.js series of books, that explore creating jav
 
 ### Wait, what is this development environment thing?
 
-Think of it like a workshop.
+A development environment is like a workshop. A space and set of tools for building projects before they are released into the world wide web. Everything you need to build your project should exist in your development environment, and ideally your development environment will be similar or identical to the production environment on which your project will be released.
 
-Except your workshop is pretty much all inside your computer.
-
-A development environment is a set of tools installed on your computer that consist of everything you need to work on a project.
-
-A development environment is also considered a stage in the workflow, or release cycle, of a project.
+A development environment is a stage in the workflow, or release cycle, of a project.
 
 ### Other stages can include:
 - testing
@@ -57,6 +60,249 @@ A development environment is also considered a stage in the workflow, or release
 - production
 
 There can be other stages, too, depending on the complexity of the project and the requirements you must meet for quality assurance and user testing.
+
+In this book we take a look at setting up development environments for Ruby, JavaScript, and Python, and introduce the basics of each of those three languages.
+
+
+# Vagrant: install an operating system inside of your operating system!
+
+Vagrant is a tool for running "virtual machines" on a computer. Let's say your computer is running the Windows operating system. With vagrant, you can run a virtual machine on your computer that is running another operating system, like Ubuntu. 
+
+It's almost like dual booting, like having both Windows and Ubuntu installed on a computer, except you have a lot more control over a virtual machine. You can spin one up temporarily to work on a project, and when you're done, destroy the virtual machine.
+
+Vagrant makes this process easy. It relies on virtual machine software – there are a number of options, but we'll use software called virtualbox.
+
+In a way, vagrant is a wrapper around virtualbox – making it easy to create, run, and destroy virtual machines that run from the command line.
+
+The primary operating system on your computer is called the "host" operating system. Any virtual machines you create are called "guest" operating systems.
+
+We'll use the term **box** to describe the virtual machines that we create using vagrant.
+
+## Reasons for using vagrant:
+- Keep your host OS clean by installing dependencies for your project in a virtual machine rather than having everything installed on your host OS
+- Have the same operating system and same dependencies set up in your virtual machine as you have on the production server, making it easier to deploy your application because there's little difference between the two environments.
+- The people on your team can use vagrant so that all of your development environments match, easing issues with some people having issues with developing on a particular operating system.
+
+## Vagrantfiles
+
+Vagrant uses a file named `Vagrantfile` in your project directory as a config file for your vagrant box.
+
+There are many config options you can set. To learn more check out the Vagrantfile section of the vagrant documentation: [http://docs.vagrantup.com/v2/vagrantfile/index.html](http://docs.vagrantup.com/v2/vagrantfile/index.html).
+
+## Website
+http://www.vagrantup.com/
+
+## Install
+
+### Virtualbox:
+
+First we install [virtualbox](https://www.virtualbox.org/).
+
+Go to the virtualbox downloads folder: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads).
+
+Click the link for your operating system to download the virtualbox installer. Once it's finished downloading, run the installer.
+
+If needed, you can follow the **virtualbox installation instructions:** [http://www.virtualbox.org/manual/ch02.html](http://www.virtualbox.org/manual/ch02.html)
+
+#### Documentation
+
+You probably don't need to, but if you want to dig into virtualbox in depth, check out the documentation: [https://www.virtualbox.org/wiki/Documentation](https://www.virtualbox.org/wiki/Documentation).
+
+
+
+### Vagrant
+
+Installing vagrant is pretty easy. Just grab the downloader for your operating system from the vagrant downloads page:
+
+**download vagrant:**
+
+[http://www.vagrantup.com/downloads](http://www.vagrantup.com/downloads)
+
+Choose the installer package for your operating system.
+
+**installation instructions:**
+
+[docs.vagrantup.com/v2/installation](http://docs.vagrantup.com/v2/installation/index.html)
+
+#### Documentation
+[docs.vagrantup.com/v2](http://docs.vagrantup.com/v2/)
+
+## Set up your first vagrant machine
+
+Let's get started with the basics of using vagrant.
+
+Open the terminal on your computer and run this command:
+
+```
+vagrant
+```
+
+Running the command by itself will show you all the possible sub-commands and options you can pass.
+
+Let's try this thing out.
+
+Create and navigate to your `dev-envs` folder:
+
+```
+mkdir ~/dev-envs
+cd ~/dev-envs
+```
+
+Create a folder named `tmp` and change directory into it:
+
+```
+mkdir tmp && cd tmp
+```
+
+Run `vagrant init` to create a Vagrantfile in our tmp directory:
+
+```
+vagrant init precise32 http://files.vagrantup.com/precise32.box
+```
+
+By passing the name `precise32` and the url of the box we want to use, we prepopulate the Vagrantfile with the vagrant box we intend to use for our project. And by passing a url we're letting vagrant know that we want to download the vagrant box, as it isn't on our computer yet. 
+
+precise32 is the name for Ubuntu 12.04 LTS 32-bit.
+
+You should see output on the terminal like this:
+
+```
+A `Vagrantfile` has been placed in this directory. You are now
+ready to `vagrant up` your first virtual environment! Please read
+the comments in the Vagrantfile as well as documentation on
+`vagrantup.com` for more information on using Vagrant.
+```
+
+Now, run `vagrant up` to boot your vagrant box:
+
+```
+vagrant up
+```
+
+This does a couple things: because we passed a url to vagrant init, and we  don't already have a box on our machine named precise32, `vagrant up` will first download the precise32 box, then boot it with any configuration that's been set in the Vagrantfile.
+
+You should see output on the terminal like this:
+
+```
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Box 'precise32' was not found. Fetching box from specified URL for
+the provider 'virtualbox'. Note that if the URL does not have
+a box for this provider, you should interrupt Vagrant now and add
+the box yourself. Otherwise Vagrant will attempt to download the
+full box prior to discovering this error.
+Downloading or copying the box...
+Extracting box...te: 1727k/s, Estimated time remaining: 0:00:01)
+Successfully added box 'precise32' with provider 'virtualbox'!
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Fixed port collision for 22 => 2222. Now on port 2201.
+[default] Creating shared folders metadata...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 => 2201 (adapter 1)
+[default] Booting VM...
+[default] Waiting for VM to boot. This can take a few minutes.
+[default] VM booted and ready for use!
+[default] Configuring and enabling network interfaces...
+[default] Mounting shared folders...
+[default] -- /vagrant
+```
+
+Now that the box is up and running, we can ssh into this instance of Ubuntu that we just set up!
+
+We do that by running `vagrant ssh` in the terminal:
+
+```
+vagrant ssh
+```
+
+You should see output on the terminal like this:
+
+```
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
+
+ * Documentation:  https://help.ubuntu.com/
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+```
+
+You have now entered your vagrant box. Every command you type in your terminal now happens in this instance of Ubuntu Linux.
+
+To exit from the vagrant box, and take the terminal back to your host operating system, run the `exit` command:
+
+```
+exit
+```
+
+You prompt should now look the same as before you ran `vagrant ssh`.
+
+Now that we downloaded that precise32 box once, we won't have to do it again. We'll be able to use it for each new project we start.
+
+Next time we're about to create a vagrant box we'll navigate to the project folder and run 'vagrant init' again, like this:
+
+```
+vagrant init precise32
+```
+
+We don't have to pass in the url, because we've already downloaded the box.
+
+When we run `vagrant up`, the box won't be downloaded, because we've already got a copy of it sitting on our computer. This speeds things up.
+
+To see which boxes you've currently got downloaded run this command:
+
+```
+vagrant box list
+```
+
+Let's stop this vagrant instance we created in our ~/dev-envs/tmp folder.
+
+Run this command:
+
+```
+vagrant halt
+```
+
+We can start the box back up again any time by running `vagrant up` from inside this folder.
+
+Let's now destroy the vagrant instance.
+
+To learn about this use the following command:
+
+```
+vagrant destroy --help
+```
+
+You'll see output like this:
+
+```
+Usage: vagrant destroy [vm-name]
+
+    -f, --force                      Destroy without confirmation.
+    -h, --help                       Print this help
+```
+
+
+## Alternatives to vagrant/virtualbox
+
+**docker**
+
+Docker is a cool new approach that uses lightweight containers for encapsulating applications. Definitely worth checking out: [http://www.docker.io](http://www.docker.io/).
+
+Go through their getting started tutorial to get a sense of how it works: [http://www.docker.io/gettingstarted](http://www.docker.io/gettingstarted/).
+
+It's also possible to use docker on one of your vagrant machines, which seems like an awesome option. If you're feeling adventurous, check out docker's documentation for integrating with vagrant and virtualbox: [http://docs.docker.io/en/latest/installation/vagrant/](http://docs.docker.io/en/latest/installation/vagrant/).
+
+**nitrous.io**
+
+You can have a development environment that you access through the web using nitrous.io: [https://www.nitrous.io](https://www.nitrous.io/).
+
+This is great if you're on a machine that runs an operating system like ChromeOS, or it's something you can't install software on for whatever reason.
+
+You can set up one box on nitrous.io for free, and beyond that it costs money.
+
 
 
 # Terminal: conquer the command line
@@ -75,9 +321,72 @@ name-of-command --options input-file-or-text output
 
 The `name-of-command` is the actual command. Options are often preceeded by two dashes, or they can likely be shorted to one dash and the first letter or an abbreviation. Then, there will occasionally be some kind of input text or file that the command is acting on, or changing. Similarly, you might specify a filename for the output of the command. You'll see that many of the commands below are more simple.
 
-## Mac / Linux
+## Vagrant
 
-For most purposes, daily activity in the terminal will be the same in Mac and various Linux distros.
+Because we'll be using vagrant to create a virtual machine running Ubuntu throughout this book, this chapter will teach usage of Linux / Unix terminal commands.
+
+## Vagrant
+
+Let's create a vagrant machine in your javascript dev-envs folder:
+
+```
+mkdir ~/dev-envs/terminal
+cd ~/dev-envs/terminal
+```
+
+Create a new vagrant machine using the Ubuntu Precise box:
+
+```
+vagrant init precise32
+```
+
+Now start the vagrant machine:
+
+```
+vagrant up
+```
+
+If all goes well that'll result in output similar to the following:
+
+```
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Fixed port collision for 22 => 2222. Now on port 2200.
+[default] Creating shared folders metadata...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 => 2200 (adapter 1)
+[default] Booting VM...
+[default] Waiting for VM to boot. This can take a few minutes.
+[default] VM booted and ready for use!
+[default] Configuring and enabling network interfaces...
+[default] Mounting shared folders...
+[default] -- /vagrant
+```
+
+Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
+
+Use this command:
+
+```
+vagrant ssh
+```
+
+You should see output similar to the following:
+
+```
+Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
+
+ * Documentation:  https://help.ubuntu.com/
+Welcome to your Vagrant-built virtual machine.
+Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+```
+
+Now we can experiment with terminal commands
 
 ### Basic commands:
 
@@ -339,255 +648,6 @@ ooooooh, pizza
 
 
 
-## Windows
-
-You'll likely want to install a tool called cygwin: [http://www.cygwin.com/](http://www.cygwin.com/).
-
-This gives you a linux-like terminal to use.
-
-> _This section of the book is still a work in progress._
-
-
-
-# Vagrant: install an operating system inside of your operating system!
-
-Vagrant is a tool for running "virtual machines" on a computer. Let's say your computer is a Mac. With vagrant, you can run a virtual machine with a different operating system on your computer. 
-
-It's almost like dual booting, like having both Windows and Linux installed on a computer, except you have a lot more control over a virtual machine. You can spin one up temporarily to work on a project, and when you're done, destroy the virtual machine.
-
-Vagrant makes this process easy. It relies on virtual machine software – there are a number of options, but we'll use software called virtualbox.
-
-In a way, vagrant is a wrapper around virtualbox – making it easy to create, run, and destroy virtual machines that run from the command line.
-
-The primary operating system on your computer is called the "host" operating system. Any virtual machines you create are called "guest" operating systems.
-
-We'll use the term **box** to describe the virtual machines that we create using vagrant.
-
-## Reasons for using vagrant:
-- Keep your host OS clean by installing dependencies for your project in a virtual machine rather than having everything installed on your host OS
-- Have the same operating system and same dependencies set up in your virtual machine as you have on the production server, making it easier to deploy your application because there's little difference between the two environments.
-- The people on your team can use vagrant so that all of your development environments match, easing issues with some people having issues with developing on a particular operating system.
-
-## Vagrantfiles
-
-Vagrant uses a file named `Vagrantfile` in your project directory as a config file for your vagrant box.
-
-There are many config options you can set. To learn more check out the Vagrantfile section of the vagrant documentation: [http://docs.vagrantup.com/v2/vagrantfile/index.html](http://docs.vagrantup.com/v2/vagrantfile/index.html).
-
-## Website
-http://www.vagrantup.com/
-
-## Install
-
-### Virtualbox:
-
-First we install [virtualbox](https://www.virtualbox.org/).
-
-Go to the virtualbox downloads folder: [https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads).
-
-Click the link for your operating system to download the virtualbox installer. Once it's finished downloading, run the installer.
-
-If needed, you can follow the **virtualbox installation instructions:** [http://www.virtualbox.org/manual/ch02.html](http://www.virtualbox.org/manual/ch02.html)
-
-#### Documentation
-
-You probably don't need to, but if you want to dig into virtualbox in depth, check out the documentation: [https://www.virtualbox.org/wiki/Documentation](https://www.virtualbox.org/wiki/Documentation).
-
-
-
-### Vagrant
-
-Installing vagrant is pretty easy. Just grab the downloader for your operating system from the vagrant downloads page:
-
-**download vagrant:**
-
-[http://www.vagrantup.com/downloads.html](http://www.vagrantup.com/downloads.html)
-
-**installation instructions:**
-
-[http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant](http://docs-v1.vagrantup.com/v1/docs/getting-started/index.html#install_vagrant)
-
-#### Documentation
-docs: [http://docs-v1.vagrantup.com/v1/docs/index.html](http://docs-v1.vagrantup.com/v1/docs/index.html)
-
-## Set up your first vagrant machine
-
-Let's get started with the basics of using vagrant.
-
-Open the terminal on your computer and run this command:
-
-```
-vagrant
-```
-
-Running the command by itself will show you all the possible sub-commands and options you can pass.
-
-Let's try this thing out.
-
-Create and navigate to your dev-envs folder:
-
-```
-mkdir ~/dev-envs
-cd ~/dev-envs
-```
-
-Create a folder named `tmp` and change directory into it:
-
-```
-mkdir tmp && cd tmp
-```
-
-Run `vagrant init` to create a Vagrantfile in our tmp directory:
-
-```
-vagrant init precise32 http://files.vagrantup.com/precise32.box
-```
-
-By passing the name `precise32` and the url of the box we want to use, we prepopulate the Vagrantfile with the vagrant box we intend to use for our project. And by passing a url we're letting vagrant know that we want to download the vagrant box, as it isn't on our computer yet. 
-
-precise32 is the name for Ubuntu 12.04 LTS 32-bit.
-
-You should see output on the terminal like this:
-
-```
-A `Vagrantfile` has been placed in this directory. You are now
-ready to `vagrant up` your first virtual environment! Please read
-the comments in the Vagrantfile as well as documentation on
-`vagrantup.com` for more information on using Vagrant.
-```
-
-Now, run `vagrant up` to boot your vagrant box:
-
-```
-vagrant up
-```
-
-This does a couple things: because we passed a url to vagrant init, and we  don't already have a box on our machine named precise32, `vagrant up` will first download the precise32 box, then boot it with any configuration that's been set in the Vagrantfile.
-
-You should see output on the terminal like this:
-
-```
-Bringing machine 'default' up with 'virtualbox' provider...
-[default] Box 'precise32' was not found. Fetching box from specified URL for
-the provider 'virtualbox'. Note that if the URL does not have
-a box for this provider, you should interrupt Vagrant now and add
-the box yourself. Otherwise Vagrant will attempt to download the
-full box prior to discovering this error.
-Downloading or copying the box...
-Extracting box...te: 1727k/s, Estimated time remaining: 0:00:01)
-Successfully added box 'precise32' with provider 'virtualbox'!
-[default] Importing base box 'precise32'...
-[default] Matching MAC address for NAT networking...
-[default] Setting the name of the VM...
-[default] Clearing any previously set forwarded ports...
-[default] Fixed port collision for 22 => 2222. Now on port 2201.
-[default] Creating shared folders metadata...
-[default] Clearing any previously set network interfaces...
-[default] Preparing network interfaces based on configuration...
-[default] Forwarding ports...
-[default] -- 22 => 2201 (adapter 1)
-[default] Booting VM...
-[default] Waiting for VM to boot. This can take a few minutes.
-[default] VM booted and ready for use!
-[default] Configuring and enabling network interfaces...
-[default] Mounting shared folders...
-[default] -- /vagrant
-```
-
-Now that the box is up and running, we can ssh into this instance of Ubuntu that we just set up!
-
-We do that by running `vagrant ssh` in the terminal:
-
-```
-vagrant ssh
-```
-
-You should see output on the terminal like this:
-
-```
-Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
-
- * Documentation:  https://help.ubuntu.com/
-Welcome to your Vagrant-built virtual machine.
-Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
-```
-
-You have now entered your vagrant box. Every command you type in your terminal now happens in this instance of Ubuntu Linux.
-
-To exit from the vagrant box, and take the terminal back to your host operating system, run the `exit` command:
-
-```
-exit
-```
-
-You prompt should now look the same as before you ran `vagrant ssh`.
-
-Now that we downloaded that precise32 box once, we won't have to do it again. We'll be able to use it for each new project we start.
-
-Next time we're about to create a vagrant box we'll navigate to the project folder and run 'vagrant init' again, like this:
-
-```
-vagrant init precise32
-```
-
-We don't have to pass in the url, because we've already downloaded the box.
-
-When we run `vagrant up`, the box won't be downloaded, because we've already got a copy of it sitting on our computer. This speeds things up.
-
-To see which boxes you've currently got downloaded run this command:
-
-```
-vagrant box list
-```
-
-Let's stop this vagrant instance we created in our ~/dev-envs/tmp folder.
-
-Run this command:
-
-```
-vagrant halt
-```
-
-We can start the box back up again any time by running `vagrant up` from inside this folder.
-
-Let's now destroy the vagrant instance.
-
-To learn about this use the following command:
-
-```
-vagrant destroy --help
-```
-
-You'll see output like this:
-
-```
-Usage: vagrant destroy [vm-name]
-
-    -f, --force                      Destroy without confirmation.
-    -h, --help                       Print this help
-```
-
-
-## Alternatives to vagrant/virtualbox
-
-**docker**
-
-Docker is a cool new approach that uses lightweight containers for encapsulating applications. Definitely worth checking out: [http://www.docker.io](http://www.docker.io/).
-
-Go through their getting started tutorial to get a sense of how it works: [http://www.docker.io/gettingstarted](http://www.docker.io/gettingstarted/).
-
-It's also possible to use docker on one of your vagrant machines, which seems like an awesome option. If you're feeling adventurous, check out docker's documentation for integrating with vagrant and virtualbox: [http://docs.docker.io/en/latest/installation/vagrant/](http://docs.docker.io/en/latest/installation/vagrant/).
-
-**nitrous.io**
-
-You can have a development environment that you access through the web using nitrous.io: [https://www.nitrous.io](https://www.nitrous.io/).
-
-This is great if you're on a machine that runs an operating system like ChromeOS, or it's something you can't install software on for whatever reason.
-
-You can set up one box on nitrous.io for free, and beyond that it costs money.
-
-
-
 # Text editors
 
 ## Sublime Text Editor
@@ -605,10 +665,16 @@ This will download a .dmg file. Once the download has completed, double-click th
 
 ### Use Sublime from the command line
 
-In order to use Sublime from the command line, you'll need to create a symbolic link:
+To use Sublime from the command line using Mac or Linux, you'll need to create a symbolic link:
 
 ```
 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+```
+
+If you get an error you may need to create the `bin` folder:
+
+```
+mkdir ~/bin
 ```
 
 `ln -s` is a command used for creating symbolic links, which you can think of like aliases.
@@ -743,7 +809,9 @@ Next you'll need to restart Sublime.
 Check out the main Sublime website: [sublimetext.com](http://www.sublimetext.com/)
 
 #### Documentation
-Read Sublime 2 documentation: [docs.sublimetext.info/en/sublime-text-2](http://docs.sublimetext.info/en/sublime-text-2)
+Official Sublime documentation: [sublimetext.com/docs/2](http://www.sublimetext.com/docs/2/)
+
+Sublime Text unofficial documentation: [docs.sublimetext.info/en/sublime-text-2](http://docs.sublimetext.info/en/sublime-text-2)
 
 
 ### Alternative text editors:
@@ -916,8 +984,22 @@ git checkout -t origin/haml
 ```
 
 ## Resources
-http://try.github.io/
 
+**Official documentation**  
+
+The [official git documentation](http://git-scm.com/doc) has an [API reference](http://git-scm.com/docs), a [book about git](http://git-scm.com/book), [videos](http://git-scm.com/videos) instructing on basic usage of git, and a [page of links](http://git-scm.com/doc/ext) to useful resources.
+
+**[try.github.io](http://try.github.io/)**  
+
+This interactive tutorial is a great introduction to both git and GitHub. Highly recommended.
+
+**[gitready.com](http://gitready.com/)**
+
+I often refer to gitready.com for various tips and tricks for using git.
+
+**[help.github.com](https://help.github.com/)**
+
+The help section of GitHub's site has instructions for using github.com, but it also has some great documentation for using git.
 
 
 # GitHub.com: a social network for git users
@@ -1016,31 +1098,39 @@ To get ready for working through the upcoming examples, we'll set up a few thing
 
 ### vagrant
 
+Running `vagrant --help` should return the help text of vagrant.
+
 ### git
 
+Running the command `git --help` should return the help text of git.
+
 ### sublime
+
+Open up the Sublime text editor to ensure that it is installed properly.
 
 ## Create a folder for working through examples
 
 Let's make a folder named dev-envs in your home directory.
 
-On Macs the home directory is:
+### On Macs the home directory is:
 
 ```
 /Users/YOUR-USERNAME
 ```
 
-On Windows:
+### On Windows:
 
 ```
 %userprofile%
 ```
 
-On Linux:
+### On Linux:
 
 ```
 /home/YOUR-USERNAME
 ```
+
+### Shortcut
 
 On Mac, Linux, and recent versions of Windows (in the Powershell terminal / in Windows 7+), there's a useful alias for a user's home directory, the tilde:
 
@@ -1139,7 +1229,9 @@ Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
 ```
 
-We'll now install ruby and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
+We'll now install ruby and related tools, and get started building applications. 
+
+**Complete all the following instructions while logged in to the vagrant machine.**
 
 ## Install git & dependencies
 
@@ -1262,7 +1354,7 @@ As an example, we'll install the bundler gem, which we'll put to use later:
 gem install bundler
 ```
 
-## Automating repetitive tasks
+## Build tools / automating repetitive tasks
 
 For automating tasks in ruby development, use [rake](http://rake.rubyforge.org/).
 
@@ -1274,11 +1366,32 @@ First, install the rake gem:
 gem install rake
 ```
 
-Next, you'll create a Rakefile in your project.
+Create a Rakefile for your project:
+
+```
+touch Rakefile
+```
+
+Add this simple example to your Rakefile:
+
+```
+task :default => [:start]
+
+task :start do
+  ruby "app.rb"
+end
+```
+
+When you run this command on the terminal:
+
+```
+rake
+```
+
+The start task defined in your Rakefile will be executed.
 
 Learn more about rake by reading the [project documentation](http://rake.rubyforge.org/).
 
-We'll go in-depth with rake in the extended ruby example later in the chapter.
 
 ## Testing: minitest
 https://github.com/seattlerb/minitest
@@ -1898,6 +2011,8 @@ There isn't really a website for the javascript language in the same way ruby an
 
 ## Documentation
 
+One of the best places to start learning Node.js is [nodeschool.io](http://nodeschool.io/). These are a set of interactive workshops you complete using the terminal. Highly recommended.
+
 The node.js API documentation:
 [http://nodejs.org/api/index.html](http://nodejs.org/api/index.html)
 
@@ -1909,7 +2024,7 @@ I recommend two:
 
 The Web Platform Docs is a relatively new set of documentation that includes coverage of html, css, and javscript. It's pretty good, 
 
-**Moxilla Developer Network documentation:** [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+**Mozilla Developer Network documentation:** [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 The MDN docs are great. There are bits that are specific to Mozilla, but the majority of the content is relevant to html, css, and javascript in general.
 
@@ -2098,9 +2213,31 @@ When you install node.js, you get npm.
 
 You may also want to use [bower](http://bower.io/) or [component](http://component.io), two package managers that specifically target client-side code. Remember that javascript packages distributed via npm are not limited to node.js, and can also be used in the browser in many cases through the use of module bundlers like [browserify](http://browserify.org) and [webpack](http://webpack.github.io/).
 
-## Automating repetitive tasks
+## Build tools / automating repetitive tasks
 
-For automating tasks in javascript development, use [grunt.js](http://gruntjs.com).
+There are a few ways to automate repetitive tasks in JavaScript projects.
+
+### npm scripts
+
+Using npm scripts and the `npm run` command is a clean, simple method for organizing the build tools of your JavaScript project.
+
+You specify npm scripts by adding to the `scripts` field of a package.json file in your JavaScript project.
+
+Take this example:
+
+```
+"scripts": {
+  "test": "node test.js",
+  "start": "node server.js",
+  "bundle": "browserify main.js -o bundle.js"
+}
+```
+
+We would run `npm test` to test the code, `npm start` to run a development server, and `npm run bundle` to create a bundled JavaScript file using the `browserify` command.
+
+### Grunt
+
+Another, more complicated option is [grunt.js](http://gruntjs.com).
 
 ### Install
 
@@ -2114,7 +2251,9 @@ Next, you'll create a Gruntfile.js in your project.
 
 Learn more about grunt.js by reading the [project documentation](http://gruntjs.com/getting-started).
 
-We'll go in-depth with grunt in the extended javascript example later in the chapter.
+### More information about npm scripts and Grunt
+
+Check out this blog post for more information about npm scripts, Grunt, and how I choose between the two: [http://superbigtree.tumblr.com/post/59519017137/introduction-to-grunt-js-and-npm-scripts-and-choosing](http://superbigtree.tumblr.com/post/59519017137/introduction-to-grunt-js-and-npm-scripts-and-choosing)
 
 ## Testing: tape
 For testing, we'll use a library named tape.
@@ -2344,16 +2483,23 @@ This gives you an idea of how to iterate through an object using a for...in loop
 
 ### importing/requiring code
 
-We'll start with a simple "hello world" example. We'll do one for node.js, and one for client-side code.
-
-### Hello world
-
 #### Node.js
 
-Change directory into your Projects folder.
+When using Node.js we can require the functionality of ruby gems and code from other files by using the `require` function, typically at the top of the file. An example of requiring the express module:
+
+```
+var express = require('express');
+```
 
 #### Browser
 
+For browser side code we might add a script tag into the HTML file of our project. Here's an example of a script tag:
+
+```
+<script src="main.js"></script>
+```
+
+Alternately we might use a tool like browserify to require packages using the same method as Node.js. Learn more about browserify at the project website, [browserify.org](http://browserify.org).
 
 
 ## Web framework: express
@@ -2804,7 +2950,7 @@ nodemon -e js,css,html,ejs
 
 Learn more about express at the express website: [http://expressjs.com](http://expressjs.com/)
 
-## Resources
+Try out the ExpressWorks workshop on nodeschool.io: [nodeschool.io/#expressworks](http://nodeschool.io/#expressworks)
 
 
 
@@ -2911,7 +3057,7 @@ https://github.com/pypa/pip
 virtualenv: [http://www.virtualenv.org/en/latest/](http://www.virtualenv.org/en/latest/)
 
 
-## Automating repetitive tasks
+## Build tools / automating repetitive tasks
 
 For automating tasks in python development, use [fabric](http://fabfile.org).
 
@@ -2923,12 +3069,31 @@ First, install fabric:
 pip install fabric
 ```
 
-Next, you'll create a fabfile.py in your project.
+Create a fabfile.py in your project directory:
+
+```
+touch fabfile.py
+```
+
+Add this example to your fabfile.py:
+
+```
+from fabric.api import local
+
+def start():
+    local("python app.py")
+```
+
+Run this command:
+
+```
+fab start
+```
+
+The start task defined in your fabfile.py will be executed.
+
 
 Learn more about fabric by reading the [project documentation](http://docs.fabfile.org/en/1.7/).
-
-We'll go in-depth with fabric in the extended python example later in the chapter.
-
 
 
 ## Testing: unittest
