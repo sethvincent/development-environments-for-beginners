@@ -1,7 +1,7 @@
 01-introduction.md
 02-whatisdevenv.md
-03-terminal.md
-04-vagrant.md
+03-vagrant.md
+04-terminal.md
 05-editors.md
 06-git.md
 07-github.md
