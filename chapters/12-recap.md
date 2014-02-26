@@ -67,7 +67,7 @@ if __name__ == '__main__':
 
 Python feels different because of it's use of meaningful whitespace and lack of curly brackets or `do end` for blocks. Everything is just indented 4 spaces instead to represent blocks of code.
 
-These three examples still feel very similar, though. That's no coincidence. Both express and flask wer inspired by sinatra's clean and simple API.
+These three examples still feel very similar, though. That's no coincidence. Both express and flask were inspired by sinatra's clean and simple API.
 
 # Continued learning
 
