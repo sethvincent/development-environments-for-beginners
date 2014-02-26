@@ -465,16 +465,23 @@ This gives you an idea of how to iterate through an object using a for...in loop
 
 ### importing/requiring code
 
-We'll start with a simple "hello world" example. We'll do one for node.js, and one for client-side code.
-
-### Hello world
-
 #### Node.js
 
-Change directory into your Projects folder.
+When using Node.js we can require the functionality of ruby gems and code from other files by using the `require` function, typically at the top of the file. An example of requiring the express module:
+
+~~~~~~~~
+var express = require('express');
+~~~~~~~~
 
 #### Browser
 
+For browser side code we might add a script tag into the HTML file of our project. Here's an example of a script tag:
+
+```
+<script src="main.js"></script>
+```
+
+Alternately we might use a tool like browserify to require packages using the same method as Node.js. Learn more about browserify at the project website, [browserify.org](http://browserify.org).
 
 
 ## Web framework: express
