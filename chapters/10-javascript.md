@@ -492,7 +492,7 @@ This gives you an idea of how to iterate through an object using a for...in loop
 
 #### Node.js
 
-When using Node.js we can require the functionality of ruby gems and code from other files by using the `require` function, typically at the top of the file. An example of requiring the express module:
+When using Node.js we can require the functionality of Node.js modules distributed via npm and code from other files by using the `require` function, typically at the top of the file. An example of requiring the express module:
 
 ~~~~~~~~
 var express = require('express');
