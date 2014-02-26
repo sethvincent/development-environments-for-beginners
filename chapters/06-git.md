@@ -130,4 +130,19 @@ git checkout -t origin/haml
 ~~~~~~~~
 
 ## Resources
-http://try.github.io/
+
+**Official documentation**  
+
+The [official git documentation](http://git-scm.com/doc) has an [API reference](http://git-scm.com/docs), a [book about git](http://git-scm.com/book), [videos](http://git-scm.com/videos) instructing on basic usage of git, and a [page of links](http://git-scm.com/doc/ext) to useful resources.
+
+**[try.github.io](http://try.github.io/)**  
+
+This interactive tutorial is a great introduction to both git and GitHub. Highly recommended.
+
+**[gitready.com](http://gitready.com/)**
+
+I often refer to gitready.com for various tips and tricks for using git.
+
+**[help.github.com](https://help.github.com/)**
+
+The help section of GitHub's site has instructions for using github.com, but it also has some great documentation for using git.
