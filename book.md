@@ -3737,6 +3737,9 @@ Learn more at [learnjs.io](http://learnjs.io).
 
 # Changelog
 
+## v0.4.1 – February 28, 2014
+- small typo fixes
+
 ## v0.4.0 – February 26, 2014
 - revise introduction
 - expand 02-whatisdevenv
