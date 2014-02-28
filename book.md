@@ -2084,16 +2084,15 @@ Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
 ```
 
-We'll now install ruby and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
+We'll now install Node.js, its dependencies, and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
 
 ## Install git & dependencies
 
 To get started, we'll need to install git and some necessary system dependencies while logged in to the virtual machine:
 
 ```
-sudo apt-get install git gcc make
+sudo apt-get install git gcc make curl
 ```
-
 
 
 ## Installing node.js
@@ -2480,7 +2479,7 @@ This gives you an idea of how to iterate through an object using a for...in loop
 
 #### Node.js
 
-When using Node.js we can require the functionality of ruby gems and code from other files by using the `require` function, typically at the top of the file. An example of requiring the express module:
+When using Node.js we can require the functionality of Node.js modules distributed via npm and code from other files by using the `require` function, typically at the top of the file. An example of requiring the express module:
 
 ```
 var express = require('express');
@@ -3026,7 +3025,7 @@ Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
 ```
 
-We'll now install ruby and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
+We'll now install python, its dependencies, and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
 
 ## Install git & dependencies
 
@@ -3716,7 +3715,7 @@ if __name__ == '__main__':
 
 Python feels different because of it's use of meaningful whitespace and lack of curly brackets or `do end` for blocks. Everything is just indented 4 spaces instead to represent blocks of code.
 
-These three examples still feel very similar, though. That's no coincidence. Both express and flask wer inspired by sinatra's clean and simple API.
+These three examples still feel very similar, though. That's no coincidence. Both express and flask were inspired by sinatra's clean and simple API.
 
 # Continued learning
 
