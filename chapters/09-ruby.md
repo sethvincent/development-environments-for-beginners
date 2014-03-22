@@ -537,6 +537,7 @@ end
 Let's make a small website with [sinatra](http://sinatrarb.com) to explore how it works.
 
 In this example our site will do three things:  
+
 - serve html at the root route from a view that has a list of posts
 - serve html for a single post at `/post/:id`
 - serve json at `/api/posts` that has a list of posts
