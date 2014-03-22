@@ -569,7 +569,7 @@ Now run bundle to install sinatra:
 bundle
 ```
 
-We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app – shotgun will automatically restart the server each time you edit a file in the project.
+We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app -- shotgun will automatically restart the server each time you edit a file in the project.
 
 Install shotgun:
 
