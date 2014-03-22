@@ -648,7 +648,7 @@ require 'json'
 ```
 
 
-Create global variables that are available to our views using the before method, which runs before a request is processed:
+Create global variables that are available to our views using the `before` method, which runs before a request is processed:
 
 ```
 before do
@@ -657,7 +657,7 @@ before do
 end
 ```
 
-Serve the index.erb view on the root url with the following code block. note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
+Serve the index.erb view on the root url with the following code block. Note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
 
 ```
 get '/' do
