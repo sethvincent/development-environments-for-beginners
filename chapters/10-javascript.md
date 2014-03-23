@@ -1,8 +1,8 @@
 # Javascript
 
-Javascript is a ubiquitous language. It's getting first class support in various operating sytems, you can use it on the server with node.js, and developing javascript applications that are largely front-end code is becoming a popular and pragmatic practice.
+Javascript is a ubiquitous language. It's getting first-class support in various operating sytems, you can use it on the server with node.js, and developing javascript applications that are largely front-end code is becoming a popular and pragmatic practice.
 
-We'll cover javascript on the server using node.js, and briefly cover javascript in the browser.
+We'll cover javascript on the server using node.js and briefly cover javascript in the browser.
 
 Javascript development tools have recently seen a big burst of growth thanks to node.js.
 
