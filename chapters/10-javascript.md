@@ -122,7 +122,7 @@ We have git installed, so we can clone nvm to our home folder:
 git clone https://github.com/creationix/nvm.git ~/.nvm
 ~~~~~~~~
 
-Source nvm to make it the `nvm` command available in the terminal:
+Source nvm to make the `nvm` command available in the terminal by typing into your terminal:
 
 ~~~~~~~~
 source ~/.nvm/nvm.sh
