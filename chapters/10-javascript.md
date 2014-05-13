@@ -1,8 +1,8 @@
 # Javascript
 
-Javascript is a ubiquitous language. It's getting first class support in various operating sytems, you can use it on the server with node.js, and developing javascript applications that are largely front-end code is becoming a popular and pragmatic practice.
+Javascript is a ubiquitous language. It's getting first-class support in various operating sytems, you can use it on the server with node.js, and developing javascript applications that are largely front-end code is becoming a popular and pragmatic practice.
 
-We'll cover javascript on the server using node.js, and briefly cover javascript in the browser.
+We'll cover javascript on the server using node.js and briefly cover javascript in the browser.
 
 Javascript development tools have recently seen a big burst of growth thanks to node.js.
 
@@ -13,7 +13,7 @@ The website for node.js is pretty great: [http://nodejs.org](http://nodejs.org).
 
 It includes the API documentation, a blog that announces new releases and a link to the website for the package manager used by node developers, npm.
 
-There isn't really a website for the javascript language in the same way ruby and python have websites. For general javascript information look to the documentation websites listed below:
+There isn't really a website for the javascript language in the same way ruby and python have websites. For general javascript information, look to the documentation websites listed below:
 
 
 
@@ -21,16 +21,16 @@ There isn't really a website for the javascript language in the same way ruby an
 
 One of the best places to start learning Node.js is [nodeschool.io](http://nodeschool.io/). These are a set of interactive workshops you complete using the terminal. Highly recommended.
 
-The node.js API documentation:
+Here is the documentation for the node.js API:
 [http://nodejs.org/api/index.html](http://nodejs.org/api/index.html)
 
-There are a lot of different resources for client-side javascript documentation.
+There are a lot of different resources for documentation on client-side javascript.
 
-I recommend two:
+Here are two I recommend:
 
 **Web Platform Docs:** [http://www.webplatform.org/](http://www.webplatform.org/)
 
-The Web Platform Docs is a relatively new set of documentation that includes coverage of html, css, and javscript. It's pretty good, 
+The Web Platform Docs is a relatively new set of documentation that includes coverage of html, css, and javscript. It's pretty good.
 
 **Mozilla Developer Network documentation:** [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
@@ -122,7 +122,7 @@ We have git installed, so we can clone nvm to our home folder:
 git clone https://github.com/creationix/nvm.git ~/.nvm
 ~~~~~~~~
 
-Source nvm to make it the `nvm` command available in the terminal:
+Source nvm to make the `nvm` command available in the terminal by typing into your terminal:
 
 ~~~~~~~~
 source ~/.nvm/nvm.sh
