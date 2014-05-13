@@ -25,6 +25,37 @@ Create a new vagrant machine using the Ubuntu Precise box:
 vagrant init precise32
 ~~~~~~~~
 
+Forward a port for viewing your site:
+
+Open the Vagrant file:
+
+~~~~~~~~
+nano Vagrantfile
+~~~~~~~~
+
+Find this section:
+
+~~~~~~~~
+# Create a forwarded port mapping which allows access to a specific port
+# within the machine from a port on the host machine. In the example below,
+# accessing "localhost:8080" will access port 80 on the guest machine.
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+~~~~~~~~
+
+And change this line:
+
+~~~~~~~~
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+~~~~~~~~
+
+To this:
+
+~~~~~~~~
+config.vm.network "forwarded_port", guest: 9393 , host: 9393 
+~~~~~~~~
+
+Make sure to uncomment the line by removing the `#`.
+
 Now start the vagrant machine:
 
 ~~~~~~~~
@@ -35,22 +66,34 @@ If all goes well that'll result in output similar to the following:
 
 ~~~~~~~~
 Bringing machine 'default' up with 'virtualbox' provider...
-[default] Importing base box 'precise32'...
-[default] Matching MAC address for NAT networking...
-[default] Setting the name of the VM...
-[default] Clearing any previously set forwarded ports...
-[default] Fixed port collision for 22 => 2222. Now on port 2200.
-[default] Creating shared folders metadata...
-[default] Clearing any previously set network interfaces...
-[default] Preparing network interfaces based on configuration...
-[default] Forwarding ports...
-[default] -- 22 => 2200 (adapter 1)
-[default] Booting VM...
-[default] Waiting for VM to boot. This can take a few minutes.
-[default] VM booted and ready for use!
-[default] Configuring and enabling network interfaces...
-[default] Mounting shared folders...
-[default] -- /vagrant
+==> default: Importing base box 'precise32'...
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: dev-envs_default_1400021636069_14720
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 9393 => 9393 (adapter 1)
+    default: 22 => 2222 (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Error: Connection timout. Retrying...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 4.2.0
+    default: VirtualBox Version: 4.3
+==> default: Mounting shared folders...
+    default: /vagrant => /Users/sethvincent/dev-envs
 ~~~~~~~~
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
@@ -69,6 +112,14 @@ Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+~~~~~~~~
+
+You'll now find your project folder at `/vagrant` when logged in to the vagrant machine.
+
+So navigate there like this:
+
+~~~~~~~~
+cd /vagrant
 ~~~~~~~~
 
 We'll now install ruby and related tools, and get started building applications. 
