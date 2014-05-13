@@ -677,6 +677,19 @@ If you get an error you may need to create the `bin` folder:
 mkdir ~/bin
 ```
 
+And add `~/bin` to your path:
+
+Add:
+
+```
+export PATH="$PATH:~/bin"
+```
+
+To your `~/.profile` file.
+
+
+#### About `ln -s`
+
 `ln -s` is a command used for creating symbolic links, which you can think of like aliases.
 
 The first argument is the location of the original file, the second argument is the new, alias location.
@@ -748,7 +761,7 @@ One of the most enjoyable features of Sublime (and similar text editors) is bein
 One way to get multiple cursors in a file is by searching using `Command + f`, entering a search phrase, and clicking **Find All**. This will heighlight all instances of the search phrase. Next you can press the left and right arrows to navigate around the text and make revisions like normal, only you'll be editing the text in multiple places.
 
 ##### Selecting multiple instances of a word with `Command + d`
-An even faster way of selecting multiple instances of a word is by clicking a word, then pressing `Command + d`. Pressing is once will select the word that the cursor was on. Pressing it repeatedly will select the next instance of the word in the text document, and eventually wrap around to the top of the file until it has searched up to the original word you clicked on. Hold down `Command + d` to quickly select all instances of the word the cursor is on.
+An even faster way of selecting multiple instances of a word is by clicking a word, then pressing `Command + d`. Pressing it once will select the word that the cursor was on. Pressing it repeatedly will select the next instance of the word in the text document, and eventually wrap around to the top of the file until it has searched up to the original word you clicked on. Hold down `Command + d` to quickly select all instances of the word the cursor is on.
 
 A shortcut to selecting all instances of a word at once is through the use of `Command + Control + G` on Mac or `Alt + F3` on Windows.
 
@@ -775,7 +788,7 @@ This is particularly useful for selecting a line of text. Use `Command + Right A
 
 #### Using the Sublime console
 
-Open the console using ``ctrl + ``` (control plus the backtick key) or by going to **View > Show Console** in the top menu.
+Open the console using `ctrl + ` (control plus the backtick key) or by going to **View > Show Console** in the top menu.
 
 This is a Python console that uses Sublime's embedded version of Python intended for interacting with the Sublime plugin API.
 
@@ -792,7 +805,7 @@ The Package Control website: [sublime.wbond.net](https://sublime.wbond.net)
 
 #### Installing Package Control
 
-Install Package control by copying and pasting the following code into the Sublime console (press ``Control + ``` to open the console).
+Install Package control by copying and pasting the following code into the Sublime console (press `Control + ` to open the console).
 
 ```
 import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
@@ -1183,6 +1196,37 @@ Create a new vagrant machine using the Ubuntu Precise box:
 vagrant init precise32
 ```
 
+Forward a port for viewing your site:
+
+Open the Vagrant file:
+
+```
+nano Vagrantfile
+```
+
+Find this section:
+
+```
+# Create a forwarded port mapping which allows access to a specific port
+# within the machine from a port on the host machine. In the example below,
+# accessing "localhost:8080" will access port 80 on the guest machine.
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+And change this line:
+
+```
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+To this:
+
+```
+config.vm.network "forwarded_port", guest: 9393 , host: 9393 
+```
+
+Make sure to uncomment the line by removing the `#`.
+
 Now start the vagrant machine:
 
 ```
@@ -1193,22 +1237,34 @@ If all goes well that'll result in output similar to the following:
 
 ```
 Bringing machine 'default' up with 'virtualbox' provider...
-[default] Importing base box 'precise32'...
-[default] Matching MAC address for NAT networking...
-[default] Setting the name of the VM...
-[default] Clearing any previously set forwarded ports...
-[default] Fixed port collision for 22 => 2222. Now on port 2200.
-[default] Creating shared folders metadata...
-[default] Clearing any previously set network interfaces...
-[default] Preparing network interfaces based on configuration...
-[default] Forwarding ports...
-[default] -- 22 => 2200 (adapter 1)
-[default] Booting VM...
-[default] Waiting for VM to boot. This can take a few minutes.
-[default] VM booted and ready for use!
-[default] Configuring and enabling network interfaces...
-[default] Mounting shared folders...
-[default] -- /vagrant
+==> default: Importing base box 'precise32'...
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: dev-envs_default_1400021636069_14720
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 9393 => 9393 (adapter 1)
+    default: 22 => 2222 (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Error: Connection timout. Retrying...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 4.2.0
+    default: VirtualBox Version: 4.3
+==> default: Mounting shared folders...
+    default: /vagrant => /Users/sethvincent/dev-envs
 ```
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
@@ -1227,6 +1283,14 @@ Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+```
+
+You'll now find your project folder at `/vagrant` when logged in to the vagrant machine.
+
+So navigate there like this:
+
+```
+cd /vagrant
 ```
 
 We'll now install ruby and related tools, and get started building applications. 
@@ -1695,6 +1759,7 @@ end
 Let's make a small website with [sinatra](http://sinatrarb.com) to explore how it works.
 
 In this example our site will do three things:  
+
 - serve html at the root route from a view that has a list of posts
 - serve html for a single post at `/post/:id`
 - serve json at `/api/posts` that has a list of posts
@@ -1726,7 +1791,7 @@ Now run bundle to install sinatra:
 bundle
 ```
 
-We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app – shotgun will automatically restart the server each time you edit a file in the project.
+We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app -- shotgun will automatically restart the server each time you edit a file in the project.
 
 Install shotgun:
 
@@ -1805,7 +1870,7 @@ require 'json'
 ```
 
 
-Create global variables that are available to our views using the before method, which runs before a request is processed:
+Create global variables that are available to our views using the `before` method, which runs before a request is processed:
 
 ```
 before do
@@ -1814,7 +1879,7 @@ before do
 end
 ```
 
-Serve the index.erb view on the root url with the following code block. note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
+Serve the index.erb view on the root url with the following code block. Note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
 
 ```
 get '/' do
@@ -1864,7 +1929,6 @@ touch views/layout.erb views/index.erb views/post.erb
 
 Add this content to the layout.erb file:
 
-
 ```
 <!doctype html>
 <html lang="en">
@@ -1885,8 +1949,8 @@ Add this content to the layout.erb file:
 <main role="main">
   <div class="container">
     <%= yield %>
-  </main>
-</div>
+  </div>
+</main>
 
 <footer>
   <div class="container">
@@ -1974,6 +2038,16 @@ You should now be able to navigate the home page, three blog post pages, and the
 shotgun app.rb
 ```
 
+### Accessing the site in the browser
+
+After starting the app with `shotgun`, you should see this output on the command line:
+
+```
+Listening on 127.0.0.1:9393, CTRL+C to stop
+```
+
+You can now open a browser and navigate to http://localhost:9393 to view the site.
+
 
 ### Sinatra resources
 
@@ -1987,9 +2061,9 @@ http://tryruby.org/
 
 # Javascript
 
-Javascript is a ubiquitous language. It's getting first class support in various operating sytems, you can use it on the server with node.js, and developing javascript applications that are largely front-end code is becoming a popular and pragmatic practice.
+Javascript is a ubiquitous language. It's getting first-class support in various operating sytems, you can use it on the server with node.js, and developing javascript applications that are largely front-end code is becoming a popular and pragmatic practice.
 
-We'll cover javascript on the server using node.js, and briefly cover javascript in the browser.
+We'll cover javascript on the server using node.js and briefly cover javascript in the browser.
 
 Javascript development tools have recently seen a big burst of growth thanks to node.js.
 
@@ -2000,7 +2074,7 @@ The website for node.js is pretty great: [http://nodejs.org](http://nodejs.org).
 
 It includes the API documentation, a blog that announces new releases and a link to the website for the package manager used by node developers, npm.
 
-There isn't really a website for the javascript language in the same way ruby and python have websites. For general javascript information look to the documentation websites listed below:
+There isn't really a website for the javascript language in the same way ruby and python have websites. For general javascript information, look to the documentation websites listed below:
 
 
 
@@ -2008,16 +2082,16 @@ There isn't really a website for the javascript language in the same way ruby an
 
 One of the best places to start learning Node.js is [nodeschool.io](http://nodeschool.io/). These are a set of interactive workshops you complete using the terminal. Highly recommended.
 
-The node.js API documentation:
+Here is the documentation for the node.js API:
 [http://nodejs.org/api/index.html](http://nodejs.org/api/index.html)
 
-There are a lot of different resources for client-side javascript documentation.
+There are a lot of different resources for documentation on client-side javascript.
 
-I recommend two:
+Here are two I recommend:
 
 **Web Platform Docs:** [http://www.webplatform.org/](http://www.webplatform.org/)
 
-The Web Platform Docs is a relatively new set of documentation that includes coverage of html, css, and javscript. It's pretty good, 
+The Web Platform Docs is a relatively new set of documentation that includes coverage of html, css, and javscript. It's pretty good.
 
 **Mozilla Developer Network documentation:** [https://developer.mozilla.org/en-US/docs/Web/JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
@@ -2038,6 +2112,37 @@ Create a new vagrant machine using the Ubuntu Precise box:
 vagrant init precise32
 ```
 
+Forward a port for viewing your site:
+
+Open the Vagrant file:
+
+```
+nano Vagrantfile
+```
+
+Find this section:
+
+```
+# Create a forwarded port mapping which allows access to a specific port
+# within the machine from a port on the host machine. In the example below,
+# accessing "localhost:8080" will access port 80 on the guest machine.
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+And change this line:
+
+```
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+To this:
+
+```
+config.vm.network "forwarded_port", guest: 3000 , host: 3000 
+```
+
+Make sure to uncomment the line by removing the `#`.
+
 Now start the vagrant machine:
 
 ```
@@ -2048,22 +2153,34 @@ If all goes well that'll result in output similar to the following:
 
 ```
 Bringing machine 'default' up with 'virtualbox' provider...
-[default] Importing base box 'precise32'...
-[default] Matching MAC address for NAT networking...
-[default] Setting the name of the VM...
-[default] Clearing any previously set forwarded ports...
-[default] Fixed port collision for 22 => 2222. Now on port 2200.
-[default] Creating shared folders metadata...
-[default] Clearing any previously set network interfaces...
-[default] Preparing network interfaces based on configuration...
-[default] Forwarding ports...
-[default] -- 22 => 2200 (adapter 1)
-[default] Booting VM...
-[default] Waiting for VM to boot. This can take a few minutes.
-[default] VM booted and ready for use!
-[default] Configuring and enabling network interfaces...
-[default] Mounting shared folders...
-[default] -- /vagrant
+==> default: Importing base box 'precise32'...
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: dev-envs_default_1400021636069_14720
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 3000 => 3000 (adapter 1)
+    default: 22 => 2222 (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Error: Connection timout. Retrying...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 4.2.0
+    default: VirtualBox Version: 4.3
+==> default: Mounting shared folders...
+    default: /vagrant => /Users/sethvincent/dev-envs
 ```
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
@@ -2082,6 +2199,14 @@ Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
+```
+
+You'll now find your project folder at `/vagrant` when logged in to the vagrant machine.
+
+So navigate there like this:
+
+```
+cd /vagrant
 ```
 
 We'll now install Node.js, its dependencies, and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
@@ -2109,7 +2234,7 @@ We have git installed, so we can clone nvm to our home folder:
 git clone https://github.com/creationix/nvm.git ~/.nvm
 ```
 
-Source nvm to make it the `nvm` command available in the terminal:
+Source nvm to make the `nvm` command available in the terminal by typing into your terminal:
 
 ```
 source ~/.nvm/nvm.sh
@@ -2566,7 +2691,7 @@ Create our app by calling `express()` and assigning the returned object to the v
 var app = express();
 ```
 
-Exposing a route for the rool url using `app.get()`:
+Exposing a route for the root url using `app.get()`:
 
 ```
 app.get('/', function(req, res){
@@ -2654,7 +2779,7 @@ npm install -g nodemon
 Run nodemon with these options so that changes to ejs views and public files also trigger the restart:
 
 ```
-nodemon -e js,css,html,ejs
+nodemon -e js,css,html,ejs app.js
 ```
 
 Create a file named posts.json with the following json:
@@ -2862,8 +2987,8 @@ Add this content to the index.ejs file:
       </h3>
       <div><%= post.content %></div>
     <% }); %>
-  </main>
-</div>
+  </div>
+</main>
 
 <% include footer %>
 ```
@@ -2877,8 +3002,8 @@ Add this content to the post.ejs file:
   <div class="container">
     <h3><%= post.title %></h3>
     <div><%= post.content %></div>
-  </main>
-</div>
+  </div>
+</main>
 
 <% include footer %>
 ```
@@ -2936,8 +3061,18 @@ footer {
 You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
 
 ```
-nodemon -e js,css,html,ejs
+nodemon -e js,css,html,ejs app.js
 ```
+
+### Accessing the site in the browser
+
+After starting the app with `nodemon`, you should see this output on the command line:
+
+```
+app is listening at localhost:3000
+```
+
+You can now open a browser and navigate to http://localhost:3000 to view the site.
 
 
 ### Express resources
@@ -2979,6 +3114,37 @@ Create a new vagrant machine using the Ubuntu Precise box:
 vagrant init precise32
 ```
 
+Forward a port for viewing your site:
+
+Open the Vagrant file:
+
+```
+nano Vagrantfile
+```
+
+Find this section:
+
+```
+# Create a forwarded port mapping which allows access to a specific port
+# within the machine from a port on the host machine. In the example below,
+# accessing "localhost:8080" will access port 80 on the guest machine.
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+And change this line:
+
+```
+# config.vm.network "forwarded_port", guest: 80, host: 8080
+```
+
+To this:
+
+```
+config.vm.network "forwarded_port", guest: 5000 , host: 5000 
+```
+
+Make sure to uncomment the line by removing the `#`.
+
 Now start the vagrant machine:
 
 ```
@@ -2989,22 +3155,34 @@ If all goes well that'll result in output similar to the following:
 
 ```
 Bringing machine 'default' up with 'virtualbox' provider...
-[default] Importing base box 'precise32'...
-[default] Matching MAC address for NAT networking...
-[default] Setting the name of the VM...
-[default] Clearing any previously set forwarded ports...
-[default] Fixed port collision for 22 => 2222. Now on port 2200.
-[default] Creating shared folders metadata...
-[default] Clearing any previously set network interfaces...
-[default] Preparing network interfaces based on configuration...
-[default] Forwarding ports...
-[default] -- 22 => 2200 (adapter 1)
-[default] Booting VM...
-[default] Waiting for VM to boot. This can take a few minutes.
-[default] VM booted and ready for use!
-[default] Configuring and enabling network interfaces...
-[default] Mounting shared folders...
-[default] -- /vagrant
+==> default: Importing base box 'precise32'...
+==> default: Matching MAC address for NAT networking...
+==> default: Setting the name of the VM: dev-envs_default_1400021636069_14720
+==> default: Clearing any previously set network interfaces...
+==> default: Preparing network interfaces based on configuration...
+    default: Adapter 1: nat
+==> default: Forwarding ports...
+    default: 5000 => 5000 (adapter 1)
+    default: 22 => 2222 (adapter 1)
+==> default: Booting VM...
+==> default: Waiting for machine to boot. This may take a few minutes...
+    default: SSH address: 127.0.0.1:2222
+    default: SSH username: vagrant
+    default: SSH auth method: private key
+    default: Error: Connection timout. Retrying...
+==> default: Machine booted and ready!
+==> default: Checking for guest additions in VM...
+    default: The guest additions on this VM do not match the installed version of
+    default: VirtualBox! In most cases this is fine, but in rare cases it can
+    default: prevent things such as shared folders from working properly. If you see
+    default: shared folder errors, please make sure the guest additions within the
+    default: virtual machine match the version of VirtualBox you have installed on
+    default: your host and reload your VM.
+    default: 
+    default: Guest Additions Version: 4.2.0
+    default: VirtualBox Version: 4.3
+==> default: Mounting shared folders...
+    default: /vagrant => /Users/sethvincent/dev-envs
 ```
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
@@ -3024,6 +3202,15 @@ Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
 ```
+
+You'll now find your project folder at `/vagrant` when logged in to the vagrant machine.
+
+So navigate there like this:
+
+```
+cd /vagrant
+```
+
 
 We'll now install python, its dependencies, and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
 
@@ -3533,8 +3720,8 @@ Add this content to the base.html file:
 <main role="main">
   <div class="container">
     {% block content %}{% endblock %}
-  </main>
-</div>
+  </div>
+</main>
 
 <footer>
   <div class="container">
@@ -3633,6 +3820,16 @@ You should now be able to navigate on the home page, three blog post pages, and 
 ```
 python app.py
 ```
+
+### Accessing the site in the browser
+
+After starting the app with `shotgun`, you should see this output on the command line:
+
+```
+Running on http://127.0.0.1:5000/
+```
+
+You can now open a browser and navigate to http://localhost:5000 to view the site.
 
 ### Flask resources
 
@@ -3736,6 +3933,12 @@ Learn more at [learnjs.io](http://learnjs.io).
 
 
 # Changelog
+
+## v0.4.2
+- typo fixes submitted by [Jason Li](http://www.hongkonggong.com)
+- fixes from [suisea](https://github.com/suisea)
+- add instructions for viewing the site in the browser to ruby, js, python chapters
+- improve vagrant instructions in ruby, js, python chapters
 
 ## v0.4.1 – February 28, 2014
 - small typo fixes
