@@ -537,6 +537,7 @@ end
 Let's make a small website with [sinatra](http://sinatrarb.com) to explore how it works.
 
 In this example our site will do three things:  
+
 - serve html at the root route from a view that has a list of posts
 - serve html for a single post at `/post/:id`
 - serve json at `/api/posts` that has a list of posts
@@ -568,7 +569,7 @@ Now run bundle to install sinatra:
 bundle
 ```
 
-We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app – shotgun will automatically restart the server each time you edit a file in the project.
+We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app -- shotgun will automatically restart the server each time you edit a file in the project.
 
 Install shotgun:
 
@@ -647,7 +648,7 @@ require 'json'
 ```
 
 
-Create global variables that are available to our views using the before method, which runs before a request is processed:
+Create global variables that are available to our views using the `before` method, which runs before a request is processed:
 
 ```
 before do
@@ -656,7 +657,7 @@ before do
 end
 ```
 
-Serve the index.erb view on the root url with the following code block. note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
+Serve the index.erb view on the root url with the following code block. Note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
 
 ```
 get '/' do
@@ -705,7 +706,6 @@ touch views/layout.erb views/index.erb views/post.erb
 ```
 
 Add this content to the layout.erb file:
-
 
 ```
 <!doctype html>
