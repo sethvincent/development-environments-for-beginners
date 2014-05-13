@@ -109,30 +109,30 @@ For automating tasks in python development, use [fabric](http://fabfile.org).
 
 First, install fabric:
 
-```
+~~~~~~~~
 pip install fabric
-```
+~~~~~~~~
 
 Create a fabfile.py in your project directory:
 
-```
+~~~~~~~~
 touch fabfile.py
-```
+~~~~~~~~
 
 Add this example to your fabfile.py:
 
-```
+~~~~~~~~
 from fabric.api import local
 
 def start():
     local("python app.py")
-```
+~~~~~~~~
 
 Run this command:
 
-```
+~~~~~~~~
 fab start
-```
+~~~~~~~~
 
 The start task defined in your fabfile.py will be executed.
 
@@ -377,51 +377,51 @@ We won't be using a database for this example, but instead will use a json file 
 
 We'll be using the default template language that flask uses, [jinja](http://jinja.pocoo.org/). Let's install flask by creating a virtualenv and using pip:
 
-```
+~~~~~~~~
 virtualenv flask-example
 cd flask-example
-```
+~~~~~~~~
 
 Activate the virtualenv:
 
-```
+~~~~~~~~
 source bin/activate
-```
+~~~~~~~~
 
 Now use pip to install flask and its dependencies
 
-```
+~~~~~~~~
 pip install flask
-```
+~~~~~~~~
 
 For this project we'll put the source files inside the virtualenv folder. Create a new folder called source for our application code:
 
-```
+~~~~~~~~
 mkdir source
 cd source
-```
+~~~~~~~~
 
 Your directory structure should now look like this:
 
-```
+~~~~~~~~
 flask-example
 - bin
 - source
 - include
 - lib
-```
+~~~~~~~~
 
 Make sure you put new files inside the source folder.
 
 We'll run the application with this command:
 
-```
+~~~~~~~~
 python app.py
-```
+~~~~~~~~
 
 Create a file named posts.json with the following json:
 
-```
+~~~~~~~~
 [
 {
   "title": "This is the first post",
@@ -439,11 +439,11 @@ Create a file named posts.json with the following json:
   "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
 }
 ]
-```
+~~~~~~~~
 
 Now create the app.py file:
 
-```
+~~~~~~~~
 from flask import Flask, render_template, g, jsonify
 import json
 
@@ -481,89 +481,89 @@ def show_json():
 
 if __name__ == '__main__':
     app.run()
-```
+~~~~~~~~
 
 Let's break down this example code chunk by chunk:
 
 Require the necessary python libraries. Note that there are multiple classes from the flask library that we're importing individually:
 
-```
+~~~~~~~~
 from flask import Flask, render_template, g, jsonify
 import json
-```
+~~~~~~~~
 
 
 Create the application with a name and turn on debug so the application will reload each time you make changes to the app.py file and provide useful error messages:
 
-```
+~~~~~~~~
 app = Flask('extended-flask-example')
 app.config['DEBUG'] = True
-```
+~~~~~~~~
 
 Create global variables that are available to our views using the before method, which runs before a request is processed. Here we're loading the posts.json file into the application so we can use it in our views:
 
-```
+~~~~~~~~
 @app.before_request
 def before_request():
     g.title = 'Extended flask example'
     posts = open('posts.json')
     g.posts = json.load(posts)
     posts.close()
-```
+~~~~~~~~
 
 Serve the index.html template on the root url with the following code block. Note that with flask, templates are the equivalent to views in sinatra or express. Flask automatically looks in a folder named templates, so you only have to specify the filename:
 
-```
+~~~~~~~~
 @app.route('/')
 def index():
     posts = getattr(g, 'posts', None)
     return render_template('index.html', posts=posts)
-```
+~~~~~~~~
 
 The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, we render the page with that post set as the `post` variable.
 
-```
+~~~~~~~~
 @app.route('/post/<slug>')
 def show_post(slug):
     for post in g.posts:
         if slug == post['slug']:
             return render_template('post.html', post=post)
-```
+~~~~~~~~
 
 The following is a simple example of exposing a simple json feed of the posts:
 
-```
+~~~~~~~~
 @app.route('/api/posts')
 def show_json():
     meta = { 'name': g.title }
     return jsonify(posts=g.posts, meta=meta)
-```
+~~~~~~~~
 
 Finally, this code block checks to make sure our application is not a module being loaded into another application, and then runs the app. This is particularly useful in the case that your app might be used on its own or as part of another application:
 
-```
+~~~~~~~~
 if __name__ == '__main__':
     app.run()
-```
+~~~~~~~~
 
 
 Next, we'll need the templates for rendering html.
 
 Let's make a templates folder for all the templates to live in:
 
-```
+~~~~~~~~
 mkdir templates
-```
+~~~~~~~~
 
 And create all the template files that we need:
 
-```
+~~~~~~~~
 touch templates/base.html templates/index.html templates/post.html
-```
+~~~~~~~~
 
 Add this content to the base.html file:
 
-```
+~~~~~~~~
 <!doctype html>
 <html lang="en">
 <head>
@@ -583,8 +583,8 @@ Add this content to the base.html file:
 <main role="main">
   <div class="container">
     {% block content %}{% endblock %}
-  </main>
-</div>
+  </div>
+</main>
 
 <footer>
   <div class="container">
@@ -594,11 +594,11 @@ Add this content to the base.html file:
 
 </body>
 </html>
-```
+~~~~~~~~
 
 Add this content to the index.html file:
 
-```
+~~~~~~~~
 {% extends "base.html" %}
 
 {% block content %}
@@ -613,11 +613,11 @@ Add this content to the index.html file:
 {% endfor %}
 
 {% endblock %}
-```
+~~~~~~~~
 
 Add this content to the post.erb file:
 
-```
+~~~~~~~~
 {% extends "base.html" %}
 
 {% block content %}
@@ -626,20 +626,20 @@ Add this content to the post.erb file:
 <div>{{ post.content }}</div>
 
 {% endblock %}
-```
+~~~~~~~~
 
 Let's add some css styling so this looks a little more readable. By default flask will look in a folder named static for static files.
 
 First create the static folder and the styles.css file:
 
-```
+~~~~~~~~
 mkdir static
 touch static/styles.css
-```
+~~~~~~~~
 
 Now add this content to the styles.css file:
 
-```
+~~~~~~~~
 body {
   font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #787876;
@@ -676,13 +676,23 @@ footer {
     width: 60%;
   }
 }
-```
+~~~~~~~~
 
 You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
 
-```
+~~~~~~~~
 python app.py
-```
+~~~~~~~~
+
+### Accessing the site in the browser
+
+After starting the app with `shotgun`, you should see this output on the command line:
+
+~~~~~~~~
+Running on http://127.0.0.1:5000/
+~~~~~~~~
+
+You can now open a browser and navigate to http://localhost:5000 to view the site.
 
 ### Flask resources
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## v0.4.2
+- typo fixes submitted by [Jason Li](http://www.hongkonggong.com)
+- fixes from [suisea](https://github.com/suisea)
+- add instructions for viewing the site in the browser to ruby, js, python chapters
+
 ## v0.4.1 – February 28, 2014
 - small typo fixes
 

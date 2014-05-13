@@ -210,25 +210,25 @@ gem install rake
 
 Create a Rakefile for your project:
 
-```
+~~~~~~~~
 touch Rakefile
-```
+~~~~~~~~
 
 Add this simple example to your Rakefile:
 
-```
+~~~~~~~~
 task :default => [:start]
 
 task :start do
   ruby "app.rb"
 end
-```
+~~~~~~~~
 
 When you run this command on the terminal:
 
-```
+~~~~~~~~
 rake
-```
+~~~~~~~~
 
 The start task defined in your Rakefile will be executed.
 
@@ -545,46 +545,46 @@ We won't be using a database for this example, but instead will use a json file 
 
 To get started, create and change directory into a new project folder.
 
-```
+~~~~~~~~
 mkdir sinatra-example
 cd sinatra-example
-```
+~~~~~~~~
 
 We'll be using sinatra and will utilize the default template language, erb. Let's install sinatra by creating a Gemfile:
 
-```
+~~~~~~~~
 touch Gemfile
-```
+~~~~~~~~
 
 Add the sinatra gem to the Gemfile:
 
-```
+~~~~~~~~
 gem 'sinatra'
-```
+~~~~~~~~
 
 Now run bundle to install sinatra:
 
-```
+~~~~~~~~
 bundle
-```
+~~~~~~~~
 
 We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app – shotgun will automatically restart the server each time you edit a file in the project.
 
 Install shotgun:
 
-```
+~~~~~~~~
 gem install shotgun
-```
+~~~~~~~~
 
 To run the sinatra app you'll use this command:
 
-```
+~~~~~~~~
 shotgun app.rb
-```
+~~~~~~~~
 
 Create a file named posts.json with the following json:
 
-```
+~~~~~~~~
 [
 {
   "title": "This is the first post",
@@ -602,11 +602,11 @@ Create a file named posts.json with the following json:
   "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
 }
 ]
-```
+~~~~~~~~
 
 Now create the app.rb file:
 
-```
+~~~~~~~~
 require 'sinatra'
 require 'json'
 
@@ -635,38 +635,38 @@ get '/api/posts' do
   }
   data.to_json
 end
-```
+~~~~~~~~
 
 Let's break down this example code chunk by chunk:
 
 Require the necessary ruby libraries:
 
-```
+~~~~~~~~
 require 'sinatra'
 require 'json'
-```
+~~~~~~~~
 
 
 Create global variables that are available to our views using the before method, which runs before a request is processed:
 
-```
+~~~~~~~~
 before do
   @title = 'Extended Sinatra example'
   @posts = JSON.parse( IO.read('posts.json') )
 end
-```
+~~~~~~~~
 
 Serve the index.erb view on the root url with the following code block. note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
 
-```
+~~~~~~~~
 get '/' do
   erb :index
 end
-```
+~~~~~~~~
 
 The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is set to a global `@post` variable that's available in our post view.
 
-```
+~~~~~~~~
 get '/post/:slug' do
   @posts.each do |post| 
     if post['slug'] == params[:slug] 
@@ -675,11 +675,11 @@ get '/post/:slug' do
   end
   erb :post
 end
-```
+~~~~~~~~
 
 The following is a simple example of exposing a simple json feed of the posts:
 
-```
+~~~~~~~~
 get '/api/posts' do
   data = { 
     meta: { name: @title },
@@ -687,27 +687,27 @@ get '/api/posts' do
   }
   data.to_json
 end
-```
+~~~~~~~~
 
 
 Next, we'll need the erb views for rendering html.
 
 Let's make a views folder for all the views to live in:
 
-```
+~~~~~~~~
 mkdir views
-```
+~~~~~~~~
 
 And create all the view files that we need:
 
-```
+~~~~~~~~
 touch views/layout.erb views/index.erb views/post.erb
-```
+~~~~~~~~
 
 Add this content to the layout.erb file:
 
 
-```
+~~~~~~~~
 <!doctype html>
 <html lang="en">
 <head>
@@ -727,8 +727,8 @@ Add this content to the layout.erb file:
 <main role="main">
   <div class="container">
     <%= yield %>
-  </main>
-</div>
+  </div>
+</main>
 
 <footer>
   <div class="container">
@@ -738,11 +738,11 @@ Add this content to the layout.erb file:
 
 </body>
 </html>
-```
+~~~~~~~~
 
 Add this content to the index.erb file:
 
-```
+~~~~~~~~
 <% for @post in @posts %>
   <h3>
     <a href="/post/<%= @post['slug'] %>">
@@ -751,27 +751,27 @@ Add this content to the index.erb file:
   </h3>
   <div><%= @post['content'] %></div>
 <% end %>
-```
+~~~~~~~~
 
 Add this content to the post.erb file:
 
-```
+~~~~~~~~
 <h3><%= @post['title'] %></h3>
 <div><%= @post['content'] %></div>
-```
+~~~~~~~~
 
 Let's add some css styling so this looks a little more readable.
 
 First create the public folder and the styles.css file:
 
-```
+~~~~~~~~
 mkdir public
 touch public/styles.css
-```
+~~~~~~~~
 
 Now add this content to the styles.css file:
 
-```
+~~~~~~~~
 body {
   font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #787876;
@@ -808,13 +808,23 @@ footer {
     width: 60%;
   }
 }
-```
+~~~~~~~~
 
 You should now be able to navigate the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
 
-```
+~~~~~~~~
 shotgun app.rb
-```
+~~~~~~~~
+
+### Accessing the site in the browser
+
+After starting the app with `shotgun`, you should see this output on the command line:
+
+~~~~~~~~
+Listening on 127.0.0.1:9393, CTRL+C to stop
+~~~~~~~~
+
+You can now open a browser and navigate to http://localhost:9393 to view the site.
 
 
 ### Sinatra resources

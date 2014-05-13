@@ -23,9 +23,22 @@ ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/s
 
 If you get an error you may need to create the `bin` folder:
 
-```
+~~~~~~~~
 mkdir ~/bin
-```
+~~~~~~~~
+
+And add `~/bin` to your path:
+
+Add:
+
+~~~~~~~~
+export PATH="$PATH:~/bin"
+~~~~~~~~
+
+To your `~/.profile` file.
+
+
+#### About `ln -s`
 
 `ln -s` is a command used for creating symbolic links, which you can think of like aliases.
 
@@ -98,7 +111,7 @@ One of the most enjoyable features of Sublime (and similar text editors) is bein
 One way to get multiple cursors in a file is by searching using `Command + f`, entering a search phrase, and clicking **Find All**. This will heighlight all instances of the search phrase. Next you can press the left and right arrows to navigate around the text and make revisions like normal, only you'll be editing the text in multiple places.
 
 ##### Selecting multiple instances of a word with `Command + d`
-An even faster way of selecting multiple instances of a word is by clicking a word, then pressing `Command + d`. Pressing is once will select the word that the cursor was on. Pressing it repeatedly will select the next instance of the word in the text document, and eventually wrap around to the top of the file until it has searched up to the original word you clicked on. Hold down `Command + d` to quickly select all instances of the word the cursor is on.
+An even faster way of selecting multiple instances of a word is by clicking a word, then pressing `Command + d`. Pressing it once will select the word that the cursor was on. Pressing it repeatedly will select the next instance of the word in the text document, and eventually wrap around to the top of the file until it has searched up to the original word you clicked on. Hold down `Command + d` to quickly select all instances of the word the cursor is on.
 
 A shortcut to selecting all instances of a word at once is through the use of `Command + Control + G` on Mac or `Alt + F3` on Windows.
 
@@ -125,7 +138,7 @@ This is particularly useful for selecting a line of text. Use `Command + Right A
 
 #### Using the Sublime console
 
-Open the console using ``ctrl + ``` (control plus the backtick key) or by going to **View > Show Console** in the top menu.
+Open the console using `ctrl + ` (control plus the backtick key) or by going to **View > Show Console** in the top menu.
 
 This is a Python console that uses Sublime's embedded version of Python intended for interacting with the Sublime plugin API.
 
@@ -142,11 +155,11 @@ The Package Control website: [sublime.wbond.net](https://sublime.wbond.net)
 
 #### Installing Package Control
 
-Install Package control by copying and pasting the following code into the Sublime console (press ``Control + ``` to open the console).
+Install Package control by copying and pasting the following code into the Sublime console (press `Control + ` to open the console).
 
-```
+~~~~~~~~
 import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
-```
+~~~~~~~~
 
 Next you'll need to restart Sublime.
 
