@@ -2813,9 +2813,9 @@ var app = express();
 
 app.use('/public', express.static(__dirname + '/public'));
 
-app.locals({
+app.locals = {
   title: 'Extended Express Example'
-});
+};
 
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
