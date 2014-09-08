@@ -1,20 +1,21 @@
 {
   "name": "dev-envs",
-  "version": "0.0.0",
+  "version": "0.4.2",
+  "repository": {
+    "url": "git://github.com/learn-js/npm-recipes.git"
+  },
   "description": "a guide to creating development environments for ruby, javascript, and python.",
   "main": "index.js",
-  "dependencies": {
-    "manuscript-builder": "~0.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "manuscript-builder": "0.0.3",
-    "ebook-convert": "0.0.2"
+    "manuscript-builder": "^0.0.3",
+    "ebook-convert": "^0.1.0",
   },
   "scripts": {
     "leanpub": "./bin/leanpub",
     "compile": "./bin/compile",
     "dist": "./bin/dist"
   },
-  "author": "",
+  "author": "Seth Vincent <sethvincent@gmail.com> http://sethvincent.com",
   "license": "MIT"
 }
