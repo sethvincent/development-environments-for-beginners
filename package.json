@@ -2,7 +2,7 @@
   "name": "dev-envs",
   "version": "0.4.2",
   "repository": {
-    "url": "git://github.com/learn-js/npm-recipes.git"
+    "url": "git://github.com/sethvincent/dev-envs-book.git"
   },
   "description": "a guide to creating development environments for ruby, javascript, and python.",
   "main": "index.js",
