@@ -752,9 +752,7 @@ var app = express();
 
 app.use('/public', express.static(__dirname + '/public'));
 
-app.locals({
-  title: 'Extended Express Example'
-});
+app.locals.title= 'Extended Express Example';
 
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
@@ -797,18 +795,16 @@ var fs = require('fs');
 var app = express();
 ~~~~~~~~
 
-Set up the app to serve whatever is in the public folder at the url `/public/:filename`:
+Set up the app to serve whatever is in the public folder at the url `/public/:filename`. You may need to delete a pre-existing app.use() function that serves from the routes folder:
 
 ~~~~~~~~
 app.use('/public', express.static(__dirname + '/public'));
 ~~~~~~~~
 
-You can add local variables that can be used in views and throughout the app by passing an object to `app.locals()`:
+You can add local variables that can be used in views and throughout the app. See other examples here: http://expressjs.com/api.html#app.locals
 
 ~~~~~~~~
-app.locals({
-  title: 'Extended Express Example'
-});
+app.locals.title='Extended Express Example';
 ~~~~~~~~
 
 In this example we're loading the posts from the json file before responding to routes:
