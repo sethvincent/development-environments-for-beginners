@@ -801,7 +801,7 @@ Set up the app to serve whatever is in the public folder at the url `/public/:fi
 app.use('/public', express.static(__dirname + '/public'));
 ~~~~~~~~
 
-You can add local variables that can be used in views and throughout the app. See other examples here: http://expressjs.com/api.html#app.locals
+You can add local variables that can be used in views and throughout the app. See more examples in the [express](http://expressjs.com/api.html#app.locals "express") api.
 
 ~~~~~~~~
 app.locals.title='Extended Express Example';
