@@ -28,21 +28,7 @@ Maybe you'll learn that you want to work with all three of these languages, or t
 - intro to web frameworks
 
 ## This book is open source
-Contribute errata or content requests at the GitHub repository for this book: [github.com/sethvincent/dev-envs-book](https://github.com/sethvincent/dev-envs-book).
-
-## Other books
-
-There's a good chance that if you like this book you'll be interested in the other books in the Learn.js series.
-
-**Check them out!**
-
-- [Introduction to JavaScript & Node.js](http://learnjs.io/books/learnjs-01)
-- [Making 2d Games with Node.js & Browserify](http://learnjs.io/books/learnjs-02)
-- [Mapping with Leaflet.js](http://learnjs.io/books/learnjs-03)
-- [Theming with Ghost](http://themingwithghost.com)
-- [npm recipes](http://learnjs.io/npm-recipes)
-
-Learn more at [learnjs.io](http://learnjs.io).
+Contribute errata or content requests at the GitHub repository for this book: [github.com/civicmakerlab/development-environments-for-beginners](https://github.com/civicmakerlab/development-environments-for-beginners).
 
 
 
@@ -133,9 +119,9 @@ Let's get started with the basics of using vagrant.
 
 Open the terminal on your computer and run this command:
 
-```
+~~~~~~~~
 vagrant
-```
+~~~~~~~~
 
 Running the command by itself will show you all the possible sub-commands and options you can pass.
 
@@ -143,22 +129,22 @@ Let's try this thing out.
 
 Create and navigate to your `dev-envs` folder:
 
-```
+~~~~~~~~
 mkdir ~/dev-envs
 cd ~/dev-envs
-```
+~~~~~~~~
 
 Create a folder named `tmp` and change directory into it:
 
-```
+~~~~~~~~
 mkdir tmp && cd tmp
-```
+~~~~~~~~
 
 Run `vagrant init` to create a Vagrantfile in our tmp directory:
 
-```
+~~~~~~~~
 vagrant init precise32 http://files.vagrantup.com/precise32.box
-```
+~~~~~~~~
 
 By passing the name `precise32` and the url of the box we want to use, we prepopulate the Vagrantfile with the vagrant box we intend to use for our project. And by passing a url we're letting vagrant know that we want to download the vagrant box, as it isn't on our computer yet. 
 
@@ -166,24 +152,24 @@ precise32 is the name for Ubuntu 12.04 LTS 32-bit.
 
 You should see output on the terminal like this:
 
-```
+~~~~~~~~
 A `Vagrantfile` has been placed in this directory. You are now
 ready to `vagrant up` your first virtual environment! Please read
 the comments in the Vagrantfile as well as documentation on
 `vagrantup.com` for more information on using Vagrant.
-```
+~~~~~~~~
 
 Now, run `vagrant up` to boot your vagrant box:
 
-```
+~~~~~~~~
 vagrant up
-```
+~~~~~~~~
 
 This does a couple things: because we passed a url to vagrant init, and we  don't already have a box on our machine named precise32, `vagrant up` will first download the precise32 box, then boot it with any configuration that's been set in the Vagrantfile.
 
 You should see output on the terminal like this:
 
-```
+~~~~~~~~
 Bringing machine 'default' up with 'virtualbox' provider...
 [default] Box 'precise32' was not found. Fetching box from specified URL for
 the provider 'virtualbox'. Note that if the URL does not have
@@ -209,33 +195,33 @@ Successfully added box 'precise32' with provider 'virtualbox'!
 [default] Configuring and enabling network interfaces...
 [default] Mounting shared folders...
 [default] -- /vagrant
-```
+~~~~~~~~
 
 Now that the box is up and running, we can ssh into this instance of Ubuntu that we just set up!
 
 We do that by running `vagrant ssh` in the terminal:
 
-```
+~~~~~~~~
 vagrant ssh
-```
+~~~~~~~~
 
 You should see output on the terminal like this:
 
-```
+~~~~~~~~
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
 
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
-```
+~~~~~~~~
 
 You have now entered your vagrant box. Every command you type in your terminal now happens in this instance of Ubuntu Linux.
 
 To exit from the vagrant box, and take the terminal back to your host operating system, run the `exit` command:
 
-```
+~~~~~~~~
 exit
-```
+~~~~~~~~
 
 You prompt should now look the same as before you ran `vagrant ssh`.
 
@@ -243,9 +229,9 @@ Now that we downloaded that precise32 box once, we won't have to do it again. We
 
 Next time we're about to create a vagrant box we'll navigate to the project folder and run 'vagrant init' again, like this:
 
-```
+~~~~~~~~
 vagrant init precise32
-```
+~~~~~~~~
 
 We don't have to pass in the url, because we've already downloaded the box.
 
@@ -253,17 +239,17 @@ When we run `vagrant up`, the box won't be downloaded, because we've already got
 
 To see which boxes you've currently got downloaded run this command:
 
-```
+~~~~~~~~
 vagrant box list
-```
+~~~~~~~~
 
 Let's stop this vagrant instance we created in our ~/dev-envs/tmp folder.
 
 Run this command:
 
-```
+~~~~~~~~
 vagrant halt
-```
+~~~~~~~~
 
 We can start the box back up again any time by running `vagrant up` from inside this folder.
 
@@ -271,18 +257,18 @@ Let's now destroy the vagrant instance.
 
 To learn about this use the following command:
 
-```
+~~~~~~~~
 vagrant destroy --help
-```
+~~~~~~~~
 
 You'll see output like this:
 
-```
+~~~~~~~~
 Usage: vagrant destroy [vm-name]
 
     -f, --force                      Destroy without confirmation.
     -h, --help                       Print this help
-```
+~~~~~~~~
 
 
 ## Alternatives to vagrant/virtualbox
@@ -315,9 +301,9 @@ You can only break your computer using the terminal if you do really weird stuff
 
 Each command that you run on the terminal will use a pattern similar to this:
 
-```
+~~~~~~~~
 name-of-command --options input-file-or-text output
-```
+~~~~~~~~
 
 The `name-of-command` is the actual command. Options are often preceeded by two dashes, or they can likely be shorted to one dash and the first letter or an abbreviation. Then, there will occasionally be some kind of input text or file that the command is acting on, or changing. Similarly, you might specify a filename for the output of the command. You'll see that many of the commands below are more simple.
 
@@ -329,26 +315,26 @@ Because we'll be using vagrant to create a virtual machine running Ubuntu throug
 
 Let's create a vagrant machine in your javascript dev-envs folder:
 
-```
+~~~~~~~~
 mkdir ~/dev-envs/terminal
 cd ~/dev-envs/terminal
-```
+~~~~~~~~
 
 Create a new vagrant machine using the Ubuntu Precise box:
 
-```
+~~~~~~~~
 vagrant init precise32
-```
+~~~~~~~~
 
 Now start the vagrant machine:
 
-```
+~~~~~~~~
 vagrant up
-```
+~~~~~~~~
 
 If all goes well that'll result in output similar to the following:
 
-```
+~~~~~~~~
 Bringing machine 'default' up with 'virtualbox' provider...
 [default] Importing base box 'precise32'...
 [default] Matching MAC address for NAT networking...
@@ -366,25 +352,25 @@ Bringing machine 'default' up with 'virtualbox' provider...
 [default] Configuring and enabling network interfaces...
 [default] Mounting shared folders...
 [default] -- /vagrant
-```
+~~~~~~~~
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
 
 Use this command:
 
-```
+~~~~~~~~
 vagrant ssh
-```
+~~~~~~~~
 
 You should see output similar to the following:
 
-```
+~~~~~~~~
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
 
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
-```
+~~~~~~~~
 
 Now we can experiment with terminal commands
 
@@ -392,104 +378,104 @@ Now we can experiment with terminal commands
 
 Changing directory:
 
-```
+~~~~~~~~
 cd path/of/directories
-```
+~~~~~~~~
 
 `cd` on its own, or `cd ~` will take you to your home directory.
 
 Create a directory:
 
-```
+~~~~~~~~
 mkdir directory-name
-```
+~~~~~~~~
 
 Show the directory you're currently in:
 
-```
+~~~~~~~~
 pwd
-```
+~~~~~~~~
 
 List the files in the directory:
 
-```
+~~~~~~~~
 ls
-```
+~~~~~~~~
 
 List the files in a more readable way, with useful information like permissions included:
 
-```
+~~~~~~~~
 ls -al
-```
+~~~~~~~~
 
 Open a file with its default application:
 
-```
+~~~~~~~~
 open filename
-```
+~~~~~~~~
 
 Open current directory in the finder:
 
-```
+~~~~~~~~
 open .
-```
+~~~~~~~~
 
 or open some other directory:
 
-```
+~~~~~~~~
 open path/to/directory
-```
+~~~~~~~~
 
 Create an empty file if it doesn't already exist:
 
-```
+~~~~~~~~
 touch file-name
-```
+~~~~~~~~
 
 Open and edit a file with the simple nano editor:
 
-```
+~~~~~~~~
 nano file-name
-```
+~~~~~~~~
 
 Move a file or directory:
 
-```
+~~~~~~~~
 mv file new/path/to/file
-```
+~~~~~~~~
 
 Rename a file or directory:
 
-```
+~~~~~~~~
 mv file new-file-name
-```
+~~~~~~~~
 
 Copy a file:
 
-```
+~~~~~~~~
 cp file name-of-file-copy
-```
+~~~~~~~~
 
 Copy a directory
 
-```
+~~~~~~~~
 cp -R directory directory-copy
-```
+~~~~~~~~
 
 The `-R` option allows for recursive copying of files inside the directory.
 
 
 Delete a file:
 
-```
+~~~~~~~~
 rm file-name
-```
+~~~~~~~~
 
 Delete a directory and its contents:
 
-```
+~~~~~~~~
 rm -rf path/to/directory
-```
+~~~~~~~~
 
 Let's dissect this command:
 
@@ -499,9 +485,9 @@ Let's dissect this command:
 
 **Never do this:**
 
-```
+~~~~~~~~
 rm -rf /
-```
+~~~~~~~~
 
 Be very careful with the rm command. You can easily delete things on accident.
 
@@ -509,35 +495,35 @@ This command is deleting with the `rm` command, recursively forcing the deletion
 
 **Clear the terminal screen of previous activity:**
 
-```
+~~~~~~~~
 clear
-```
+~~~~~~~~
 
 **Reset the terminal:**
 
-```
+~~~~~~~~
 reset
-```
+~~~~~~~~
 
 **Stop a running process:**
 
-```
+~~~~~~~~
 control+C
-```
+~~~~~~~~
 
 If a process is running in the terminal and you need to stop it, press the `control` key and the `C` key at the same time.
 
 **Run multiple commands on one line:**
 
-```
+~~~~~~~~
 &&
-```
+~~~~~~~~
 
 With `&&` you can chain together multiple commands that execute one after the other. This example creates a directory, then moves you into that new directory:
 
-```
+~~~~~~~~
 mkdir new-folder && cd new-folder
-```
+~~~~~~~~
 
 
 ## Aliases and environment variables
@@ -549,9 +535,9 @@ Aliases allow you to create abbreviated commands that alias long, complex, or re
 
 Here is an example:
 
-```
+~~~~~~~~
 alias l="ls -al"
-```
+~~~~~~~~
 
 The above aliases the `ls -al` command to a shortened `l`.
 
@@ -559,15 +545,15 @@ To create an alias you will open the .bashrc file in your home folder.
 
 Open the .bashrc file with nano:
 
-```
+~~~~~~~~
 nano ~/.bashrc
-```
+~~~~~~~~
 
 Add the following alias to the bottom of the file:
 
-```
+~~~~~~~~
 alias pizza="echo 'pizza is awesome!'"
-```
+~~~~~~~~
 
 Save the file by pressing `control + O`.
 
@@ -581,69 +567,69 @@ Environment variables represent values that are useful across for processes runn
 
 In the terminal, run the following:
 
-```
+~~~~~~~~
 echo $HOME
-```
+~~~~~~~~
 
 If you're logged into a vagrant machine, you'll see output like this:
 
-```
+~~~~~~~~
 /home/vagrant
-```
+~~~~~~~~
 
 This is your home folder, also known as your user folder.
 
 On a Mac you'll see output like this:
 
-```
+~~~~~~~~
 /Users/your-user-name
-```
+~~~~~~~~
 
 #### Setting an environment variable
 
 In the terminal, set an environment variable like this:
 
-```
+~~~~~~~~
 PIZZA="ooooooh, pizza"
-```
+~~~~~~~~
 
 Now, you can read the variable the same as we did before:
 
-```
+~~~~~~~~
 echo $PIZZA
-```
+~~~~~~~~
 
 If you close or reset your terminal session, you'll lose this temporary variable. To save an environment variable so it can be accessed in all your sessions, we'll place the definition of the variable in the ~/.bashrc file.
 
 Open the ~/.bashrc file:
 
-```
+~~~~~~~~
 nano ~/.bashrc
-```
+~~~~~~~~
 
 Add the following to the bottom of the ~/.bashrc file:
 
-```
+~~~~~~~~
 export PIZZA="ooooooh, pizza"
-```
+~~~~~~~~
 
 Source the .bashrc file:
 
-```
+~~~~~~~~
 source ~/.bashrc
-```
+~~~~~~~~
 
 Now, you can close the terminal window, open a new one, and run the following command:
 
-```
+~~~~~~~~
 echo $PIZZA
-```
+~~~~~~~~
 
 And you'll still see the following output:
 
-```
+~~~~~~~~
 ooooooh, pizza
-```
+~~~~~~~~
 
 
 
@@ -667,23 +653,23 @@ This will download a .dmg file. Once the download has completed, double-click th
 
 To use Sublime from the command line using Mac or Linux, you'll need to create a symbolic link:
 
-```
+~~~~~~~~
 ln -s "/Applications/Sublime Text 2.app/Contents/SharedSupport/bin/subl" ~/bin/subl
-```
+~~~~~~~~
 
 If you get an error you may need to create the `bin` folder:
 
-```
+~~~~~~~~
 mkdir ~/bin
-```
+~~~~~~~~
 
 And add `~/bin` to your path:
 
 Add:
 
-```
+~~~~~~~~
 export PATH="$PATH:~/bin"
-```
+~~~~~~~~
 
 To your `~/.profile` file.
 
@@ -698,7 +684,7 @@ Now, you can run the `subl` command on the terminal.
 
 When you run `subl --help`, you'll get help information for the command that looks like this:
 
-```
+~~~~~~~~
 Usage: subl [arguments] [files]         edit the given files
    or: subl [arguments] [directories]   open the given directories
    or: subl [arguments] -               edit stdin
@@ -719,7 +705,7 @@ to the terminal when a file is closed (only relevant if waiting for a file).
 
 Filenames may be given a :line or :line:column suffix to open at a specific
 location.
-```
+~~~~~~~~
 
 ### Tips for using Sublime
 
@@ -807,9 +793,9 @@ The Package Control website: [sublime.wbond.net](https://sublime.wbond.net)
 
 Install Package control by copying and pasting the following code into the Sublime console (press `Control + ` to open the console).
 
-```
+~~~~~~~~
 import urllib2,os; pf='Package Control.sublime-package'; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) if not os.path.exists(ipp) else None; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler( ))); open( os.path.join( ipp, pf), 'wb' ).write( urllib2.urlopen( 'http://sublime.wbond.net/' +pf.replace( ' ','%20' )).read()); print( 'Please restart Sublime Text to finish installation')
-```
+~~~~~~~~
 
 Next you'll need to restart Sublime.
 
@@ -842,27 +828,27 @@ There are a few basic key commands you need to know to start out with nano:
 
 Edit something with nano:
 
-```
+~~~~~~~~
 nano filename.txt
-```
+~~~~~~~~
 
 Save a file:
 
-```
+~~~~~~~~
 control+O
-```
+~~~~~~~~
 
 Exit from nano (you'll be prompted to save):
 
-```
+~~~~~~~~
 control+X
-```
+~~~~~~~~
 
 Search for some text:
 
-```
+~~~~~~~~
 control+W
-```
+~~~~~~~~
 
 
 # Git: it's like File > Save, only collaborative
@@ -885,17 +871,17 @@ download / install: http://git-scm.com/downloads
 
 If you are using a Mac, you can install using [homebrew](http://brew.sh/):
 
-```
+~~~~~~~~
 brew install git
-```
+~~~~~~~~
 
 > For more information about homebrew, check out the project's homepage: [brew.sh](http://brew.sh/).
 
 On Debian/Ubuntu, install using apt-get:
 
-```
+~~~~~~~~
 apt-get install git
-```
+~~~~~~~~
 
 For Windows machines, download git from the git website: [git-scm.com/downloads](http://git-scm.com/downloads)
 
@@ -908,93 +894,93 @@ Here are some basics of using git:
 
 Create a git repository:
 
-```
+~~~~~~~~
 cd name-of-folder
 git init
-```
+~~~~~~~~
 
 Add files:
 
-```
+~~~~~~~~
 git add name-of-file
 
 // or add all files in directory:
 
 git add .
-```
+~~~~~~~~
 
 When you add files to a git repository they are "staged" and ready to be committed.
 
 Remove files:
 
-```
+~~~~~~~~
 git rm name-of-file
 
 // force removal of files:
 
 git rm -rf name-of-file-or-directory
-```
+~~~~~~~~
 
 Commit files and add a message using the `-m` option:
 
-```
+~~~~~~~~
 git commit -m 'a message describing the commit'
-```
+~~~~~~~~
 
 Create a branch:
 
-```
+~~~~~~~~
 git branch name-of-branch
-```
+~~~~~~~~
 
 Checkout a branch:
 
-```
+~~~~~~~~
 git checkout name-of-branch
-```
+~~~~~~~~
 
 Shortcut for creating a new branch and checking it out:
 
-```
+~~~~~~~~
 git checkout -b name-of-branch
-```
+~~~~~~~~
 
 Merge a branch into the master branch:
 
-```
+~~~~~~~~
 git checkout master
 git merge name-of-branch
-```
+~~~~~~~~
 
 Add a remote repository:
 
-```
+~~~~~~~~
 git remote add origin git@github.com:yourname/projectname.git
-```
+~~~~~~~~
 
 List associated repositories:
 
-```
+~~~~~~~~
 git remote -v
-```
+~~~~~~~~
 
 Pull changes from a remote repository:
 
-```
+~~~~~~~~
 git pull origin master
-```
+~~~~~~~~
 
 Push changes to a remote repository
 
-```
+~~~~~~~~
 git push origin master
-```
+~~~~~~~~
 
 Checkout a remote branch:
 
-```
+~~~~~~~~
 git checkout -t origin/haml
-```
+~~~~~~~~
 
 ## Resources
 
@@ -1073,33 +1059,33 @@ You can create, edit, move, rename, and delete files all through the GitHub webs
 
 You can also clone the project repository onto your computer:
 
-```
+~~~~~~~~
 git clone git@github.com:__YOUR-USERNAME__/__YOUR-PROJECT-NAME__.git
-```
+~~~~~~~~
 
 You can copy the git url to clone from the right-hand sidebar of your project repository.
 
 After cloning the repository, `cd` into it and make some changes:
 
-```
+~~~~~~~~
 cd __YOUR-PROJECT-NAME__
 nano index.html
-```
+~~~~~~~~
 
 Add a bunch of content to index.html, and change the styles in style.css.
 
 After you've made some changes, add them to the repo and commit the changes:
 
-```
+~~~~~~~~
 git add .
 git commit -m 'include a brief, clear message about the changes'
-```
+~~~~~~~~
 
 Now, push your changes back to GitHub:
 
-```
+~~~~~~~~
 git push origin gh-pages
-```
+~~~~~~~~
 
 
 
@@ -1127,44 +1113,44 @@ Let's make a folder named dev-envs in your home directory.
 
 ### On Macs the home directory is:
 
-```
+~~~~~~~~
 /Users/YOUR-USERNAME
-```
+~~~~~~~~
 
 ### On Windows:
 
-```
+~~~~~~~~
 %userprofile%
-```
+~~~~~~~~
 
 ### On Linux:
 
-```
+~~~~~~~~
 /home/YOUR-USERNAME
-```
+~~~~~~~~
 
 ### Shortcut
 
 On Mac, Linux, and recent versions of Windows (in the Powershell terminal / in Windows 7+), there's a useful alias for a user's home directory, the tilde:
 
-```
+~~~~~~~~
 ~
-```
+~~~~~~~~
 
 So, you can run a command like `cd ~`, and that'll take you to your home directory.
 
 Once you've navigated to your home folder, create the dev-envs folder:
 
-```
+~~~~~~~~
 mkdir dev-envs
-```
+~~~~~~~~
 
 Change directory into dev-envs, then create directories for javascript, ruby, and python:
 
-```
+~~~~~~~~
 cd dev-envs
 mkdir javascript ruby python
-```
+~~~~~~~~
 
 We'll use these directories to store the examples we work through later in the book.
 
@@ -1185,57 +1171,57 @@ docs: [http://www.ruby-lang.org/en/documentation](http://www.ruby-lang.org/en/do
 
 Let's create a vagrant machine in your ruby dev-envs folder:
 
-```
+~~~~~~~~
 mkdir ~/dev-envs/ruby
 cd ~/dev-envs/ruby
-```
+~~~~~~~~
 
 Create a new vagrant machine using the Ubuntu Precise box:
 
-```
+~~~~~~~~
 vagrant init precise32
-```
+~~~~~~~~
 
 Forward a port for viewing your site:
 
 Open the Vagrant file:
 
-```
+~~~~~~~~
 nano Vagrantfile
-```
+~~~~~~~~
 
 Find this section:
 
-```
+~~~~~~~~
 # Create a forwarded port mapping which allows access to a specific port
 # within the machine from a port on the host machine. In the example below,
 # accessing "localhost:8080" will access port 80 on the guest machine.
 # config.vm.network "forwarded_port", guest: 80, host: 8080
-```
+~~~~~~~~
 
 And change this line:
 
-```
+~~~~~~~~
 # config.vm.network "forwarded_port", guest: 80, host: 8080
-```
+~~~~~~~~
 
 To this:
 
-```
+~~~~~~~~
 config.vm.network "forwarded_port", guest: 9393 , host: 9393 
-```
+~~~~~~~~
 
 Make sure to uncomment the line by removing the `#`.
 
 Now start the vagrant machine:
 
-```
+~~~~~~~~
 vagrant up
-```
+~~~~~~~~
 
 If all goes well that'll result in output similar to the following:
 
-```
+~~~~~~~~
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Importing base box 'precise32'...
 ==> default: Matching MAC address for NAT networking...
@@ -1265,33 +1251,33 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: VirtualBox Version: 4.3
 ==> default: Mounting shared folders...
     default: /vagrant => /Users/sethvincent/dev-envs
-```
+~~~~~~~~
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
 
 Use this command:
 
-```
+~~~~~~~~
 vagrant ssh
-```
+~~~~~~~~
 
 You should see output similar to the following:
 
-```
+~~~~~~~~
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
 
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
-```
+~~~~~~~~
 
 You'll now find your project folder at `/vagrant` when logged in to the vagrant machine.
 
 So navigate there like this:
 
-```
+~~~~~~~~
 cd /vagrant
-```
+~~~~~~~~
 
 We'll now install ruby and related tools, and get started building applications. 
 
@@ -1301,9 +1287,9 @@ We'll now install ruby and related tools, and get started building applications.
 
 To get started, we'll need to install git and some necessary system dependencies while logged in to the virtual machine:
 
-```
+~~~~~~~~
 sudo apt-get install git gcc make zlib1g zlib1g-dev
-```
+~~~~~~~~
 
 ## Installing ruby
 
@@ -1313,37 +1299,37 @@ We'll also need ruby-build: [https://github.com/sstephenson/ruby-build](https://
 
 ### Install rbenv into `~/.rbenv`.
 
-```
+~~~~~~~~
 git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-```
+~~~~~~~~
 
 ### Make sure `~/.rbenv/bin` is in your `$PATH` so you can use the `rbenv` command-line utility.
 
-```
+~~~~~~~~
 echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
-```
+~~~~~~~~
 
 ### To use shims and autocompletion with rbenv, add `rbenv init` to your ~/.bashrc file.
 
-```
+~~~~~~~~
 echo 'eval "$(rbenv init -)"' >> ~/.bashrc
-```
+~~~~~~~~
 
 ### Source the ~/.bashrc file so that the `rbenv` command is available.
 
-```
+~~~~~~~~
 source ~/.bashrc
-```
+~~~~~~~~
 
 ### Check if rbenv was set up by running the `rbenv` command:
 
-```
+~~~~~~~~
 rbenv
-```
+~~~~~~~~
 
 If `rbenv` was successfully installed, you'll see the following help output:
 
-```
+~~~~~~~~
 Usage: rbenv <command> [<args>]
 
 Some useful rbenv commands are:
@@ -1359,37 +1345,37 @@ Some useful rbenv commands are:
 
 See `rbenv help <command>' for information on a specific command.
 For full documentation, see: https://github.com/sstephenson/rbenv#readme
-```
+~~~~~~~~
 
 ### Install ruby-build
 
 In order to install different versions of ruby using rbenv, we'll install the ruby-build tool.
 
-```
+~~~~~~~~
 git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-```
+~~~~~~~~
 
 Now we can install a new version of ruby using the `ruby install` command.
 
 To see a list of the names of all possible ruby versions and implementations you can install, run this command:
 
-```
+~~~~~~~~
 rbenv install -l
-```
+~~~~~~~~
 
 Let's install the latest version of ruby 2.0, which as of this writing is 2.0.0-p247 using this command:
 
-```
+~~~~~~~~
 rbenv install 2.0.0-p247
-```
+~~~~~~~~
 
 This will download and install the latest ruby. It'll take a while, so take a break for a few minutes.
 
 If you want to set this new ruby version as the default, which I recommend doing for now, run this command:
 
-```
+~~~~~~~~
 rbenv global 2.0.0-p247
-```
+~~~~~~~~
 
 This sets ruby 2.0.0-p247 as the global ruby, so it'll always be the version used with your projects in this vagrant machine.
 
@@ -1398,9 +1384,9 @@ This sets ruby 2.0.0-p247 as the global ruby, so it'll always be the version use
 
 By default you would need to run `rbenv rehash` every time you install new gems to set up rbenv shims for each of the bin commands associated with the new gems. This rbenv plugin makes it so you don't have to run `rbenv rehash` each time.
 
-```
+~~~~~~~~
 git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
-```
+~~~~~~~~
 
 ## Package manager: rubygems
 
@@ -1408,15 +1394,15 @@ To install ruby packages, you'll use the `gem` command.
 
 For example, basic `gem` command usage looks like this:
 
-```
+~~~~~~~~
 gem install some-package-name
-```
+~~~~~~~~
 
 As an example, we'll install the bundler gem, which we'll put to use later:
 
-```
+~~~~~~~~
 gem install bundler
-```
+~~~~~~~~
 
 ## Build tools / automating repetitive tasks
 
@@ -1426,31 +1412,31 @@ For automating tasks in ruby development, use [rake](http://rake.rubyforge.org/)
 
 First, install the rake gem:
 
-```
+~~~~~~~~
 gem install rake
-```
+~~~~~~~~
 
 Create a Rakefile for your project:
 
-```
+~~~~~~~~
 touch Rakefile
-```
+~~~~~~~~
 
 Add this simple example to your Rakefile:
 
-```
+~~~~~~~~
 task :default => [:start]
 
 task :start do
   ruby "app.rb"
 end
-```
+~~~~~~~~
 
 When you run this command on the terminal:
 
-```
+~~~~~~~~
 rake
-```
+~~~~~~~~
 
 The start task defined in your Rakefile will be executed.
 
@@ -1466,9 +1452,9 @@ https://github.com/seattlerb/minitest
 
 Create a variable like this:
 
-```
+~~~~~~~~
 a = 1
-```
+~~~~~~~~
 
 ### numbers
 
@@ -1476,35 +1462,35 @@ In ruby there are integers and floats. An integer is a whole number, a float is 
 
 Integers:
 
-```
+~~~~~~~~
 1
 100
 223239
-```
+~~~~~~~~
 
 Floats:
 
-```
+~~~~~~~~
 1.0
 5.132
 3.14
-```
+~~~~~~~~
 
 ### string
 
 A string is a _string of characters_ wrapped in single or double quotes:
 
-```
+~~~~~~~~
 "this is a string"
 'this is also a string'
-```
+~~~~~~~~
 
 When using double quotes, you can use string interpolation to insert the values of variables into a string:
 
-```
+~~~~~~~~
 food = 'pizza'
 sentence = "#{food} is yummy."
-```
+~~~~~~~~
 
 The `sentence` variable will return this: `pizza is yummy`.
 
@@ -1515,9 +1501,9 @@ An array is like a list of values. You can put anything in an array: strings, nu
 
 They look like this:
 
-```
+~~~~~~~~
 things = ['pizza is great.', 30, ['yep', 'ok']]
-```
+~~~~~~~~
 
 #### Accessing values in an array:
 
@@ -1525,17 +1511,17 @@ You can access values in an array by typing the variable name followed by square
 
 Arrays are zero-indexed, so the first item is represented by a zero:
 
-```
+~~~~~~~~
 things[0]
-```
+~~~~~~~~
 
 This returns `'pizza is great'`.
 
 To get at nested arrays, you add another set of square brackets, like this:
 
-```
+~~~~~~~~
 things[2][1]
-```
+~~~~~~~~
 
 The above statement returns `'ok'`.
 
@@ -1546,29 +1532,29 @@ A hash is much like an array, except instead of the values being indexed by numb
 
 A simple hash looks like this:
 
-```
+~~~~~~~~
 pizza = { :tastes => 'really good', :slices_i_can_eat => 100 }
-```
+~~~~~~~~
 
 There's also an alternate, more concise syntax for creating a hash that looks like this:
 
-```
+~~~~~~~~
 pizza = { tastes: 'really good', slices_i_can_eat: 100 }
-```
+~~~~~~~~
 
 #### Accessing hash values
 
 Accessing values in a hash looks similar to arrays:
 
-```
+~~~~~~~~
 pizza[:tastes]
-```
+~~~~~~~~
 
 The above statement returns `'really good'`.
 
-```
+~~~~~~~~
 pizza[:slices_i_can_eat]
-```
+~~~~~~~~
 
 The above statement returns `100`. That's a lot of slices of pizza.
 
@@ -1576,11 +1562,11 @@ The above statement returns `100`. That's a lot of slices of pizza.
 
 A function definition is super simple:
 
-```
+~~~~~~~~
 def eat(food)
   return "I ate #{food}."
 end
-```
+~~~~~~~~
 
 `def` indicates that we're about to define a function.
 
@@ -1596,33 +1582,33 @@ We can actually rewrite that line to exclude the `return` keyword. The last stat
 
 Now that the function is defined, you can call it like this:
 
-```
+~~~~~~~~
 eat('pizza')
-```
+~~~~~~~~
 
 That statement will return: `'I ate pizza.'`.
 
 The parenthese are optional, so we can write the function call like this:
 
-```
+~~~~~~~~
 eat 'pizza' 
-```
+~~~~~~~~
 
 ### class
 
 Define a class in ruby like this:
 
-```
+~~~~~~~~
 class Meal
   # here we'll define methods on the class
 end
-```
+~~~~~~~~
 
 ### class methods
 
 Class methods are basically functions that exist inside of a class namespace.
 
-```
+~~~~~~~~
 class Meal
 
   def initialize(food)
@@ -1643,29 +1629,29 @@ class Meal
   end
 
 end
-```
+~~~~~~~~
 
 ### class instance
 
 Now, to use our Meal class and call the `prepare` and `eat` methods, we do this:
 
-```
+~~~~~~~~
 dinner = Meal.new 'pizza'
-```
+~~~~~~~~
 
 We can call a method by typing the name of the class instance, followed by a period and the name of the method. Let's try out the `eat` method:
 
-```
+~~~~~~~~
 dinner.eat
-```
+~~~~~~~~
 
 That's return this string: `"relax, the pizza isn't prepared yet."`.
 
 So let's `prepare` the dinner:
 
-```
+~~~~~~~~
 dinner.prepare
-```
+~~~~~~~~
 
 That'll return this string: `"pizza is ready!"`.
 
@@ -1676,9 +1662,9 @@ Now run `dinner.eat` and we'll see this string: `"dang, that pizza sure was good
 
 We can require the functionality of ruby gems and code from other files by using the `require` statement, typically at the top of the file. An example of requiring the sinatra gem:
 
-```
+~~~~~~~~
 require 'sinatra'
-```
+~~~~~~~~
 
 ## Web framework: sinatra
 Project website: [http://www.sinatrarb.com](http://www.sinatrarb.com/).
@@ -1687,71 +1673,71 @@ Project website: [http://www.sinatrarb.com](http://www.sinatrarb.com/).
 
 Navigate to your ruby projects folder:
 
-```
+~~~~~~~~
 cd ~/dev-envs/ruby
-```
+~~~~~~~~
 
 Create a folder named hello-sinatra and navigate into it:
 
-```
+~~~~~~~~
 mkdir hello-sinatra && cd hello-sinatra
-```
+~~~~~~~~
 
-```
+~~~~~~~~
 gem install sinatra
-```
+~~~~~~~~
 
 ### Simple example
 
 Inside your hello-sinatra directory, create a file named app.rb:
 
-```
+~~~~~~~~
 touch app.rb
-```
+~~~~~~~~
 
 Here's a simple example of a sinatra app:
 
-```
+~~~~~~~~
 require 'sinatra'
 
 get '/' do
   'pizza is awesome'
 end
-```
+~~~~~~~~
 
 Type that code into your app.rb file.
 
 Now you can run your app with this command:
 
-```
+~~~~~~~~
 ruby app.rb
-```
+~~~~~~~~
 
 Let's go through this app line by line:
 
 **Import the sinatra functionality into our app:**
 
-```
+~~~~~~~~
 require 'sinatra'
-```
+~~~~~~~~
 
 **Call `get`, to respond to requests for the root url:**
 
-```
+~~~~~~~~
 get '/' do
-```
+~~~~~~~~
 
 **Respond to requests with some text:**
 
-```
+~~~~~~~~
   'pizza is awesome'
-```
+~~~~~~~~
 
 **Close the `get` block:**
 
-```
+~~~~~~~~
 end
-```
+~~~~~~~~
 
 
 ### Extended example
@@ -1768,46 +1754,46 @@ We won't be using a database for this example, but instead will use a json file 
 
 To get started, create and change directory into a new project folder.
 
-```
+~~~~~~~~
 mkdir sinatra-example
 cd sinatra-example
-```
+~~~~~~~~
 
 We'll be using sinatra and will utilize the default template language, erb. Let's install sinatra by creating a Gemfile:
 
-```
+~~~~~~~~
 touch Gemfile
-```
+~~~~~~~~
 
 Add the sinatra gem to the Gemfile:
 
-```
+~~~~~~~~
 gem 'sinatra'
-```
+~~~~~~~~
 
 Now run bundle to install sinatra:
 
-```
+~~~~~~~~
 bundle
-```
+~~~~~~~~
 
 We will use [shotgun](https://github.com/rtomayko/shotgun "shotgun") to run the app -- shotgun will automatically restart the server each time you edit a file in the project.
 
 Install shotgun:
 
-```
+~~~~~~~~
 gem install shotgun
-```
+~~~~~~~~
 
 To run the sinatra app you'll use this command:
 
-```
+~~~~~~~~
 shotgun app.rb
-```
+~~~~~~~~
 
 Create a file named posts.json with the following json:
 
-```
+~~~~~~~~
 [
 {
   "title": "This is the first post",
@@ -1825,11 +1811,11 @@ Create a file named posts.json with the following json:
   "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
 }
 ]
-```
+~~~~~~~~
 
 Now create the app.rb file:
 
-```
+~~~~~~~~
 require 'sinatra'
 require 'json'
 
@@ -1858,38 +1844,38 @@ get '/api/posts' do
   }
   data.to_json
 end
-```
+~~~~~~~~
 
 Let's break down this example code chunk by chunk:
 
 Require the necessary ruby libraries:
 
-```
+~~~~~~~~
 require 'sinatra'
 require 'json'
-```
+~~~~~~~~
 
 
 Create global variables that are available to our views using the `before` method, which runs before a request is processed:
 
-```
+~~~~~~~~
 before do
   @title = 'Extended Sinatra example'
   @posts = JSON.parse( IO.read('posts.json') )
 end
-```
+~~~~~~~~
 
 Serve the index.erb view on the root url with the following code block. Note that an erb view is rendered using the `erb` method, and you don't have to include the .erb file suffix. Sinatra automatically looks in a folder named views, so you only have to pass the file name:
 
-```
+~~~~~~~~
 get '/' do
   erb :index
 end
-```
+~~~~~~~~
 
 The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is set to a global `@post` variable that's available in our post view.
 
-```
+~~~~~~~~
 get '/post/:slug' do
   @posts.each do |post| 
     if post['slug'] == params[:slug] 
@@ -1898,11 +1884,11 @@ get '/post/:slug' do
   end
   erb :post
 end
-```
+~~~~~~~~
 
 The following is a simple example of exposing a simple json feed of the posts:
 
-```
+~~~~~~~~
 get '/api/posts' do
   data = { 
     meta: { name: @title },
@@ -1910,26 +1896,26 @@ get '/api/posts' do
   }
   data.to_json
 end
-```
+~~~~~~~~
 
 
 Next, we'll need the erb views for rendering html.
 
 Let's make a views folder for all the views to live in:
 
-```
+~~~~~~~~
 mkdir views
-```
+~~~~~~~~
 
 And create all the view files that we need:
 
-```
+~~~~~~~~
 touch views/layout.erb views/index.erb views/post.erb
-```
+~~~~~~~~
 
 Add this content to the layout.erb file:
 
-```
+~~~~~~~~
 <!doctype html>
 <html lang="en">
 <head>
@@ -1960,11 +1946,11 @@ Add this content to the layout.erb file:
 
 </body>
 </html>
-```
+~~~~~~~~
 
 Add this content to the index.erb file:
 
-```
+~~~~~~~~
 <% for @post in @posts %>
   <h3>
     <a href="/post/<%= @post['slug'] %>">
@@ -1973,27 +1959,27 @@ Add this content to the index.erb file:
   </h3>
   <div><%= @post['content'] %></div>
 <% end %>
-```
+~~~~~~~~
 
 Add this content to the post.erb file:
 
-```
+~~~~~~~~
 <h3><%= @post['title'] %></h3>
 <div><%= @post['content'] %></div>
-```
+~~~~~~~~
 
 Let's add some css styling so this looks a little more readable.
 
 First create the public folder and the styles.css file:
 
-```
+~~~~~~~~
 mkdir public
 touch public/styles.css
-```
+~~~~~~~~
 
 Now add this content to the styles.css file:
 
-```
+~~~~~~~~
 body {
   font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #787876;
@@ -2030,21 +2016,21 @@ footer {
     width: 60%;
   }
 }
-```
+~~~~~~~~
 
 You should now be able to navigate the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
 
-```
+~~~~~~~~
 shotgun app.rb
-```
+~~~~~~~~
 
 ### Accessing the site in the browser
 
 After starting the app with `shotgun`, you should see this output on the command line:
 
-```
+~~~~~~~~
 Listening on 127.0.0.1:9393, CTRL+C to stop
-```
+~~~~~~~~
 
 You can now open a browser and navigate to http://localhost:9393 to view the site.
 
@@ -2101,57 +2087,57 @@ The MDN docs are great. There are bits that are specific to Mozilla, but the maj
 
 Let's create a vagrant machine in your javascript dev-envs folder:
 
-```
+~~~~~~~~
 mkdir ~/dev-envs/javascript
 cd ~/dev-envs/javascript
-```
+~~~~~~~~
 
 Create a new vagrant machine using the Ubuntu Precise box:
 
-```
+~~~~~~~~
 vagrant init precise32
-```
+~~~~~~~~
 
 Forward a port for viewing your site:
 
 Open the Vagrant file:
 
-```
+~~~~~~~~
 nano Vagrantfile
-```
+~~~~~~~~
 
 Find this section:
 
-```
+~~~~~~~~
 # Create a forwarded port mapping which allows access to a specific port
 # within the machine from a port on the host machine. In the example below,
 # accessing "localhost:8080" will access port 80 on the guest machine.
 # config.vm.network "forwarded_port", guest: 80, host: 8080
-```
+~~~~~~~~
 
 And change this line:
 
-```
+~~~~~~~~
 # config.vm.network "forwarded_port", guest: 80, host: 8080
-```
+~~~~~~~~
 
 To this:
 
-```
+~~~~~~~~
 config.vm.network "forwarded_port", guest: 3000 , host: 3000 
-```
+~~~~~~~~
 
 Make sure to uncomment the line by removing the `#`.
 
 Now start the vagrant machine:
 
-```
+~~~~~~~~
 vagrant up
-```
+~~~~~~~~
 
 If all goes well that'll result in output similar to the following:
 
-```
+~~~~~~~~
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Importing base box 'precise32'...
 ==> default: Matching MAC address for NAT networking...
@@ -2181,33 +2167,33 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: VirtualBox Version: 4.3
 ==> default: Mounting shared folders...
     default: /vagrant => /Users/sethvincent/dev-envs
-```
+~~~~~~~~
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
 
 Use this command:
 
-```
+~~~~~~~~
 vagrant ssh
-```
+~~~~~~~~
 
 You should see output similar to the following:
 
-```
+~~~~~~~~
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
 
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
-```
+~~~~~~~~
 
 You'll now find your project folder at `/vagrant` when logged in to the vagrant machine.
 
 So navigate there like this:
 
-```
+~~~~~~~~
 cd /vagrant
-```
+~~~~~~~~
 
 We'll now install Node.js, its dependencies, and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
 
@@ -2215,9 +2201,9 @@ We'll now install Node.js, its dependencies, and related tools, and get started 
 
 To get started, we'll need to install git and some necessary system dependencies while logged in to the virtual machine:
 
-```
+~~~~~~~~
 sudo apt-get install git gcc make curl
-```
+~~~~~~~~
 
 
 ## Installing node.js
@@ -2230,39 +2216,39 @@ If you're on Windows, install node.js using the .msi package on the nodejs.org d
 
 We have git installed, so we can clone nvm to our home folder:
 
-```
+~~~~~~~~
 git clone https://github.com/creationix/nvm.git ~/.nvm
-```
+~~~~~~~~
 
 Source nvm to make the `nvm` command available in the terminal by typing into your terminal:
 
-```
+~~~~~~~~
 source ~/.nvm/nvm.sh
-```
+~~~~~~~~
 
 To ensure that `nvm` is available at all times in the terminal, add the above line to your ~/.bashrc file:
 
-```
+~~~~~~~~
 nano ~/.bashrc
-```
+~~~~~~~~
 
 Add `source ~/.nvm/nvm.sh` to the ~/.bashrc file.
 
 To get the `nvm` command after adding that line to your ~/.bashrc file, source your ~/.bashrc file:
 
-```
+~~~~~~~~
 source ~/.bashrc
-```
+~~~~~~~~
 
 To ensure `nvm` is working, run the command without options:
 
-```
+~~~~~~~~
 nvm
-```
+~~~~~~~~
 
 You should see output like this:
 
-```
+~~~~~~~~
 Node Version Manager
 
 Usage:
@@ -2285,7 +2271,7 @@ Example:
     nvm use 0.2                 Use the latest available 0.2.x release
     nvm run 0.4.12 myApp.js     Run myApp.js using node v0.4.12
     nvm alias default 0.4       Auto use the latest installed v0.4.x version
-```
+~~~~~~~~
 
 The above help text gives a good overview of usage of the `nvm` command.
 
@@ -2294,28 +2280,28 @@ The above help text gives a good overview of usage of the `nvm` command.
 
 Install the latest version of node v0.10.x:
 
-```
+~~~~~~~~
 nvm install 0.10
-```
+~~~~~~~~
 
 You'll see output like this:
 
-```
+~~~~~~~~
 ######################################################################## 100.0%
 Now using node v0.10.21
-```
+~~~~~~~~
 
 We can switch to that new version using this command:
 
-```
+~~~~~~~~
 nvm use 0.10.21
-```
+~~~~~~~~
 
 And to set that version as the default, set the default alias:
 
-```
+~~~~~~~~
 nvm alias default 0.10.21
-```
+~~~~~~~~
 
 
 ## Javascript in the browser
@@ -2344,13 +2330,13 @@ You specify npm scripts by adding to the `scripts` field of a package.json file 
 
 Take this example:
 
-```
+~~~~~~~~
 "scripts": {
   "test": "node test.js",
   "start": "node server.js",
   "bundle": "browserify main.js -o bundle.js"
 }
-```
+~~~~~~~~
 
 We would run `npm test` to test the code, `npm start` to run a development server, and `npm run bundle` to create a bundled JavaScript file using the `browserify` command.
 
@@ -2362,9 +2348,9 @@ Another, more complicated option is [grunt.js](http://gruntjs.com).
 
 First, install the grunt command-line tool:
 
-```
+~~~~~~~~
 npm install -g grunt-cli
-```
+~~~~~~~~
 
 Next, you'll create a Gruntfile.js in your project.
 
@@ -2387,35 +2373,35 @@ Open a terminal.
 
 Change directory to your projects folder.
 
-```
+~~~~~~~~
 cd ~/Projects
-```
+~~~~~~~~
 
 Create a directory for our first javascript project:
 
-```
+~~~~~~~~
 mkdir learn-javascript-one
-```
+~~~~~~~~
 
 Change directory into our new project folder:
 
-```
+~~~~~~~~
 cd learn-javascript-one
-```
+~~~~~~~~
 
 Run this command to create a package.json file:
 
-```
+~~~~~~~~
 npm init
-```
+~~~~~~~~
 
 Answer the questions that pop up.
 
 Now, to really install tape:
 
-```
+~~~~~~~~
 npm install --save-dev tape
-```
+~~~~~~~~
 
 `npm install` is used to install packages from npm.
 
@@ -2425,7 +2411,7 @@ npm install --save-dev tape
 
 A simple example of a test written with tape:
 
-```
+~~~~~~~~
 var test = require('tape');
 
 var p = 'pizza';
@@ -2435,47 +2421,47 @@ test('pizza test', function (t) {
 
   t.equal(p, 'pizza');
 });
-```
+~~~~~~~~
 
 Let's go through this line-by-line in a high-level way.
 
 Here we assign the tape functionality to a variable named `test`:
 
-```
+~~~~~~~~
 var test = require('tape');
-```
+~~~~~~~~
 
 Here `p` is assigned to the string `'pizza'`:
 
-```
+~~~~~~~~
 var p = 'pizza';
-```
+~~~~~~~~
 
 Now we're calling `test`, and describing it as a `pizza test`:
 
-```
+~~~~~~~~
 test('pizza test', function (t) {
-```
+~~~~~~~~
 
 We're given the argument `t` to use to call testing methods.
 
 Here we specify that we plan to have 1 test in our code:
 
-```
+~~~~~~~~
   t.plan(1);
-```
+~~~~~~~~
 
 Here's that one test, making sure that the `p` variable is equal to the string `pizza`:
 
-```
+~~~~~~~~
   t.equal(p, 'pizza');
-```
+~~~~~~~~
 
 This closes the function:
 
-```
+~~~~~~~~
 });
-```
+~~~~~~~~
 
 Those are the very basics of using tape. Next, we'll dive deeper into some javascript basics, and use tape to test our code.
 
@@ -2486,48 +2472,48 @@ Those are the very basics of using tape. Next, we'll dive deeper into some javas
 
 #### Creating a variable:
 
-```
+~~~~~~~~
 var nameOfVariable;
-```
+~~~~~~~~
 
 > Variables are camelCase, meaning first letter is lowercase, and if the variable is made of multiple words, the first letter of following words are capitalized.
 
 #### Creating a variable that references a string:
 
-```
+~~~~~~~~
 var thisIsAString = 'this is a string';
-```
+~~~~~~~~
 
 Surround strings with single quotes.
 
 
 #### Creating a variable that references a number:
 
-```
+~~~~~~~~
 var thisIsANumber = 3.14;
-```
+~~~~~~~~
 
 Numbers do not have quotes around them.
 
 #### Creating a variable that references an array:
 
-```
+~~~~~~~~
 var thisIsAnArray = [1, "two", [3, 4]];
-```
+~~~~~~~~
 
 Note that one of the values in the array is a number, one is a string, and another is an array. Arrays can hold any value in any order.
 
 #### Accessing the values in an array:
 
-```
+~~~~~~~~
 thisIsAnArray[0];
-```
+~~~~~~~~
 
 The above will return the number `1`. Arrays use numbers as the index of their values, and with javascript an array's index always start at `0`, making `0` reference the first value of the array.
 
-```
+~~~~~~~~
 thisIsAnArray[1];
-```
+~~~~~~~~
 
 This returns the string 'two';
 
@@ -2535,9 +2521,9 @@ This returns the string 'two';
 
 Like this:
 
-```
+~~~~~~~~
 thisIsAnArray[2][1];
-```
+~~~~~~~~
 
 #### Creating a variable that references an object:
 
@@ -2553,50 +2539,50 @@ Here we're setting `someString` to `'some string value'`, `someNumber' to `1234`
 
 To get the value of `someString` using dot notation:
 
-```
+~~~~~~~~
 thisIsAnObject.someString;
-```
+~~~~~~~~
 
 Or using bracket notation:
 
-```
+~~~~~~~~
 thisIsAnObject['someString'];
-```
+~~~~~~~~
 
 To get the value of `someNumber` using dot notation:
 
-```
+~~~~~~~~
 thisIsAnObject.someNumber;
-```
+~~~~~~~~
 
 Or using bracket notation:
 
-```
+~~~~~~~~
 thisIsAnObject['someNumber'];
-```
+~~~~~~~~
 
 To use the function `someFunction` using dot notation:
 
-```
+~~~~~~~~
 thisIsAnObject.someFunction();
-```
+~~~~~~~~
 
 Or using bracket notation:
 
-```
+~~~~~~~~
 thisIsAnObject['someFunction']();
-```
+~~~~~~~~
 
 Using square bracket notations with functions looks a little wacky. It will be useful if you are storing function names in variables as strings, and need to use the variable to call the function being stored. Otherwise, stick with dot notation.
 That goes for other attributes on an object, too: stick with dot notation unless there's a good reason to use bracket notation.
 
 For instance, it's more clear to use bracket notation in a situation like this:
 
-```
+~~~~~~~~
 for (var key in object){
   thisIsAnObject[key];
 }
-```
+~~~~~~~~
 
 This gives you an idea of how to iterate through an object using a for...in loop.
 
@@ -2606,17 +2592,17 @@ This gives you an idea of how to iterate through an object using a for...in loop
 
 When using Node.js we can require the functionality of Node.js modules distributed via npm and code from other files by using the `require` function, typically at the top of the file. An example of requiring the express module:
 
-```
+~~~~~~~~
 var express = require('express');
-```
+~~~~~~~~
 
 #### Browser
 
 For browser side code we might add a script tag into the HTML file of our project. Here's an example of a script tag:
 
-```
+~~~~~~~~
 <script src="main.js"></script>
-```
+~~~~~~~~
 
 Alternately we might use a tool like browserify to require packages using the same method as Node.js. Learn more about browserify at the project website, [browserify.org](http://browserify.org).
 
@@ -2630,19 +2616,19 @@ Express is a small web framework for node.js, originally inspired by sinatra.
 
 Navigate to your javascript projects folder:
 
-```
+~~~~~~~~
 cd ~/dev-envs/javascript
-```
+~~~~~~~~
 
 Create a folder named hello-express and navigate into it:
 
-```
+~~~~~~~~
 mkdir hello-express && cd hello-express
-```
+~~~~~~~~
 
-```
+~~~~~~~~
 npm install express
-```
+~~~~~~~~
 
 This installs express locally so you can use it in your app.
 
@@ -2650,13 +2636,13 @@ This installs express locally so you can use it in your app.
 
 Inside your hello-express directory, create a file named app.js:
 
-```
+~~~~~~~~
 touch app.js
-```
+~~~~~~~~
 
 Here's a simple example of an express app:
 
-```
+~~~~~~~~
 var express = require('express');
 var app = express();
 
@@ -2667,67 +2653,67 @@ app.get('/', function(req, res){
 app.listen(3000);
 
 console.log('app is listening at localhost:3000');
-```
+~~~~~~~~
 
 Type that code into your app.js file
 
 You can run your app with this command:
 
-```
+~~~~~~~~
 node app.js
-```
+~~~~~~~~
 
 Now let's run through app.js one line at a time:
 
 Save the express module to a variable named express:
 
-```
+~~~~~~~~
 var express = require('express');
-```
+~~~~~~~~
 
 Create our app by calling `express()` and assigning the returned object to the variable `app`:
 
-```
+~~~~~~~~
 var app = express();
-```
+~~~~~~~~
 
 Exposing a route for the root url using `app.get()`:
 
-```
+~~~~~~~~
 app.get('/', function(req, res){
-```
+~~~~~~~~
 
 `req` is an argument we get from the callback that represents the request. `res` represents the response that we'll be sending back to the user.
 
 Sending a text response:
 
-```
+~~~~~~~~
   res.send('pizza is awesome.');
-```
+~~~~~~~~
 
 Closing the `app.get()` function:
 
-```
+~~~~~~~~
 });
-```
+~~~~~~~~
 
 Setting up the app to listen for requests on port 3000:
 
-```
+~~~~~~~~
 app.listen(3000);
-```
+~~~~~~~~
 
 Logging a message to the user on the console so that the user knows that the app has started and things are happening:
 
-```
+~~~~~~~~
 console.log('app is listening at localhost:3000');
-```
+~~~~~~~~
 
 ### Installing express globally
 
-```
+~~~~~~~~
 npm install -g express
-```
+~~~~~~~~
 
 The `-g` option installs express globally. This means that there is now an `express` command available in your terminal you can use to create a new express app.
 
@@ -2737,9 +2723,9 @@ Go ahead and install express globally using the above command, and we'll continu
 
 Navigate to your Projects folder and run this command:
 
-```
+~~~~~~~~
 express new-app
-```
+~~~~~~~~
 
 This will generate a bunch of files for you. I won't go into the details of what's created, but it's good to know express has this functionality available.
 
@@ -2757,34 +2743,34 @@ We won't be using a database for this example, but instead will use a json file 
 
 To get started, create and change directory into a new project folder, then run `npm init` to create a package.json file.
 
-```
+~~~~~~~~
 mkdir express-example
 cd express-example
-```
+~~~~~~~~
 
 We'll be using express and for templates we'll use the [ejs](https://github.com/visionmedia/ejs "ejs") module, so let's install those dependencies:
 
-```
+~~~~~~~~
 npm install --save express ejs
-```
+~~~~~~~~
 
 We will use [nodemon](https://github.com/remy/nodemon "nodemon") to run the app – nodemon will automatically restart the server each time you edit a file in the project.
 
 Install nodemon:
 
-```
+~~~~~~~~
 npm install -g nodemon
-```
+~~~~~~~~
 
 Run nodemon with these options so that changes to ejs views and public files also trigger the restart:
 
-```
+~~~~~~~~
 nodemon -e js,css,html,ejs app.js
-```
+~~~~~~~~
 
 Create a file named posts.json with the following json:
 
-```
+~~~~~~~~
 [
 {
   "title": "This is the first post",
@@ -2802,20 +2788,18 @@ Create a file named posts.json with the following json:
   "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
 }
 ]
-```
+~~~~~~~~
 
 First we'll create the app.js file:
 
-```
+~~~~~~~~
 var express = require('express');
 var fs = require('fs');
 var app = express();
 
 app.use('/public', express.static(__dirname + '/public'));
 
-app.locals = {
-  title: 'Extended Express Example'
-};
+app.locals.title= 'Extended Express Example';
 
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
@@ -2846,54 +2830,52 @@ app.get('/api/posts', function(req, res){
 
 app.listen(3000);
 console.log('app is listening at localhost:3000');
-```
+~~~~~~~~
 
 Let's break down this example code chunk by chunk:
 
 Require the needed modules and create the app variable:
 
-```
+~~~~~~~~
 var express = require('express');
 var fs = require('fs');
 var app = express();
-```
+~~~~~~~~
 
-Set up the app to serve whatever is in the public folder at the url `/public/:filename`:
+Set up the app to serve whatever is in the public folder at the url `/public/:filename`. You may need to delete a pre-existing app.use() function that serves from the routes folder:
 
-```
+~~~~~~~~
 app.use('/public', express.static(__dirname + '/public'));
-```
+~~~~~~~~
 
-You can add local variables that can be used in views and throughout the app by passing an object to `app.locals()`:
+You can add local variables that can be used in views and throughout the app. See more examples in the [express](http://expressjs.com/api.html#app.locals "express") api.
 
-```
-app.locals({
-  title: 'Extended Express Example'
-});
-```
+~~~~~~~~
+app.locals.title='Extended Express Example';
+~~~~~~~~
 
 In this example we're loading the posts from the json file before responding to routes:
 
-```
+~~~~~~~~
 app.all('*', function(req, res, next){
   fs.readFile('posts.json', function(err, data){
     app.locals.posts = JSON.parse(data);
     next();
   });
 });
-```
+~~~~~~~~
 
 When a browser requests the root url, our app responds with the index.ejs file. Express automatically looks in a folder named views, so you only have to pass the file name:
 
-```
+~~~~~~~~
 app.get('/', function(req, res){
   res.render('index.ejs');
 });
-```
+~~~~~~~~
 
 The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, that post is returned:
 
-```
+~~~~~~~~
 app.get('/post/:slug', function(req, res, next){
   app.locals.posts.forEach(function(post){
     if (req.params.slug === post.slug){
@@ -2901,11 +2883,11 @@ app.get('/post/:slug', function(req, res, next){
     }
   })
 });
-```
+~~~~~~~~
 
 The following is a simple example of exposing a simple json feed of the posts.
 
-```
+~~~~~~~~
 app.get('/api/posts', function(req, res){
   var data = {
     meta: { name: app.locals.title },
@@ -2913,13 +2895,13 @@ app.get('/api/posts', function(req, res){
   }
   res.json(data);
 });
-```
+~~~~~~~~
 And finally, we make the app listen on port 3000, and print a message to the terminal:
 
-```
+~~~~~~~~
 app.listen(3000);
 console.log('app is listening at localhost:3000');
-```
+~~~~~~~~
 
 Next, we'll need the views for rendering html. We'll use a templating language named ejs for our views.
 
@@ -2929,19 +2911,19 @@ To get around that we'll create header and footer views that we later include on
 
 Let's make a views folder for all the views to live in:
 
-```
+~~~~~~~~
 mkdir views
-```
+~~~~~~~~
 
 And create all the view files that we need:
 
-```
+~~~~~~~~
 touch views/header.ejs views/footer.ejs views/index.ejs views/post.ejs
-```
+~~~~~~~~
 
 Add this content to the header.ejs file:
 
-```
+~~~~~~~~
 <!doctype html>
 <html lang="en">
 <head>
@@ -2957,11 +2939,11 @@ Add this content to the header.ejs file:
     <h1><a href="/"><%= title %></a></h1>
   </div>
 </header>
-```
+~~~~~~~~
 
 Add this content to the footer.ejs file:
 
-```
+~~~~~~~~
 <footer>
   <div class="container">
     <p>Posts are also available via json at <a href="/api/posts">/api/posts</a>/
@@ -2970,11 +2952,11 @@ Add this content to the footer.ejs file:
 
 </body>
 </html>
-```
+~~~~~~~~
 
 Add this content to the index.ejs file:
 
-```
+~~~~~~~~
 <% include header %>
 
 <main role="main">
@@ -2991,11 +2973,11 @@ Add this content to the index.ejs file:
 </main>
 
 <% include footer %>
-```
+~~~~~~~~
 
 Add this content to the post.ejs file:
 
-```
+~~~~~~~~
 <% include header %>
 
 <main role="main">
@@ -3006,20 +2988,20 @@ Add this content to the post.ejs file:
 </main>
 
 <% include footer %>
-```
+~~~~~~~~
 
 Let's add some css styling so this looks a little more readable.
 
 First create the public folder and the styles.css file:
 
-```
+~~~~~~~~
 mkdir public
 touch public/styles.css
-```
+~~~~~~~~
 
 Now add this content to the styles.css file:
 
-```
+~~~~~~~~
 body {
   font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #787876;
@@ -3056,21 +3038,21 @@ footer {
     width: 60%;
   }
 }
-```
+~~~~~~~~
 
 You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
 
-```
+~~~~~~~~
 nodemon -e js,css,html,ejs app.js
-```
+~~~~~~~~
 
 ### Accessing the site in the browser
 
 After starting the app with `nodemon`, you should see this output on the command line:
 
-```
+~~~~~~~~
 app is listening at localhost:3000
-```
+~~~~~~~~
 
 You can now open a browser and navigate to http://localhost:3000 to view the site.
 
@@ -3103,57 +3085,57 @@ http://www.python.org/doc/
 
 Let's create a vagrant machine in your python dev-envs folder:
 
-```
+~~~~~~~~
 mkdir ~/dev-envs/python
 cd ~/dev-envs/python
-```
+~~~~~~~~
 
 Create a new vagrant machine using the Ubuntu Precise box:
 
-```
+~~~~~~~~
 vagrant init precise32
-```
+~~~~~~~~
 
 Forward a port for viewing your site:
 
 Open the Vagrant file:
 
-```
+~~~~~~~~
 nano Vagrantfile
-```
+~~~~~~~~
 
 Find this section:
 
-```
+~~~~~~~~
 # Create a forwarded port mapping which allows access to a specific port
 # within the machine from a port on the host machine. In the example below,
 # accessing "localhost:8080" will access port 80 on the guest machine.
 # config.vm.network "forwarded_port", guest: 80, host: 8080
-```
+~~~~~~~~
 
 And change this line:
 
-```
+~~~~~~~~
 # config.vm.network "forwarded_port", guest: 80, host: 8080
-```
+~~~~~~~~
 
 To this:
 
-```
+~~~~~~~~
 config.vm.network "forwarded_port", guest: 5000 , host: 5000 
-```
+~~~~~~~~
 
 Make sure to uncomment the line by removing the `#`.
 
 Now start the vagrant machine:
 
-```
+~~~~~~~~
 vagrant up
-```
+~~~~~~~~
 
 If all goes well that'll result in output similar to the following:
 
-```
+~~~~~~~~
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Importing base box 'precise32'...
 ==> default: Matching MAC address for NAT networking...
@@ -3183,33 +3165,33 @@ Bringing machine 'default' up with 'virtualbox' provider...
     default: VirtualBox Version: 4.3
 ==> default: Mounting shared folders...
     default: /vagrant => /Users/sethvincent/dev-envs
-```
+~~~~~~~~
 
 Now we will log in to the vagrant machine. This will be very much like using the `ssh` command to log in to a remote server.
 
 Use this command:
 
-```
+~~~~~~~~
 vagrant ssh
-```
+~~~~~~~~
 
 You should see output similar to the following:
 
-```
+~~~~~~~~
 Welcome to Ubuntu 12.04 LTS (GNU/Linux 3.2.0-23-generic-pae i686)
 
  * Documentation:  https://help.ubuntu.com/
 Welcome to your Vagrant-built virtual machine.
 Last login: Fri Sep 14 06:22:31 2012 from 10.0.2.2
-```
+~~~~~~~~
 
 You'll now find your project folder at `/vagrant` when logged in to the vagrant machine.
 
 So navigate there like this:
 
-```
+~~~~~~~~
 cd /vagrant
-```
+~~~~~~~~
 
 
 We'll now install python, its dependencies, and related tools, and get started building applications. Complete all the following instructions while logged in to the vagrant machine.
@@ -3218,9 +3200,9 @@ We'll now install python, its dependencies, and related tools, and get started b
 
 To get started, we'll need to install git and some necessary system dependencies while logged in to the virtual machine:
 
-```
+~~~~~~~~
 sudo apt-get install git python-setuptools python-dev build-essential
-```
+~~~~~~~~
 
 
 ## Installing python
@@ -3246,30 +3228,30 @@ For automating tasks in python development, use [fabric](http://fabfile.org).
 
 First, install fabric:
 
-```
+~~~~~~~~
 pip install fabric
-```
+~~~~~~~~
 
 Create a fabfile.py in your project directory:
 
-```
+~~~~~~~~
 touch fabfile.py
-```
+~~~~~~~~
 
 Add this example to your fabfile.py:
 
-```
+~~~~~~~~
 from fabric.api import local
 
 def start():
     local("python app.py")
-```
+~~~~~~~~
 
 Run this command:
 
-```
+~~~~~~~~
 fab start
-```
+~~~~~~~~
 
 The start task defined in your fabfile.py will be executed.
 
@@ -3286,7 +3268,7 @@ Here's a very simple example of unittest usage:
 
 A simple example of a test written with tape:
 
-```
+~~~~~~~~
 import unittest
 
 class PizzaTest(unittest.TestCase):
@@ -3299,7 +3281,7 @@ class PizzaTest(unittest.TestCase):
 
 if __name__ -- '__main__':
     unittest.main()
-```
+~~~~~~~~
 
 ## Language basics
 
@@ -3307,33 +3289,33 @@ if __name__ -- '__main__':
 
 Create a variable like this:
 
-```
+~~~~~~~~
 some_variable = 'some value'
-```
+~~~~~~~~
 
 ### numbers
 
-```
+~~~~~~~~
 some_number = 3
-```
+~~~~~~~~
 
 A number is any digit, including decimals, or floating point numbers.
 
 ### string
 
-```
+~~~~~~~~
 some_string = 'this is a string'
-```
+~~~~~~~~
 
 You can create multi-line strings like this:
 
-```
+~~~~~~~~
 some_big_string = """
 This is one line of the string.
 And this is another.
 This line is also part of the string.
 """
-```
+~~~~~~~~
 
 A string is text surrounded by single or double quotes.
 
@@ -3341,15 +3323,15 @@ A string is text surrounded by single or double quotes.
 
 A list in python is very similar to an array in javascript and ruby. Create a list like this:
 
-```
+~~~~~~~~
 some_list = ['a', 1, 'b']
-```
+~~~~~~~~
 
 It's possible to nest lists like this:
 
-```
+~~~~~~~~
 some_nested_list = [1, ['a', 'b', 'c'], 'pizza'];
-```
+~~~~~~~~
 
 ### dictionary
 
@@ -3357,93 +3339,93 @@ Dictionaries in python are similar to objects in javascript or hashes in ruby.
 
 Create a dictionary like this:
 
-```
+~~~~~~~~
 some_dictionary = { 'thing': 'one', 'otherthing': 'two' }
-```
+~~~~~~~~
 
 ### function
 
 Define a function in python like this:
 
-```
+~~~~~~~~
 def eat(food):
     return 'I ate ' + food
-```
+~~~~~~~~
 
 ### class
 
 Create a class in python like this:
 
-```
+~~~~~~~~
 class Meal:
     # here we define methods on the class
-```
+~~~~~~~~
 
 
 ### method
 
 Defining methods in python looks like this:
 
-```
+~~~~~~~~
 class Meal:
   def __init__(self, food):
       self.food = food
 
   def eat(self)
       return 'I ate ' + self.food
-```
+~~~~~~~~
 
 ### class instance
 
 Create an instance of the class like this:
 
-```
+~~~~~~~~
 dinner = Meal('pizza')
 dinner.eat()
-```
+~~~~~~~~
 
 ### importing/requiring code
 
 To import code into your program, use this syntax:
 
-```
+~~~~~~~~
 import PACKAGENAME
-```
+~~~~~~~~
 
 You can import specific classes with this syntax:
 
-```
+~~~~~~~~
 from PACKAGENAME import CLASS
-```
+~~~~~~~~
 
 For instance, with the flask library we use later, importing flask looks like this:
 
-```
+~~~~~~~~
 from flask import Flask
-```
+~~~~~~~~
 
 ## Web framework: flask
 flask [http://flask.pocoo.org/](http://flask.pocoo.org/)
 
 Navigate to your python projects folder:
 
-```
+~~~~~~~~
 cd ~/dev-envs/python
-```
+~~~~~~~~
 
 Create a folder named hello-flask and navigate into it:
 
-```
+~~~~~~~~
 mkdir hello-flask && cd hello-flask
-```
+~~~~~~~~
 
-```
+~~~~~~~~
 pip install flask
-```
+~~~~~~~~
 
 ### Simple example
 
-```
+~~~~~~~~
 from flask import Flask
 app = Flask(__name__)
 
@@ -3453,51 +3435,51 @@ def pizza():
 
 if __name__ == '__main__':
     app.run()
-```
+~~~~~~~~
 
 Type that code into your app.py file.
 
 Now you can run your app with this command:
 
-```
+~~~~~~~~
 python app.py
-```
+~~~~~~~~
 
 Let's look at this little app line by line:
 
 **Import the flask functionality into our app:**
 
-```
+~~~~~~~~
 from flask import Flask
-```
+~~~~~~~~
 
 Create the app by creating an instance of the Flask class:
 
-```
+~~~~~~~~
 app = Flask(__name__)
-```
+~~~~~~~~
 
 Define a route for the root url:
 
-```
+~~~~~~~~
 @app.route('/')
-```
+~~~~~~~~
 
 Define a function that responds to requests at the
 
-```
+~~~~~~~~
 def pizza():
     return 'pizza is awesome'
-```
+~~~~~~~~
 
 The function that immediately follows the `route()` call defines what we'll return when someone visits the root url.
 
 **Run the app:**
 
-```
+~~~~~~~~
 if __name__ == "__main__":
     app.run()
-```
+~~~~~~~~
 
 `app.run()` kicks off a server to serve our app. The `if` statement checks if this code is being executed by the Python interpreter or being included as a module, and app.run() is only called if the code is being executed by the Python interpreter.
 
@@ -3514,51 +3496,51 @@ We won't be using a database for this example, but instead will use a json file 
 
 We'll be using the default template language that flask uses, [jinja](http://jinja.pocoo.org/). Let's install flask by creating a virtualenv and using pip:
 
-```
+~~~~~~~~
 virtualenv flask-example
 cd flask-example
-```
+~~~~~~~~
 
 Activate the virtualenv:
 
-```
+~~~~~~~~
 source bin/activate
-```
+~~~~~~~~
 
 Now use pip to install flask and its dependencies
 
-```
+~~~~~~~~
 pip install flask
-```
+~~~~~~~~
 
 For this project we'll put the source files inside the virtualenv folder. Create a new folder called source for our application code:
 
-```
+~~~~~~~~
 mkdir source
 cd source
-```
+~~~~~~~~
 
 Your directory structure should now look like this:
 
-```
+~~~~~~~~
 flask-example
 - bin
 - source
 - include
 - lib
-```
+~~~~~~~~
 
 Make sure you put new files inside the source folder.
 
 We'll run the application with this command:
 
-```
+~~~~~~~~
 python app.py
-```
+~~~~~~~~
 
 Create a file named posts.json with the following json:
 
-```
+~~~~~~~~
 [
 {
   "title": "This is the first post",
@@ -3576,11 +3558,11 @@ Create a file named posts.json with the following json:
   "content": "The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out. The pizza always runs out."
 }
 ]
-```
+~~~~~~~~
 
 Now create the app.py file:
 
-```
+~~~~~~~~
 from flask import Flask, render_template, g, jsonify
 import json
 
@@ -3618,89 +3600,89 @@ def show_json():
 
 if __name__ == '__main__':
     app.run()
-```
+~~~~~~~~
 
 Let's break down this example code chunk by chunk:
 
 Require the necessary python libraries. Note that there are multiple classes from the flask library that we're importing individually:
 
-```
+~~~~~~~~
 from flask import Flask, render_template, g, jsonify
 import json
-```
+~~~~~~~~
 
 
 Create the application with a name and turn on debug so the application will reload each time you make changes to the app.py file and provide useful error messages:
 
-```
+~~~~~~~~
 app = Flask('extended-flask-example')
 app.config['DEBUG'] = True
-```
+~~~~~~~~
 
 Create global variables that are available to our views using the before method, which runs before a request is processed. Here we're loading the posts.json file into the application so we can use it in our views:
 
-```
+~~~~~~~~
 @app.before_request
 def before_request():
     g.title = 'Extended flask example'
     posts = open('posts.json')
     g.posts = json.load(posts)
     posts.close()
-```
+~~~~~~~~
 
 Serve the index.html template on the root url with the following code block. Note that with flask, templates are the equivalent to views in sinatra or express. Flask automatically looks in a folder named templates, so you only have to specify the filename:
 
-```
+~~~~~~~~
 @app.route('/')
 def index():
     posts = getattr(g, 'posts', None)
     return render_template('index.html', posts=posts)
-```
+~~~~~~~~
 
 The following code block listens for requests for a specific blog post. We iterate through each of the items in our posts array, and if the slug that's passed in the url matches a slug in the posts array, we render the page with that post set as the `post` variable.
 
-```
+~~~~~~~~
 @app.route('/post/<slug>')
 def show_post(slug):
     for post in g.posts:
         if slug == post['slug']:
             return render_template('post.html', post=post)
-```
+~~~~~~~~
 
 The following is a simple example of exposing a simple json feed of the posts:
 
-```
+~~~~~~~~
 @app.route('/api/posts')
 def show_json():
     meta = { 'name': g.title }
     return jsonify(posts=g.posts, meta=meta)
-```
+~~~~~~~~
 
 Finally, this code block checks to make sure our application is not a module being loaded into another application, and then runs the app. This is particularly useful in the case that your app might be used on its own or as part of another application:
 
-```
+~~~~~~~~
 if __name__ == '__main__':
     app.run()
-```
+~~~~~~~~
 
 
 Next, we'll need the templates for rendering html.
 
 Let's make a templates folder for all the templates to live in:
 
-```
+~~~~~~~~
 mkdir templates
-```
+~~~~~~~~
 
 And create all the template files that we need:
 
-```
+~~~~~~~~
 touch templates/base.html templates/index.html templates/post.html
-```
+~~~~~~~~
 
 Add this content to the base.html file:
 
-```
+~~~~~~~~
 <!doctype html>
 <html lang="en">
 <head>
@@ -3731,11 +3713,11 @@ Add this content to the base.html file:
 
 </body>
 </html>
-```
+~~~~~~~~
 
 Add this content to the index.html file:
 
-```
+~~~~~~~~
 {% extends "base.html" %}
 
 {% block content %}
@@ -3750,11 +3732,11 @@ Add this content to the index.html file:
 {% endfor %}
 
 {% endblock %}
-```
+~~~~~~~~
 
 Add this content to the post.erb file:
 
-```
+~~~~~~~~
 {% extends "base.html" %}
 
 {% block content %}
@@ -3763,20 +3745,20 @@ Add this content to the post.erb file:
 <div>{{ post.content }}</div>
 
 {% endblock %}
-```
+~~~~~~~~
 
 Let's add some css styling so this looks a little more readable. By default flask will look in a folder named static for static files.
 
 First create the static folder and the styles.css file:
 
-```
+~~~~~~~~
 mkdir static
 touch static/styles.css
-```
+~~~~~~~~
 
 Now add this content to the styles.css file:
 
-```
+~~~~~~~~
 body {
   font: 16px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #787876;
@@ -3813,21 +3795,21 @@ footer {
     width: 60%;
   }
 }
-```
+~~~~~~~~
 
 You should now be able to navigate on the home page, three blog post pages, and the posts json feed. Run the project with the nodemon command:
 
-```
+~~~~~~~~
 python app.py
-```
+~~~~~~~~
 
 ### Accessing the site in the browser
 
 After starting the app with `shotgun`, you should see this output on the command line:
 
-```
+~~~~~~~~
 Running on http://127.0.0.1:5000/
-```
+~~~~~~~~
 
 You can now open a browser and navigate to http://localhost:5000 to view the site.
 
@@ -3851,15 +3833,15 @@ Let's recap some of what we covered by comparing a few of the aspects of develop
 
 **Ruby:**
 
-Ruby developers use rubygems for installing packages, and use bundler & the Gemfile for defining dependencies.
+Ruby developers use **rubygems** for installing packages, and use **bundler** & the **Gemfile** for defining dependencies.
 
 **Javascript & Node.js:**
 
-Javascript has npm for installing packages, and you can define dependencies. Remember that npm can be used for client-side code (particulary when using a tool like browserify), but you can also use package managers designed specifically for client-side code, like bower and component, which use bower.json and component.json as the files where you define dependencies.
+Javascript has **npm** for installing packages, and you can define dependencies in a **package.json** file. Remember that npm can be used for browser-side code (particulary when using a tool like browserify or webpack for bundling javascript for the browser).
 
 **Python:**
 
-Python has a few options for installing packages, but I recommend using pip. With pip you'll define dependencies in a requirements.txt file. It's also common to use pip in combination with a tool like virtualenv, which keeps the dependencies of your application separate from what's installed globally on your operating system.
+Python has **pip** for installing packages. With pip you'll define dependencies in a **requirements.txt** file. It's also common to use pip in combination with **virtualenv**, which keeps the dependencies of your application separate from what's installed globally on your operating system.
 
 ## Build tools / task automation
 
@@ -3869,19 +3851,19 @@ We took a quick look at npm scripts and Grunt for JavaScript, rake for Ruby, and
 
 **Ruby:**
 
-```
+~~~~~~~~
 require 'sinatra'
 
 get '/' do
   'pizza is awesome'
 end
-```
+~~~~~~~~
 
 Look at how tiny and pleasant that ruby code is!
 
 **Javascript:**
 
-```
+~~~~~~~~
 var express = require('express');
 var app = express();
 
@@ -3892,13 +3874,13 @@ app.get('/', function(req, res){
 app.listen(3000);
 
 console.log('app is listening at localhost:3000');
-```
+~~~~~~~~
 
 Express doesn't automatically take care of listening on a default port, or telling the user that the app is listening, so that adds just a small amount of extra code compared to the ruby/sinatra example.
 
 **Python:**
 
-```
+~~~~~~~~
 from flask import Flask
 app = Flask(__name__)
 
@@ -3908,27 +3890,11 @@ def pizza():
 
 if __name__ == '__main__':
     app.run()
-```
+~~~~~~~~
 
 Python feels different because of it's use of meaningful whitespace and lack of curly brackets or `do end` for blocks. Everything is just indented 4 spaces instead to represent blocks of code.
 
-These three examples still feel very similar, though. That's no coincidence. Both express and flask were inspired by sinatra's clean and simple API.
-
-# Continued learning
-
-## Other books
-
-There's a good chance that if you like this book you'll be interested in the other books in the Learn.js series.
-
-**Check them out!**
-
-- [Introduction to JavaScript & Node.js](http://learnjs.io/books/learnjs-01)
-- [Making 2d Games with Node.js & Browserify](http://learnjs.io/books/learnjs-02)
-- [Mapping with Leaflet.js](http://learnjs.io/books/learnjs-03)
-- [Theming with Ghost](http://themingwithghost.com)
-- [npm recipes](http://learnjs.io/npm-recipes)
-
-Learn more at [learnjs.io](http://learnjs.io).
+These three examples should feel very similar. That's no coincidence. Both express and flask were inspired by sinatra's clean and simple API.
 
 
 

@@ -1,15 +1,17 @@
 {
-  "name": "dev-envs",
+  "name": "development-environments-for-beginners",
   "version": "0.4.2",
   "repository": {
-    "url": "git://github.com/sethvincent/dev-envs-book.git"
+    "url": "git://github.com/civicmakerlab/development-environments-for-beginners.git"
   },
-  "description": "a guide to creating development environments for ruby, javascript, and python.",
+  "description": "A guide to creating development environments for ruby, javascript, and python.",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "manuscript-builder": "^1.0.0"
+  },
   "devDependencies": {
     "manuscript-builder": "^0.0.3",
-    "ebook-convert": "^0.1.0",
+    "ebook-convert": "^0.1.0"
   },
   "scripts": {
     "leanpub": "./bin/leanpub",

@@ -28,18 +28,4 @@ Maybe you'll learn that you want to work with all three of these languages, or t
 - intro to web frameworks
 
 ## This book is open source
-Contribute errata or content requests at the GitHub repository for this book: [github.com/sethvincent/dev-envs-book](https://github.com/sethvincent/dev-envs-book).
-
-## Other books
-
-There's a good chance that if you like this book you'll be interested in the other books in the Learn.js series.
-
-**Check them out!**
-
-- [Introduction to JavaScript & Node.js](http://learnjs.io/books/learnjs-01)
-- [Making 2d Games with Node.js & Browserify](http://learnjs.io/books/learnjs-02)
-- [Mapping with Leaflet.js](http://learnjs.io/books/learnjs-03)
-- [Theming with Ghost](http://themingwithghost.com)
-- [npm recipes](http://learnjs.io/npm-recipes)
-
-Learn more at [learnjs.io](http://learnjs.io).
+Contribute errata or content requests at the GitHub repository for this book: [github.com/civicmakerlab/development-environments-for-beginners](https://github.com/civicmakerlab/development-environments-for-beginners).

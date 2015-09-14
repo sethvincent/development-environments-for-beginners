@@ -1,13 +1,11 @@
 #! /usr/bin/env node
 
-var ReadmeBuilder = require('manuscript-builder');
+var build = require('manuscript-builder')
 
-var readme = new ReadmeBuilder({
+build({
   target: '/book.md',
   bookDir: '/chapters/',
   tableOfContents: '/chapters/Book.txt'
-});
-
-readme.build();
-
-console.log('creating book.md');
+}, function () {
+  console.log('book.md updated')
+})
